@@ -1,0 +1,11 @@
+C:\VSSTEMP\sito\sample\ConsoleApp1\Interface3\bin\Debug\netcoreapp3.1\Interface3.exe
+C:\VSSTEMP\sito\sample\ConsoleApp1\Interface3\bin\Debug\netcoreapp3.1\Interface3.deps.json
+C:\VSSTEMP\sito\sample\ConsoleApp1\Interface3\bin\Debug\netcoreapp3.1\Interface3.runtimeconfig.json
+C:\VSSTEMP\sito\sample\ConsoleApp1\Interface3\bin\Debug\netcoreapp3.1\Interface3.runtimeconfig.dev.json
+C:\VSSTEMP\sito\sample\ConsoleApp1\Interface3\bin\Debug\netcoreapp3.1\Interface3.dll
+C:\VSSTEMP\sito\sample\ConsoleApp1\Interface3\bin\Debug\netcoreapp3.1\Interface3.pdb
+C:\VSSTEMP\sito\sample\ConsoleApp1\Interface3\obj\Debug\netcoreapp3.1\Interface3.AssemblyInfoInputs.cache
+C:\VSSTEMP\sito\sample\ConsoleApp1\Interface3\obj\Debug\netcoreapp3.1\Interface3.AssemblyInfo.cs
+C:\VSSTEMP\sito\sample\ConsoleApp1\Interface3\obj\Debug\netcoreapp3.1\Interface3.dll
+C:\VSSTEMP\sito\sample\ConsoleApp1\Interface3\obj\Debug\netcoreapp3.1\Interface3.pdb
+C:\VSSTEMP\sito\sample\ConsoleApp1\Interface3\obj\Debug\netcoreapp3.1\Interface3.csprojAssemblyReference.cache

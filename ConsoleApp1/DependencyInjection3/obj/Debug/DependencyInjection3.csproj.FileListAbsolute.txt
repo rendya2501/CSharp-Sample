@@ -1,0 +1,6 @@
+C:\VSSTEMP\sito\sample\ConsoleApp1\DependencyInjection3\bin\Debug\DependencyInjection3.exe.config
+C:\VSSTEMP\sito\sample\ConsoleApp1\DependencyInjection3\bin\Debug\DependencyInjection3.exe
+C:\VSSTEMP\sito\sample\ConsoleApp1\DependencyInjection3\bin\Debug\DependencyInjection3.pdb
+C:\VSSTEMP\sito\sample\ConsoleApp1\DependencyInjection3\obj\Debug\DependencyInjection3.csprojAssemblyReference.cache
+C:\VSSTEMP\sito\sample\ConsoleApp1\DependencyInjection3\obj\Debug\DependencyInjection3.exe
+C:\VSSTEMP\sito\sample\ConsoleApp1\DependencyInjection3\obj\Debug\DependencyInjection3.pdb

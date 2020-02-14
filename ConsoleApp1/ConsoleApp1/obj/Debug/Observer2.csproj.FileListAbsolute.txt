@@ -1,0 +1,7 @@
+C:\VSSTEMP\sito\sample\ConsoleApp1\ConsoleApp1\bin\Debug\ConsoleApp1.exe.config
+C:\VSSTEMP\sito\sample\ConsoleApp1\ConsoleApp1\bin\Debug\ConsoleApp1.exe
+C:\VSSTEMP\sito\sample\ConsoleApp1\ConsoleApp1\bin\Debug\ConsoleApp1.pdb
+C:\VSSTEMP\sito\sample\ConsoleApp1\ConsoleApp1\obj\Debug\Observer2.csprojAssemblyReference.cache
+C:\VSSTEMP\sito\sample\ConsoleApp1\ConsoleApp1\obj\Debug\Observer2.csproj.CoreCompileInputs.cache
+C:\VSSTEMP\sito\sample\ConsoleApp1\ConsoleApp1\obj\Debug\ConsoleApp1.exe
+C:\VSSTEMP\sito\sample\ConsoleApp1\ConsoleApp1\obj\Debug\ConsoleApp1.pdb

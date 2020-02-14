@@ -1,0 +1,13 @@
+C:\Users\s.ito\source\repos\ConsoleApp1\ConsoleApp2\bin\Debug\ConsoleApp2.exe.config
+C:\Users\s.ito\source\repos\ConsoleApp1\ConsoleApp2\bin\Debug\ConsoleApp2.exe
+C:\Users\s.ito\source\repos\ConsoleApp1\ConsoleApp2\bin\Debug\ConsoleApp2.pdb
+C:\Users\s.ito\source\repos\ConsoleApp1\ConsoleApp2\obj\Debug\Observer1.csproj.CoreCompileInputs.cache
+C:\Users\s.ito\source\repos\ConsoleApp1\ConsoleApp2\obj\Debug\ConsoleApp2.exe
+C:\Users\s.ito\source\repos\ConsoleApp1\ConsoleApp2\obj\Debug\ConsoleApp2.pdb
+C:\VSSTEMP\sito\sample\ConsoleApp1\ConsoleApp2\bin\Debug\ConsoleApp2.exe.config
+C:\VSSTEMP\sito\sample\ConsoleApp1\ConsoleApp2\bin\Debug\ConsoleApp2.exe
+C:\VSSTEMP\sito\sample\ConsoleApp1\ConsoleApp2\bin\Debug\ConsoleApp2.pdb
+C:\VSSTEMP\sito\sample\ConsoleApp1\ConsoleApp2\obj\Debug\Observer1.csprojAssemblyReference.cache
+C:\VSSTEMP\sito\sample\ConsoleApp1\ConsoleApp2\obj\Debug\Observer1.csproj.CoreCompileInputs.cache
+C:\VSSTEMP\sito\sample\ConsoleApp1\ConsoleApp2\obj\Debug\ConsoleApp2.exe
+C:\VSSTEMP\sito\sample\ConsoleApp1\ConsoleApp2\obj\Debug\ConsoleApp2.pdb

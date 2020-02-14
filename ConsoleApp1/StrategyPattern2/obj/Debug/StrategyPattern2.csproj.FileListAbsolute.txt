@@ -1,0 +1,7 @@
+C:\VSSTEMP\sito\sample\ConsoleApp1\StrategyPattern2\bin\Debug\StrategyPattern2.exe.config
+C:\VSSTEMP\sito\sample\ConsoleApp1\StrategyPattern2\bin\Debug\StrategyPattern2.exe
+C:\VSSTEMP\sito\sample\ConsoleApp1\StrategyPattern2\bin\Debug\StrategyPattern2.pdb
+C:\VSSTEMP\sito\sample\ConsoleApp1\StrategyPattern2\obj\Debug\StrategyPattern2.csprojAssemblyReference.cache
+C:\VSSTEMP\sito\sample\ConsoleApp1\StrategyPattern2\obj\Debug\StrategyPattern2.csproj.CoreCompileInputs.cache
+C:\VSSTEMP\sito\sample\ConsoleApp1\StrategyPattern2\obj\Debug\StrategyPattern2.exe
+C:\VSSTEMP\sito\sample\ConsoleApp1\StrategyPattern2\obj\Debug\StrategyPattern2.pdb

@@ -1,0 +1,10 @@
+C:\VSSTEMP\sito\sample\ConsoleApp1\Interface2\obj\Debug\netcoreapp3.1\Interface2.AssemblyInfoInputs.cache
+C:\VSSTEMP\sito\sample\ConsoleApp1\Interface2\obj\Debug\netcoreapp3.1\Interface2.AssemblyInfo.cs
+C:\VSSTEMP\sito\sample\ConsoleApp1\Interface2\bin\Debug\netcoreapp3.1\Interface2.exe
+C:\VSSTEMP\sito\sample\ConsoleApp1\Interface2\bin\Debug\netcoreapp3.1\Interface2.deps.json
+C:\VSSTEMP\sito\sample\ConsoleApp1\Interface2\bin\Debug\netcoreapp3.1\Interface2.runtimeconfig.json
+C:\VSSTEMP\sito\sample\ConsoleApp1\Interface2\bin\Debug\netcoreapp3.1\Interface2.runtimeconfig.dev.json
+C:\VSSTEMP\sito\sample\ConsoleApp1\Interface2\bin\Debug\netcoreapp3.1\Interface2.dll
+C:\VSSTEMP\sito\sample\ConsoleApp1\Interface2\bin\Debug\netcoreapp3.1\Interface2.pdb
+C:\VSSTEMP\sito\sample\ConsoleApp1\Interface2\obj\Debug\netcoreapp3.1\Interface2.dll
+C:\VSSTEMP\sito\sample\ConsoleApp1\Interface2\obj\Debug\netcoreapp3.1\Interface2.pdb
