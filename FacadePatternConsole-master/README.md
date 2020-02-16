@@ -1,2 +1,0 @@
-# FacadePatternConsole
-Facadeパターンのサンプルコード
