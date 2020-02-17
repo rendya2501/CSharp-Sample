@@ -9,3 +9,14 @@ C:\VSSTEMP\sito\sample\ConsoleApp1\Interface3\obj\Debug\netcoreapp3.1\Interface3
 C:\VSSTEMP\sito\sample\ConsoleApp1\Interface3\obj\Debug\netcoreapp3.1\Interface3.dll
 C:\VSSTEMP\sito\sample\ConsoleApp1\Interface3\obj\Debug\netcoreapp3.1\Interface3.pdb
 C:\VSSTEMP\sito\sample\ConsoleApp1\Interface3\obj\Debug\netcoreapp3.1\Interface3.csprojAssemblyReference.cache
+C:\Users\shun\Desktop\CSharpSample1\Interface3\bin\Debug\netcoreapp3.1\Interface3.exe
+C:\Users\shun\Desktop\CSharpSample1\Interface3\bin\Debug\netcoreapp3.1\Interface3.deps.json
+C:\Users\shun\Desktop\CSharpSample1\Interface3\bin\Debug\netcoreapp3.1\Interface3.runtimeconfig.json
+C:\Users\shun\Desktop\CSharpSample1\Interface3\bin\Debug\netcoreapp3.1\Interface3.runtimeconfig.dev.json
+C:\Users\shun\Desktop\CSharpSample1\Interface3\bin\Debug\netcoreapp3.1\Interface3.dll
+C:\Users\shun\Desktop\CSharpSample1\Interface3\bin\Debug\netcoreapp3.1\Interface3.pdb
+C:\Users\shun\Desktop\CSharpSample1\Interface3\obj\Debug\netcoreapp3.1\Interface3.csprojAssemblyReference.cache
+C:\Users\shun\Desktop\CSharpSample1\Interface3\obj\Debug\netcoreapp3.1\Interface3.AssemblyInfoInputs.cache
+C:\Users\shun\Desktop\CSharpSample1\Interface3\obj\Debug\netcoreapp3.1\Interface3.AssemblyInfo.cs
+C:\Users\shun\Desktop\CSharpSample1\Interface3\obj\Debug\netcoreapp3.1\Interface3.dll
+C:\Users\shun\Desktop\CSharpSample1\Interface3\obj\Debug\netcoreapp3.1\Interface3.pdb

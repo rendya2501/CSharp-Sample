@@ -11,3 +11,16 @@ C:\VSSTEMP\sito\sample\ConsoleApp1\Facade1\obj\Debug\netcoreapp3.1\Facade1.MailD
 C:\VSSTEMP\sito\sample\ConsoleApp1\Facade1\obj\Debug\netcoreapp3.1\Facade1.csproj.GenerateResource.cache
 C:\VSSTEMP\sito\sample\ConsoleApp1\Facade1\obj\Debug\netcoreapp3.1\Facade1.dll
 C:\VSSTEMP\sito\sample\ConsoleApp1\Facade1\obj\Debug\netcoreapp3.1\Facade1.pdb
+C:\Users\shun\Desktop\CSharpSample1\Facade1\bin\Debug\netcoreapp3.1\Facade1.exe
+C:\Users\shun\Desktop\CSharpSample1\Facade1\bin\Debug\netcoreapp3.1\Facade1.deps.json
+C:\Users\shun\Desktop\CSharpSample1\Facade1\bin\Debug\netcoreapp3.1\Facade1.runtimeconfig.json
+C:\Users\shun\Desktop\CSharpSample1\Facade1\bin\Debug\netcoreapp3.1\Facade1.runtimeconfig.dev.json
+C:\Users\shun\Desktop\CSharpSample1\Facade1\bin\Debug\netcoreapp3.1\Facade1.dll
+C:\Users\shun\Desktop\CSharpSample1\Facade1\bin\Debug\netcoreapp3.1\Facade1.pdb
+C:\Users\shun\Desktop\CSharpSample1\Facade1\obj\Debug\netcoreapp3.1\Facade1.csprojAssemblyReference.cache
+C:\Users\shun\Desktop\CSharpSample1\Facade1\obj\Debug\netcoreapp3.1\Facade1.MailData.resources
+C:\Users\shun\Desktop\CSharpSample1\Facade1\obj\Debug\netcoreapp3.1\Facade1.csproj.GenerateResource.cache
+C:\Users\shun\Desktop\CSharpSample1\Facade1\obj\Debug\netcoreapp3.1\Facade1.AssemblyInfoInputs.cache
+C:\Users\shun\Desktop\CSharpSample1\Facade1\obj\Debug\netcoreapp3.1\Facade1.AssemblyInfo.cs
+C:\Users\shun\Desktop\CSharpSample1\Facade1\obj\Debug\netcoreapp3.1\Facade1.dll
+C:\Users\shun\Desktop\CSharpSample1\Facade1\obj\Debug\netcoreapp3.1\Facade1.pdb

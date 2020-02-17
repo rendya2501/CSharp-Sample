@@ -4,3 +4,9 @@ C:\VSSTEMP\sito\sample\ConsoleApp1\DependencyInjection3\bin\Debug\DependencyInje
 C:\VSSTEMP\sito\sample\ConsoleApp1\DependencyInjection3\obj\Debug\DependencyInjection3.csprojAssemblyReference.cache
 C:\VSSTEMP\sito\sample\ConsoleApp1\DependencyInjection3\obj\Debug\DependencyInjection3.exe
 C:\VSSTEMP\sito\sample\ConsoleApp1\DependencyInjection3\obj\Debug\DependencyInjection3.pdb
+C:\Users\shun\Desktop\CSharpSample1\DependencyInjection3\bin\Debug\DependencyInjection3.exe.config
+C:\Users\shun\Desktop\CSharpSample1\DependencyInjection3\bin\Debug\DependencyInjection3.exe
+C:\Users\shun\Desktop\CSharpSample1\DependencyInjection3\bin\Debug\DependencyInjection3.pdb
+C:\Users\shun\Desktop\CSharpSample1\DependencyInjection3\obj\Debug\DependencyInjection3.csprojAssemblyReference.cache
+C:\Users\shun\Desktop\CSharpSample1\DependencyInjection3\obj\Debug\DependencyInjection3.exe
+C:\Users\shun\Desktop\CSharpSample1\DependencyInjection3\obj\Debug\DependencyInjection3.pdb

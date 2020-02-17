@@ -11,3 +11,9 @@ C:\VSSTEMP\sito\sample\ConsoleApp1\ConsoleApp2\obj\Debug\Observer1.csprojAssembl
 C:\VSSTEMP\sito\sample\ConsoleApp1\ConsoleApp2\obj\Debug\Observer1.csproj.CoreCompileInputs.cache
 C:\VSSTEMP\sito\sample\ConsoleApp1\ConsoleApp2\obj\Debug\ConsoleApp2.exe
 C:\VSSTEMP\sito\sample\ConsoleApp1\ConsoleApp2\obj\Debug\ConsoleApp2.pdb
+C:\Users\shun\Desktop\CSharpSample1\ConsoleApp2\bin\Debug\ConsoleApp2.exe.config
+C:\Users\shun\Desktop\CSharpSample1\ConsoleApp2\bin\Debug\ConsoleApp2.exe
+C:\Users\shun\Desktop\CSharpSample1\ConsoleApp2\bin\Debug\ConsoleApp2.pdb
+C:\Users\shun\Desktop\CSharpSample1\ConsoleApp2\obj\Debug\Observer1.csprojAssemblyReference.cache
+C:\Users\shun\Desktop\CSharpSample1\ConsoleApp2\obj\Debug\ConsoleApp2.exe
+C:\Users\shun\Desktop\CSharpSample1\ConsoleApp2\obj\Debug\ConsoleApp2.pdb

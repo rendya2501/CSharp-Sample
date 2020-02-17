@@ -5,3 +5,9 @@ C:\VSSTEMP\sito\sample\ConsoleApp1\StrategyPattern1\obj\Debug\StrategyPattern1.c
 C:\VSSTEMP\sito\sample\ConsoleApp1\StrategyPattern1\obj\Debug\StrategyPattern1.csproj.CoreCompileInputs.cache
 C:\VSSTEMP\sito\sample\ConsoleApp1\StrategyPattern1\obj\Debug\StrategyPattern1.exe
 C:\VSSTEMP\sito\sample\ConsoleApp1\StrategyPattern1\obj\Debug\StrategyPattern1.pdb
+C:\Users\shun\Desktop\CSharpSample1\StrategyPattern1\bin\Debug\StrategyPattern1.exe.config
+C:\Users\shun\Desktop\CSharpSample1\StrategyPattern1\bin\Debug\StrategyPattern1.exe
+C:\Users\shun\Desktop\CSharpSample1\StrategyPattern1\bin\Debug\StrategyPattern1.pdb
+C:\Users\shun\Desktop\CSharpSample1\StrategyPattern1\obj\Debug\StrategyPattern1.csprojAssemblyReference.cache
+C:\Users\shun\Desktop\CSharpSample1\StrategyPattern1\obj\Debug\StrategyPattern1.exe
+C:\Users\shun\Desktop\CSharpSample1\StrategyPattern1\obj\Debug\StrategyPattern1.pdb

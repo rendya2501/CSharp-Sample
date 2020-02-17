@@ -1,0 +1,10 @@
+C:\Users\shun\Desktop\CSharpSample1\Dynamic1\bin\Debug\netcoreapp2.1\Dynamic1.deps.json
+C:\Users\shun\Desktop\CSharpSample1\Dynamic1\bin\Debug\netcoreapp2.1\Dynamic1.runtimeconfig.json
+C:\Users\shun\Desktop\CSharpSample1\Dynamic1\bin\Debug\netcoreapp2.1\Dynamic1.runtimeconfig.dev.json
+C:\Users\shun\Desktop\CSharpSample1\Dynamic1\bin\Debug\netcoreapp2.1\Dynamic1.dll
+C:\Users\shun\Desktop\CSharpSample1\Dynamic1\bin\Debug\netcoreapp2.1\Dynamic1.pdb
+C:\Users\shun\Desktop\CSharpSample1\Dynamic1\obj\Debug\netcoreapp2.1\Dynamic1.csprojAssemblyReference.cache
+C:\Users\shun\Desktop\CSharpSample1\Dynamic1\obj\Debug\netcoreapp2.1\Dynamic1.AssemblyInfoInputs.cache
+C:\Users\shun\Desktop\CSharpSample1\Dynamic1\obj\Debug\netcoreapp2.1\Dynamic1.AssemblyInfo.cs
+C:\Users\shun\Desktop\CSharpSample1\Dynamic1\obj\Debug\netcoreapp2.1\Dynamic1.dll
+C:\Users\shun\Desktop\CSharpSample1\Dynamic1\obj\Debug\netcoreapp2.1\Dynamic1.pdb
