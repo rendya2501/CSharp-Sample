@@ -1,0 +1,16 @@
+C:\Users\s.ito\source\repos\CSSample\Json1\bin\Debug\Json1.exe.config
+C:\Users\s.ito\source\repos\CSSample\Json1\bin\Debug\Json1.exe
+C:\Users\s.ito\source\repos\CSSample\Json1\bin\Debug\Json1.pdb
+C:\Users\s.ito\source\repos\CSSample\Json1\obj\Debug\Json1.csprojResolveAssemblyReference.cache
+C:\Users\s.ito\source\repos\CSSample\Json1\obj\Debug\Json1.csproj.CoreCompileInputs.cache
+C:\Users\s.ito\source\repos\CSSample\Json1\obj\Debug\Json1.exe
+C:\Users\s.ito\source\repos\CSSample\Json1\obj\Debug\Json1.pdb
+C:\VSSTEMP\s.ito\実験場\CSSample\Json1\bin\Debug\Json1.exe.config
+C:\VSSTEMP\s.ito\実験場\CSSample\Json1\bin\Debug\Json1.exe
+C:\VSSTEMP\s.ito\実験場\CSSample\Json1\bin\Debug\Json1.pdb
+C:\VSSTEMP\s.ito\実験場\CSSample\Json1\bin\Debug\Newtonsoft.Json.dll
+C:\VSSTEMP\s.ito\実験場\CSSample\Json1\bin\Debug\Newtonsoft.Json.xml
+C:\VSSTEMP\s.ito\実験場\CSSample\Json1\obj\Debug\Json1.csprojResolveAssemblyReference.cache
+C:\VSSTEMP\s.ito\実験場\CSSample\Json1\obj\Debug\Json1.csproj.CoreCompileInputs.cache
+C:\VSSTEMP\s.ito\実験場\CSSample\Json1\obj\Debug\Json1.exe
+C:\VSSTEMP\s.ito\実験場\CSSample\Json1\obj\Debug\Json1.pdb

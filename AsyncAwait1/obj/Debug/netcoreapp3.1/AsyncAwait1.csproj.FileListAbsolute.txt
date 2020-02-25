@@ -1,0 +1,10 @@
+C:\VSSTEMP\sito\sample\ConsoleApp1\AsyncAwait1\bin\Debug\netcoreapp3.1\AsyncAwait1.exe
+C:\VSSTEMP\sito\sample\ConsoleApp1\AsyncAwait1\bin\Debug\netcoreapp3.1\AsyncAwait1.deps.json
+C:\VSSTEMP\sito\sample\ConsoleApp1\AsyncAwait1\bin\Debug\netcoreapp3.1\AsyncAwait1.runtimeconfig.json
+C:\VSSTEMP\sito\sample\ConsoleApp1\AsyncAwait1\bin\Debug\netcoreapp3.1\AsyncAwait1.runtimeconfig.dev.json
+C:\VSSTEMP\sito\sample\ConsoleApp1\AsyncAwait1\bin\Debug\netcoreapp3.1\AsyncAwait1.dll
+C:\VSSTEMP\sito\sample\ConsoleApp1\AsyncAwait1\bin\Debug\netcoreapp3.1\AsyncAwait1.pdb
+C:\VSSTEMP\sito\sample\ConsoleApp1\AsyncAwait1\obj\Debug\netcoreapp3.1\AsyncAwait1.AssemblyInfoInputs.cache
+C:\VSSTEMP\sito\sample\ConsoleApp1\AsyncAwait1\obj\Debug\netcoreapp3.1\AsyncAwait1.AssemblyInfo.cs
+C:\VSSTEMP\sito\sample\ConsoleApp1\AsyncAwait1\obj\Debug\netcoreapp3.1\AsyncAwait1.dll
+C:\VSSTEMP\sito\sample\ConsoleApp1\AsyncAwait1\obj\Debug\netcoreapp3.1\AsyncAwait1.pdb

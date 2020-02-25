@@ -1,0 +1,7 @@
+c:\Users\s.ito\source\repos\CSSample\CallBack2\bin\Debug\CallBack2.exe.config
+c:\Users\s.ito\source\repos\CSSample\CallBack2\bin\Debug\CallBack2.exe
+c:\Users\s.ito\source\repos\CSSample\CallBack2\bin\Debug\CallBack2.pdb
+c:\Users\s.ito\source\repos\CSSample\CallBack2\obj\Debug\CallBack2.csprojResolveAssemblyReference.cache
+c:\Users\s.ito\source\repos\CSSample\CallBack2\obj\Debug\CallBack2.csproj.CoreCompileInputs.cache
+c:\Users\s.ito\source\repos\CSSample\CallBack2\obj\Debug\CallBack2.exe
+c:\Users\s.ito\source\repos\CSSample\CallBack2\obj\Debug\CallBack2.pdb
