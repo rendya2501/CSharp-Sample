@@ -5,6 +5,10 @@ namespace AsyncAwait1
 {
     class Program
     {
+        /// <summary>
+        /// 非同期メソッド基本
+        /// </summary>
+        /// <param name="args"></param>
         static void Main(string[] args)
         {
             // ①非同期メソッドを呼び出す

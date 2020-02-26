@@ -59,7 +59,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RazorPagesMovie1", "RazorPa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AbstractFactory1", "AbstractFactory1\AbstractFactory1.csproj", "{F732B073-23AB-4946-8485-C98596FD7862}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AsyncAwait1", "AsyncAwait1\AsyncAwait1.csproj", "{B8B9327E-DB49-40B2-A7BF-3F5D2AA3ED82}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AsyncAwait1", "AsyncAwait1\AsyncAwait1.csproj", "{B8B9327E-DB49-40B2-A7BF-3F5D2AA3ED82}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AsyncAwait2", "AsyncAwait2\AsyncAwait2.csproj", "{3BDA6285-ACF2-449B-9B4C-079DA9D0935B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -183,6 +185,10 @@ Global
 		{B8B9327E-DB49-40B2-A7BF-3F5D2AA3ED82}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B8B9327E-DB49-40B2-A7BF-3F5D2AA3ED82}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B8B9327E-DB49-40B2-A7BF-3F5D2AA3ED82}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3BDA6285-ACF2-449B-9B4C-079DA9D0935B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3BDA6285-ACF2-449B-9B4C-079DA9D0935B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3BDA6285-ACF2-449B-9B4C-079DA9D0935B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3BDA6285-ACF2-449B-9B4C-079DA9D0935B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
