@@ -8,25 +8,25 @@
     ".NETCoreApp,Version=v3.1": []
   },
   "packageFolders": {
-    "C:\\Users\\s.ito\\.nuget\\packages\\": {},
+    "C:\\Users\\shun\\.nuget\\packages\\": {},
     "C:\\Microsoft\\Xamarin\\NuGet\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\VSSTEMP\\sito\\sample\\ConsoleApp1\\Interface1\\Interface1.csproj",
+      "projectUniqueName": "C:\\Users\\shun\\source\\repos\\CSharpSample1\\Interface1\\Interface1.csproj",
       "projectName": "Interface1",
-      "projectPath": "C:\\VSSTEMP\\sito\\sample\\ConsoleApp1\\Interface1\\Interface1.csproj",
-      "packagesPath": "C:\\Users\\s.ito\\.nuget\\packages\\",
-      "outputPath": "C:\\VSSTEMP\\sito\\sample\\ConsoleApp1\\Interface1\\obj\\",
+      "projectPath": "C:\\Users\\shun\\source\\repos\\CSharpSample1\\Interface1\\Interface1.csproj",
+      "packagesPath": "C:\\Users\\shun\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\shun\\source\\repos\\CSharpSample1\\Interface1\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\",
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\s.ito\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\shun\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],

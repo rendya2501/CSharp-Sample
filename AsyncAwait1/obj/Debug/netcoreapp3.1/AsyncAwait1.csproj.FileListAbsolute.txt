@@ -18,3 +18,4 @@ C:\Users\shun\source\repos\CSharpSample1\AsyncAwait1\obj\Debug\netcoreapp3.1\Asy
 C:\Users\shun\source\repos\CSharpSample1\AsyncAwait1\obj\Debug\netcoreapp3.1\AsyncAwait1.AssemblyInfo.cs
 C:\Users\shun\source\repos\CSharpSample1\AsyncAwait1\obj\Debug\netcoreapp3.1\AsyncAwait1.dll
 C:\Users\shun\source\repos\CSharpSample1\AsyncAwait1\obj\Debug\netcoreapp3.1\AsyncAwait1.pdb
+C:\Users\shun\source\repos\CSharpSample1\AsyncAwait1\obj\Debug\netcoreapp3.1\AsyncAwait1.csprojAssemblyReference.cache
