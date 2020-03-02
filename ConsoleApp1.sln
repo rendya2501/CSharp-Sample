@@ -63,7 +63,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AsyncAwait1", "AsyncAwait1\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AsyncAwait2", "AsyncAwait2\AsyncAwait2.csproj", "{3BDA6285-ACF2-449B-9B4C-079DA9D0935B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AsyncAwait3", "AsyncAwait3\AsyncAwait3.csproj", "{0E617CC9-F0C9-4AC5-BD77-AD42DFB95D19}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AsyncAwait3", "AsyncAwait3\AsyncAwait3.csproj", "{0E617CC9-F0C9-4AC5-BD77-AD42DFB95D19}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tuple1", "Tuple1\Tuple1.csproj", "{6AD098C6-9F33-4EC6-84B6-FE3D8156A99C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -195,6 +197,10 @@ Global
 		{0E617CC9-F0C9-4AC5-BD77-AD42DFB95D19}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0E617CC9-F0C9-4AC5-BD77-AD42DFB95D19}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0E617CC9-F0C9-4AC5-BD77-AD42DFB95D19}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6AD098C6-9F33-4EC6-84B6-FE3D8156A99C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6AD098C6-9F33-4EC6-84B6-FE3D8156A99C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6AD098C6-9F33-4EC6-84B6-FE3D8156A99C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6AD098C6-9F33-4EC6-84B6-FE3D8156A99C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
