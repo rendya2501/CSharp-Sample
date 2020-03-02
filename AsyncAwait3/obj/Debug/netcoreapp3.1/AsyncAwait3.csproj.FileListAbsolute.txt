@@ -9,3 +9,14 @@ C:\VSSTEMP\sito\sample\ConsoleApp1\AsyncAwait3\obj\Debug\netcoreapp3.1\AsyncAwai
 C:\VSSTEMP\sito\sample\ConsoleApp1\AsyncAwait3\obj\Debug\netcoreapp3.1\AsyncAwait3.dll
 C:\VSSTEMP\sito\sample\ConsoleApp1\AsyncAwait3\obj\Debug\netcoreapp3.1\AsyncAwait3.pdb
 C:\VSSTEMP\sito\sample\ConsoleApp1\AsyncAwait3\obj\Debug\netcoreapp3.1\AsyncAwait3.csprojAssemblyReference.cache
+C:\Users\shun\source\repos\CSharpSample1\AsyncAwait3\bin\Debug\netcoreapp3.1\AsyncAwait3.exe
+C:\Users\shun\source\repos\CSharpSample1\AsyncAwait3\bin\Debug\netcoreapp3.1\AsyncAwait3.deps.json
+C:\Users\shun\source\repos\CSharpSample1\AsyncAwait3\bin\Debug\netcoreapp3.1\AsyncAwait3.runtimeconfig.json
+C:\Users\shun\source\repos\CSharpSample1\AsyncAwait3\bin\Debug\netcoreapp3.1\AsyncAwait3.runtimeconfig.dev.json
+C:\Users\shun\source\repos\CSharpSample1\AsyncAwait3\bin\Debug\netcoreapp3.1\AsyncAwait3.dll
+C:\Users\shun\source\repos\CSharpSample1\AsyncAwait3\bin\Debug\netcoreapp3.1\AsyncAwait3.pdb
+C:\Users\shun\source\repos\CSharpSample1\AsyncAwait3\obj\Debug\netcoreapp3.1\AsyncAwait3.csprojAssemblyReference.cache
+C:\Users\shun\source\repos\CSharpSample1\AsyncAwait3\obj\Debug\netcoreapp3.1\AsyncAwait3.AssemblyInfoInputs.cache
+C:\Users\shun\source\repos\CSharpSample1\AsyncAwait3\obj\Debug\netcoreapp3.1\AsyncAwait3.AssemblyInfo.cs
+C:\Users\shun\source\repos\CSharpSample1\AsyncAwait3\obj\Debug\netcoreapp3.1\AsyncAwait3.dll
+C:\Users\shun\source\repos\CSharpSample1\AsyncAwait3\obj\Debug\netcoreapp3.1\AsyncAwait3.pdb
