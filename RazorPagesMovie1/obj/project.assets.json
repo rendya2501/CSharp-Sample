@@ -5602,7 +5602,7 @@
       ]
     },
     "Microsoft.CodeAnalysis.Analyzers/1.1.0": {
-      "sha512": "HS3iRWZKcUw/8eZ/08GXKY2Bn7xNzQPzf8gRPHGSowX7u7XXu9i9YEaBeBNKUXWfI7qjvT2zXtLUvbN0hds8vg==",
+      "sha512": "fu2DHdo4/hXNqgrHymmyRCx/Y5QyQjTs9o3MPb9i/vBkdDgvEeXzaGiLzToqrUHpyF0+Q9sHuw3f/jV/RWLWVw==",
       "type": "package",
       "path": "microsoft.codeanalysis.analyzers/1.1.0",
       "hasTools": true,
@@ -11805,11 +11805,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\shun\\source\\repos\\CSharpSample1\\RazorPagesMovie1\\RazorPagesMovie1.csproj",
+      "projectUniqueName": "C:\\Users\\shun\\Desktop\\CSharpSample1\\RazorPagesMovie1\\RazorPagesMovie1.csproj",
       "projectName": "RazorPagesMovie1",
-      "projectPath": "C:\\Users\\shun\\source\\repos\\CSharpSample1\\RazorPagesMovie1\\RazorPagesMovie1.csproj",
+      "projectPath": "C:\\Users\\shun\\Desktop\\CSharpSample1\\RazorPagesMovie1\\RazorPagesMovie1.csproj",
       "packagesPath": "C:\\Users\\shun\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\shun\\source\\repos\\CSharpSample1\\RazorPagesMovie1\\obj\\",
+      "outputPath": "C:\\Users\\shun\\Desktop\\CSharpSample1\\RazorPagesMovie1\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\",

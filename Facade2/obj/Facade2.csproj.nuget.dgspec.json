@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\shun\\source\\repos\\CSharpSample1\\Facade2\\Facade2.csproj": {}
+    "C:\\Users\\shun\\Desktop\\CSharpSample1\\Facade2\\Facade2.csproj": {}
   },
   "projects": {
-    "C:\\Users\\shun\\source\\repos\\CSharpSample1\\Facade2\\Facade2.csproj": {
+    "C:\\Users\\shun\\Desktop\\CSharpSample1\\Facade2\\Facade2.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\shun\\source\\repos\\CSharpSample1\\Facade2\\Facade2.csproj",
+        "projectUniqueName": "C:\\Users\\shun\\Desktop\\CSharpSample1\\Facade2\\Facade2.csproj",
         "projectName": "Facade2",
-        "projectPath": "C:\\Users\\shun\\source\\repos\\CSharpSample1\\Facade2\\Facade2.csproj",
+        "projectPath": "C:\\Users\\shun\\Desktop\\CSharpSample1\\Facade2\\Facade2.csproj",
         "packagesPath": "C:\\Users\\shun\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\shun\\source\\repos\\CSharpSample1\\Facade2\\obj\\",
+        "outputPath": "C:\\Users\\shun\\Desktop\\CSharpSample1\\Facade2\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",

@@ -73,6 +73,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Interface5", "Interface5\In
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tuple1", "Tuple1\Tuple1.csproj", "{C77BAA8B-F530-4151-96E3-F12520B5223F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CallBack3", "CallBack3\CallBack3.csproj", "{1DCCB4B7-5406-4A73-823A-C71B942A571F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -219,6 +221,10 @@ Global
 		{C77BAA8B-F530-4151-96E3-F12520B5223F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C77BAA8B-F530-4151-96E3-F12520B5223F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C77BAA8B-F530-4151-96E3-F12520B5223F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1DCCB4B7-5406-4A73-823A-C71B942A571F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1DCCB4B7-5406-4A73-823A-C71B942A571F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1DCCB4B7-5406-4A73-823A-C71B942A571F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1DCCB4B7-5406-4A73-823A-C71B942A571F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
