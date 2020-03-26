@@ -12,13 +12,13 @@ namespace AsyncAwait3
         /// <returns></returns>
         static async Task Main()
         {
-            //var client = new WebClient();
-            //var result = await client.DownloadStringTaskAsync("https://codezine.jp/");
-            //Console.WriteLine("1");
-            //Console.WriteLine(result);
-            //Console.WriteLine("2");
-            var result = await New();
+            var client = new WebClient();
+            var result = await client.DownloadStringTaskAsync("https://codezine.jp/");
+            Console.WriteLine("1");
             Console.WriteLine(result);
+            Console.WriteLine("2");
+            //var result = await New();
+            //Console.WriteLine(result);
         }
 
         private static async Task<string> New()
