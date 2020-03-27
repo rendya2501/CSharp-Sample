@@ -81,6 +81,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Observer1", "Observer1\Obse
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Observer2", "Observer2\Observer2.csproj", "{6415EC0C-DD82-421C-A597-ACF011329ED8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "INotifyPropertyChanged1", "INotifyPropertyChanged1\INotifyPropertyChanged1.csproj", "{D7D59DB8-0B4D-4F5C-B4F9-755CA28B8122}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -243,6 +245,10 @@ Global
 		{6415EC0C-DD82-421C-A597-ACF011329ED8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6415EC0C-DD82-421C-A597-ACF011329ED8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6415EC0C-DD82-421C-A597-ACF011329ED8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D7D59DB8-0B4D-4F5C-B4F9-755CA28B8122}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D7D59DB8-0B4D-4F5C-B4F9-755CA28B8122}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D7D59DB8-0B4D-4F5C-B4F9-755CA28B8122}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D7D59DB8-0B4D-4F5C-B4F9-755CA28B8122}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
