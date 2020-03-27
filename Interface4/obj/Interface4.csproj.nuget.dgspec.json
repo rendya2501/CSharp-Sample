@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\shun\\Desktop\\CSharpSample1\\Interface4\\Interface4.csproj": {}
+    "C:\\Users\\shun\\source\\repos\\CSharpSample1\\Interface4\\Interface4.csproj": {}
   },
   "projects": {
-    "C:\\Users\\shun\\Desktop\\CSharpSample1\\Interface4\\Interface4.csproj": {
+    "C:\\Users\\shun\\source\\repos\\CSharpSample1\\Interface4\\Interface4.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\shun\\Desktop\\CSharpSample1\\Interface4\\Interface4.csproj",
+        "projectUniqueName": "C:\\Users\\shun\\source\\repos\\CSharpSample1\\Interface4\\Interface4.csproj",
         "projectName": "Interface4",
-        "projectPath": "C:\\Users\\shun\\Desktop\\CSharpSample1\\Interface4\\Interface4.csproj",
+        "projectPath": "C:\\Users\\shun\\source\\repos\\CSharpSample1\\Interface4\\Interface4.csproj",
         "packagesPath": "C:\\Users\\shun\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\shun\\Desktop\\CSharpSample1\\Interface4\\obj\\",
+        "outputPath": "C:\\Users\\shun\\source\\repos\\CSharpSample1\\Interface4\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",

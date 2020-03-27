@@ -15,11 +15,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\shun\\Desktop\\CSharpSample1\\AsyncAwait4\\AsyncAwait4.csproj",
+      "projectUniqueName": "C:\\Users\\shun\\source\\repos\\CSharpSample1\\AsyncAwait4\\AsyncAwait4.csproj",
       "projectName": "AsyncAwait4",
-      "projectPath": "C:\\Users\\shun\\Desktop\\CSharpSample1\\AsyncAwait4\\AsyncAwait4.csproj",
+      "projectPath": "C:\\Users\\shun\\source\\repos\\CSharpSample1\\AsyncAwait4\\AsyncAwait4.csproj",
       "packagesPath": "C:\\Users\\shun\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\shun\\Desktop\\CSharpSample1\\AsyncAwait4\\obj\\",
+      "outputPath": "C:\\Users\\shun\\source\\repos\\CSharpSample1\\AsyncAwait4\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\",

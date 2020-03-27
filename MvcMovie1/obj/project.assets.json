@@ -12542,11 +12542,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\shun\\Desktop\\CSharpSample1\\MvcMovie1\\MvcMovie1.csproj",
+      "projectUniqueName": "C:\\Users\\shun\\source\\repos\\CSharpSample1\\MvcMovie1\\MvcMovie1.csproj",
       "projectName": "MvcMovie1",
-      "projectPath": "C:\\Users\\shun\\Desktop\\CSharpSample1\\MvcMovie1\\MvcMovie1.csproj",
+      "projectPath": "C:\\Users\\shun\\source\\repos\\CSharpSample1\\MvcMovie1\\MvcMovie1.csproj",
       "packagesPath": "C:\\Users\\shun\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\shun\\Desktop\\CSharpSample1\\MvcMovie1\\obj\\",
+      "outputPath": "C:\\Users\\shun\\source\\repos\\CSharpSample1\\MvcMovie1\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\",
