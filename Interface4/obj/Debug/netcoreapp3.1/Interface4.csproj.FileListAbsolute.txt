@@ -9,14 +9,3 @@ C:\VSSTEMP\sito\sample\ConsoleApp1\Interface4\obj\Debug\netcoreapp3.1\Interface4
 C:\VSSTEMP\sito\sample\ConsoleApp1\Interface4\obj\Debug\netcoreapp3.1\Interface4.dll
 C:\VSSTEMP\sito\sample\ConsoleApp1\Interface4\obj\Debug\netcoreapp3.1\Interface4.pdb
 C:\VSSTEMP\sito\sample\ConsoleApp1\Interface4\obj\Debug\netcoreapp3.1\Interface4.csprojAssemblyReference.cache
-C:\Users\shun\Desktop\CSharpSample1\Interface4\bin\Debug\netcoreapp3.1\Interface4.exe
-C:\Users\shun\Desktop\CSharpSample1\Interface4\bin\Debug\netcoreapp3.1\Interface4.deps.json
-C:\Users\shun\Desktop\CSharpSample1\Interface4\bin\Debug\netcoreapp3.1\Interface4.runtimeconfig.json
-C:\Users\shun\Desktop\CSharpSample1\Interface4\bin\Debug\netcoreapp3.1\Interface4.runtimeconfig.dev.json
-C:\Users\shun\Desktop\CSharpSample1\Interface4\bin\Debug\netcoreapp3.1\Interface4.dll
-C:\Users\shun\Desktop\CSharpSample1\Interface4\bin\Debug\netcoreapp3.1\Interface4.pdb
-C:\Users\shun\Desktop\CSharpSample1\Interface4\obj\Debug\netcoreapp3.1\Interface4.csprojAssemblyReference.cache
-C:\Users\shun\Desktop\CSharpSample1\Interface4\obj\Debug\netcoreapp3.1\Interface4.AssemblyInfoInputs.cache
-C:\Users\shun\Desktop\CSharpSample1\Interface4\obj\Debug\netcoreapp3.1\Interface4.AssemblyInfo.cs
-C:\Users\shun\Desktop\CSharpSample1\Interface4\obj\Debug\netcoreapp3.1\Interface4.dll
-C:\Users\shun\Desktop\CSharpSample1\Interface4\obj\Debug\netcoreapp3.1\Interface4.pdb

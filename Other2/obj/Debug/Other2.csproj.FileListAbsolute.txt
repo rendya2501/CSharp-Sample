@@ -5,9 +5,3 @@ C:\VSSTEMP\sito\sample\ConsoleApp1\Other2\obj\Debug\Other2.csprojAssemblyReferen
 C:\VSSTEMP\sito\sample\ConsoleApp1\Other2\obj\Debug\Other2.csproj.CoreCompileInputs.cache
 C:\VSSTEMP\sito\sample\ConsoleApp1\Other2\obj\Debug\Other2.exe
 C:\VSSTEMP\sito\sample\ConsoleApp1\Other2\obj\Debug\Other2.pdb
-C:\Users\shun\Desktop\CSharpSample1\Other2\bin\Debug\Other2.exe.config
-C:\Users\shun\Desktop\CSharpSample1\Other2\bin\Debug\Other2.exe
-C:\Users\shun\Desktop\CSharpSample1\Other2\bin\Debug\Other2.pdb
-C:\Users\shun\Desktop\CSharpSample1\Other2\obj\Debug\Other2.csprojAssemblyReference.cache
-C:\Users\shun\Desktop\CSharpSample1\Other2\obj\Debug\Other2.exe
-C:\Users\shun\Desktop\CSharpSample1\Other2\obj\Debug\Other2.pdb

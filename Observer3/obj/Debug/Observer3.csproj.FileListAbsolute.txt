@@ -5,9 +5,3 @@ C:\VSSTEMP\sito\sample\ConsoleApp1\Observer3\obj\Debug\Observer3.csproj.CoreComp
 C:\VSSTEMP\sito\sample\ConsoleApp1\Observer3\obj\Debug\Observer3.exe
 C:\VSSTEMP\sito\sample\ConsoleApp1\Observer3\obj\Debug\Observer3.pdb
 C:\VSSTEMP\sito\sample\ConsoleApp1\Observer3\obj\Debug\Observer3.csprojAssemblyReference.cache
-C:\Users\shun\Desktop\CSharpSample1\Observer3\bin\Debug\Observer3.exe.config
-C:\Users\shun\Desktop\CSharpSample1\Observer3\bin\Debug\Observer3.exe
-C:\Users\shun\Desktop\CSharpSample1\Observer3\bin\Debug\Observer3.pdb
-C:\Users\shun\Desktop\CSharpSample1\Observer3\obj\Debug\Observer3.csprojAssemblyReference.cache
-C:\Users\shun\Desktop\CSharpSample1\Observer3\obj\Debug\Observer3.exe
-C:\Users\shun\Desktop\CSharpSample1\Observer3\obj\Debug\Observer3.pdb

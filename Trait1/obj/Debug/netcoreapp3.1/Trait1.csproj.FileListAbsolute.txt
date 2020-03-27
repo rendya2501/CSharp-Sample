@@ -9,14 +9,3 @@ C:\VSSTEMP\sito\sample\ConsoleApp1\Trait1\obj\Debug\netcoreapp3.1\Trait1.Assembl
 C:\VSSTEMP\sito\sample\ConsoleApp1\Trait1\obj\Debug\netcoreapp3.1\Trait1.AssemblyInfo.cs
 C:\VSSTEMP\sito\sample\ConsoleApp1\Trait1\obj\Debug\netcoreapp3.1\Trait1.dll
 C:\VSSTEMP\sito\sample\ConsoleApp1\Trait1\obj\Debug\netcoreapp3.1\Trait1.pdb
-C:\Users\shun\Desktop\CSharpSample1\Trait1\bin\Debug\netcoreapp3.1\Trait1.exe
-C:\Users\shun\Desktop\CSharpSample1\Trait1\bin\Debug\netcoreapp3.1\Trait1.deps.json
-C:\Users\shun\Desktop\CSharpSample1\Trait1\bin\Debug\netcoreapp3.1\Trait1.runtimeconfig.json
-C:\Users\shun\Desktop\CSharpSample1\Trait1\bin\Debug\netcoreapp3.1\Trait1.runtimeconfig.dev.json
-C:\Users\shun\Desktop\CSharpSample1\Trait1\bin\Debug\netcoreapp3.1\Trait1.dll
-C:\Users\shun\Desktop\CSharpSample1\Trait1\bin\Debug\netcoreapp3.1\Trait1.pdb
-C:\Users\shun\Desktop\CSharpSample1\Trait1\obj\Debug\netcoreapp3.1\Trait1.csprojAssemblyReference.cache
-C:\Users\shun\Desktop\CSharpSample1\Trait1\obj\Debug\netcoreapp3.1\Trait1.AssemblyInfoInputs.cache
-C:\Users\shun\Desktop\CSharpSample1\Trait1\obj\Debug\netcoreapp3.1\Trait1.AssemblyInfo.cs
-C:\Users\shun\Desktop\CSharpSample1\Trait1\obj\Debug\netcoreapp3.1\Trait1.dll
-C:\Users\shun\Desktop\CSharpSample1\Trait1\obj\Debug\netcoreapp3.1\Trait1.pdb

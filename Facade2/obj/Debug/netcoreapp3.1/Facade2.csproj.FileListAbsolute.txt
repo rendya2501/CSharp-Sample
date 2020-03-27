@@ -9,14 +9,3 @@ C:\VSSTEMP\sito\sample\ConsoleApp1\Facade2\obj\Debug\netcoreapp3.1\Facade2.Assem
 C:\VSSTEMP\sito\sample\ConsoleApp1\Facade2\obj\Debug\netcoreapp3.1\Facade2.AssemblyInfo.cs
 C:\VSSTEMP\sito\sample\ConsoleApp1\Facade2\obj\Debug\netcoreapp3.1\Facade2.dll
 C:\VSSTEMP\sito\sample\ConsoleApp1\Facade2\obj\Debug\netcoreapp3.1\Facade2.pdb
-C:\Users\shun\Desktop\CSharpSample1\Facade2\bin\Debug\netcoreapp3.1\Facade2.exe
-C:\Users\shun\Desktop\CSharpSample1\Facade2\bin\Debug\netcoreapp3.1\Facade2.deps.json
-C:\Users\shun\Desktop\CSharpSample1\Facade2\bin\Debug\netcoreapp3.1\Facade2.runtimeconfig.json
-C:\Users\shun\Desktop\CSharpSample1\Facade2\bin\Debug\netcoreapp3.1\Facade2.runtimeconfig.dev.json
-C:\Users\shun\Desktop\CSharpSample1\Facade2\bin\Debug\netcoreapp3.1\Facade2.dll
-C:\Users\shun\Desktop\CSharpSample1\Facade2\bin\Debug\netcoreapp3.1\Facade2.pdb
-C:\Users\shun\Desktop\CSharpSample1\Facade2\obj\Debug\netcoreapp3.1\Facade2.csprojAssemblyReference.cache
-C:\Users\shun\Desktop\CSharpSample1\Facade2\obj\Debug\netcoreapp3.1\Facade2.AssemblyInfoInputs.cache
-C:\Users\shun\Desktop\CSharpSample1\Facade2\obj\Debug\netcoreapp3.1\Facade2.AssemblyInfo.cs
-C:\Users\shun\Desktop\CSharpSample1\Facade2\obj\Debug\netcoreapp3.1\Facade2.dll
-C:\Users\shun\Desktop\CSharpSample1\Facade2\obj\Debug\netcoreapp3.1\Facade2.pdb

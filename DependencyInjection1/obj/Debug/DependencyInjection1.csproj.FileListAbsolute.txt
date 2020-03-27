@@ -12,9 +12,3 @@ C:\VSSTEMP\sito\sample\ConsoleApp1\DependencyInjection1\obj\Debug\DependencyInje
 C:\VSSTEMP\sito\sample\ConsoleApp1\DependencyInjection1\obj\Debug\DependencyInjection1.csproj.CoreCompileInputs.cache
 C:\VSSTEMP\sito\sample\ConsoleApp1\DependencyInjection1\obj\Debug\DependencyInjection1.exe
 C:\VSSTEMP\sito\sample\ConsoleApp1\DependencyInjection1\obj\Debug\DependencyInjection1.pdb
-C:\Users\shun\Desktop\CSharpSample1\DependencyInjection1\bin\Debug\DependencyInjection1.exe.config
-C:\Users\shun\Desktop\CSharpSample1\DependencyInjection1\bin\Debug\DependencyInjection1.exe
-C:\Users\shun\Desktop\CSharpSample1\DependencyInjection1\bin\Debug\DependencyInjection1.pdb
-C:\Users\shun\Desktop\CSharpSample1\DependencyInjection1\obj\Debug\DependencyInjection1.csprojAssemblyReference.cache
-C:\Users\shun\Desktop\CSharpSample1\DependencyInjection1\obj\Debug\DependencyInjection1.exe
-C:\Users\shun\Desktop\CSharpSample1\DependencyInjection1\obj\Debug\DependencyInjection1.pdb

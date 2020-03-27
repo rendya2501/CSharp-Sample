@@ -5,9 +5,3 @@ C:\VSSTEMP\sito\sample\ConsoleApp1\DependencyInjection2\obj\Debug\DependencyInje
 C:\VSSTEMP\sito\sample\ConsoleApp1\DependencyInjection2\obj\Debug\DependencyInjection2.csproj.CoreCompileInputs.cache
 C:\VSSTEMP\sito\sample\ConsoleApp1\DependencyInjection2\obj\Debug\DependencyInjection2.exe
 C:\VSSTEMP\sito\sample\ConsoleApp1\DependencyInjection2\obj\Debug\DependencyInjection2.pdb
-C:\Users\shun\Desktop\CSharpSample1\DependencyInjection2\bin\Debug\DependencyInjection2.exe.config
-C:\Users\shun\Desktop\CSharpSample1\DependencyInjection2\bin\Debug\DependencyInjection2.exe
-C:\Users\shun\Desktop\CSharpSample1\DependencyInjection2\bin\Debug\DependencyInjection2.pdb
-C:\Users\shun\Desktop\CSharpSample1\DependencyInjection2\obj\Debug\DependencyInjection2.csprojAssemblyReference.cache
-C:\Users\shun\Desktop\CSharpSample1\DependencyInjection2\obj\Debug\DependencyInjection2.exe
-C:\Users\shun\Desktop\CSharpSample1\DependencyInjection2\obj\Debug\DependencyInjection2.pdb
