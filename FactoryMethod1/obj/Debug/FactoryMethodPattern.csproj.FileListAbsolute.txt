@@ -1,7 +1,0 @@
-C:\Users\shun\source\repos\ConsoleApp3\FactoryMethodPattern\bin\Debug\FactoryMethodPattern.exe.config
-C:\Users\shun\source\repos\ConsoleApp3\FactoryMethodPattern\bin\Debug\FactoryMethodPattern.exe
-C:\Users\shun\source\repos\ConsoleApp3\FactoryMethodPattern\bin\Debug\FactoryMethodPattern.pdb
-C:\Users\shun\source\repos\ConsoleApp3\FactoryMethodPattern\obj\Debug\FactoryMethodPattern.csproj.CoreCompileInputs.cache
-C:\Users\shun\source\repos\ConsoleApp3\FactoryMethodPattern\obj\Debug\FactoryMethodPattern.exe
-C:\Users\shun\source\repos\ConsoleApp3\FactoryMethodPattern\obj\Debug\FactoryMethodPattern.pdb
-C:\Users\shun\source\repos\ConsoleApp3\FactoryMethodPattern\obj\Debug\FactoryMethodPattern.csprojResolveAssemblyReference.cache

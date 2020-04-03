@@ -1,9 +1,0 @@
-C:\Users\shun\source\repos\ConsoleApp3\WindowsApplicationSandbox\bin\Debug\WindowsApplicationSandbox.exe.config
-C:\Users\shun\source\repos\ConsoleApp3\WindowsApplicationSandbox\bin\Debug\WindowsApplicationSandbox.exe
-C:\Users\shun\source\repos\ConsoleApp3\WindowsApplicationSandbox\bin\Debug\WindowsApplicationSandbox.pdb
-C:\Users\shun\source\repos\ConsoleApp3\WindowsApplicationSandbox\obj\Debug\WindowsApplicationSandbox.Form1.resources
-C:\Users\shun\source\repos\ConsoleApp3\WindowsApplicationSandbox\obj\Debug\WindowsApplicationSandbox.Properties.Resources.resources
-C:\Users\shun\source\repos\ConsoleApp3\WindowsApplicationSandbox\obj\Debug\WindowsApplicationSandbox.csproj.GenerateResource.Cache
-C:\Users\shun\source\repos\ConsoleApp3\WindowsApplicationSandbox\obj\Debug\WindowsApplicationSandbox.exe
-C:\Users\shun\source\repos\ConsoleApp3\WindowsApplicationSandbox\obj\Debug\WindowsApplicationSandbox.pdb
-C:\Users\shun\source\repos\ConsoleApp3\WindowsApplicationSandbox\obj\Debug\WindowsApplicationSandbox.csprojAssemblyReference.cache

@@ -1,9 +1,0 @@
-C:\Users\shun\source\repos\ConsoleApp3\ConsoleApp3\obj\Debug\TaskSample.csproj.CoreCompileInputs.cache
-C:\Users\shun\source\repos\ConsoleApp3\ConsoleApp3\obj\Debug\ConsoleApp3.exe
-C:\Users\shun\source\repos\ConsoleApp3\ConsoleApp3\obj\Debug\ConsoleApp3.pdb
-C:\Users\shun\source\repos\ConsoleApp3\ConsoleApp3\bin\Debug\ConsoleApp3.exe.config
-C:\Users\shun\source\repos\ConsoleApp3\ConsoleApp3\bin\Debug\ConsoleApp3.exe
-C:\Users\shun\source\repos\ConsoleApp3\ConsoleApp3\bin\Debug\ConsoleApp3.pdb
-C:\Users\shun\source\repos\ConsoleApp3\ConsoleApp3\obj\Debug\TaskSample.csprojResolveAssemblyReference.cache
-C:\Users\shun\source\repos\ConsoleApp3\ConsoleApp3\obj\Debug\ConsoleApp3.Form1.resources
-C:\Users\shun\source\repos\ConsoleApp3\ConsoleApp3\obj\Debug\TaskSample.csproj.GenerateResource.Cache

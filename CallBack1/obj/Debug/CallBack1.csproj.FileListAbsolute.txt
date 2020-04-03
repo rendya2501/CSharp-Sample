@@ -1,7 +1,0 @@
-c:\Users\s.ito\source\repos\CSSample\CallBack1\bin\Debug\CallBack1.exe.config
-c:\Users\s.ito\source\repos\CSSample\CallBack1\bin\Debug\CallBack1.exe
-c:\Users\s.ito\source\repos\CSSample\CallBack1\bin\Debug\CallBack1.pdb
-c:\Users\s.ito\source\repos\CSSample\CallBack1\obj\Debug\CallBack1.csprojResolveAssemblyReference.cache
-c:\Users\s.ito\source\repos\CSSample\CallBack1\obj\Debug\CallBack1.csproj.CoreCompileInputs.cache
-c:\Users\s.ito\source\repos\CSSample\CallBack1\obj\Debug\CallBack1.exe
-c:\Users\s.ito\source\repos\CSSample\CallBack1\obj\Debug\CallBack1.pdb

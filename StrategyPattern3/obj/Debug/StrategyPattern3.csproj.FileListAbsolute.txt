@@ -1,7 +1,0 @@
-C:\VSSTEMP\sito\sample\ConsoleApp1\StrategyPattern3\bin\Debug\StrategyPattern3.exe.config
-C:\VSSTEMP\sito\sample\ConsoleApp1\StrategyPattern3\bin\Debug\StrategyPattern3.exe
-C:\VSSTEMP\sito\sample\ConsoleApp1\StrategyPattern3\bin\Debug\StrategyPattern3.pdb
-C:\VSSTEMP\sito\sample\ConsoleApp1\StrategyPattern3\obj\Debug\StrategyPattern3.csprojAssemblyReference.cache
-C:\VSSTEMP\sito\sample\ConsoleApp1\StrategyPattern3\obj\Debug\StrategyPattern3.csproj.CoreCompileInputs.cache
-C:\VSSTEMP\sito\sample\ConsoleApp1\StrategyPattern3\obj\Debug\StrategyPattern3.exe
-C:\VSSTEMP\sito\sample\ConsoleApp1\StrategyPattern3\obj\Debug\StrategyPattern3.pdb
