@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Net.Cache;
+using System.Security.Cryptography;
 
 namespace CS8._0
 {
@@ -67,12 +69,77 @@ namespace CS8._0
         // 1つ前のコンテキストに戻す。
         // この場合、disable から enable に戻る。
         static int? R1(string? s) => s?.Length;
+
+
+        class Person
+        {
+            public int age;
+        }
     }
 
 
-
-    class Person
+    /// <summary>
+    /// switch式
+    /// </summary>
+    class SwitchFormula
     {
-        public int age;
+        public int Compare(int? x, int? y) => (x, y) switch
+        {
+            (int i, int j) => i.CompareTo(j),
+            ({ }, null) => 1,
+            (null, { }) => -1,
+            (null, null) => 0
+        };
+
+        public int getAge()
+        {
+            var pet = "猫";
+            return pet switch
+            {
+                "猫" => 15,
+                "犬" => 13,
+                "鼠" => 5,
+                _ => 0
+            };
+        }
+
+
+        private string PetDetails(Animal animal)
+        {
+            return animal switch
+            {
+                Cat cat => $"Cat details: {cat.Age} {cat.Cry}",
+                Dog dog => $"Dog details: {dog.Age} {dog.Cry}",
+                Animal(0, _) => "baby",
+                Animal(Age: var age, Cry: var cry) => $"details:{age}{cry}",
+                _ => "nothing"
+            };
+        }
+
+        class Animal
+        {
+            public int Age;
+            public int Cry;
+            public Animal(int age, int cry)
+            {
+                this.Age = age;
+                this.Cry = cry;
+            }
+            /// <summary>
+            /// 分解という概念らしい
+            /// https://ufcpp.net/study/csharp/datatype/deconstruction/
+            /// </summary>
+            /// <param name="Age"></param>
+            /// <param name="Cry"></param>
+            public void Deconstruct(out int Age, out int Cry) => (Age, Cry) = (this.Age, this.Cry);
+        }
+        private class Cat : Animal
+        {
+            public Cat(int age, int cry) : base(age, cry) { }
+        }
+        private class Dog : Animal
+        {
+            public Dog(int age, int cry) : base(age, cry) { }
+        }
     }
 }
