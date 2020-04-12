@@ -1,6 +1,6 @@
 ﻿using System;
-using System.Net.Cache;
-using System.Security.Cryptography;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace CS8._0
 {
@@ -9,17 +9,19 @@ namespace CS8._0
         /// <summary>
         /// C#8.0検証プログラム
         /// https://qiita.com/4_mio_11/items/83fb99ec4a03a3b4a8ee
-        /// https://ufcpp.net/study/csharp/resource/nullablereferencetype/#opt-in
+        /// https://ufcpp.net/study/csharp/cheatsheet/ap_ver8/#async-stream
         /// </summary>
         /// <param name="args"></param>
         static void Main(string[] args)
         {
-            new NullableCheck();
+            //new NullableCheck();
+            AsyncEnumerable.Main().Wait();
         }
     }
 
     /// <summary>
     /// null許容参照型
+    /// https://ufcpp.net/study/csharp/resource/nullablereferencetype/#opt-in
     /// </summary>
     class NullableCheck
     {
@@ -140,6 +142,49 @@ namespace CS8._0
         private class Dog : Animal
         {
             public Dog(int age, int cry) : base(age, cry) { }
+        }
+    }
+
+
+
+    /// <summary>
+    /// 非同期ストリーム
+    /// 非同期foreach : await foreachという書き方で、非同期なデータ列挙ができる
+    /// 非同期using : await usingという書き方で、非同期なリソース破棄ができる
+    /// 非同期イテレーター : 非同期メソッド内にyieldをかけるようになる
+    /// ざっくりこんな感じ。
+    /// 詳しくやるとやベーことになるのでとりあえずこれくらいにしておく。
+    /// </summary>
+    class AsyncEnumerable
+    {
+        public static async Task Main()
+        {
+            await WriteItems(Select(GetData(), x => x * x));
+        }
+
+        static async IAsyncEnumerable<int> GetData()
+        {
+            yield return 1;
+            await Task.Delay(1);
+            yield return 2;
+            await Task.Delay(1);
+            yield return 3;
+        }
+
+        static async IAsyncEnumerable<int> Select(IAsyncEnumerable<int> source, Func<int, int> selector)
+        {
+            await foreach (var item in source)
+            {
+                yield return selector(item);
+            }
+        }
+
+        static async Task WriteItems(IAsyncEnumerable<int> source)
+        {
+            await foreach (var item in source)
+            {
+                Console.WriteLine(item);
+            }
         }
     }
 }
