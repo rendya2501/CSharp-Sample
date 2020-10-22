@@ -93,9 +93,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IsAs1", "IsAs1\IsAs1.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfApp1", "WpfApp1\WpfApp1.csproj", "{E9719AE2-E38F-4523-8699-38917884368A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WpfApp2", "WpfApp2\WpfApp2.csproj", "{33194857-862B-4238-8916-DC20C59C16CE}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlankCoreApp1", "BlankCoreApp1\BlankCoreApp1.csproj", "{3B40A80F-425A-4719-A03E-B473129054CC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlankCoreApp1", "BlankCoreApp1\BlankCoreApp1.csproj", "{3B40A80F-425A-4719-A03E-B473129054CC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -283,10 +281,6 @@ Global
 		{E9719AE2-E38F-4523-8699-38917884368A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E9719AE2-E38F-4523-8699-38917884368A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E9719AE2-E38F-4523-8699-38917884368A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{33194857-862B-4238-8916-DC20C59C16CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{33194857-862B-4238-8916-DC20C59C16CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{33194857-862B-4238-8916-DC20C59C16CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{33194857-862B-4238-8916-DC20C59C16CE}.Release|Any CPU.Build.0 = Release|Any CPU
 		{3B40A80F-425A-4719-A03E-B473129054CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{3B40A80F-425A-4719-A03E-B473129054CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3B40A80F-425A-4719-A03E-B473129054CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
