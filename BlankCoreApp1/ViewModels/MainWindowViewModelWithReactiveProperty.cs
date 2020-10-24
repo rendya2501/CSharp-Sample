@@ -8,6 +8,9 @@ using System.Reactive.Linq;
 
 namespace BlankCoreApp1.ViewModels
 {
+    /// <summary>
+    /// https://qiita.com/java1031/items/c294c9e292a0f18a02d9#2-prism%E3%81%AB%E3%82%88%E3%82%8B%E3%82%B3%E3%83%BC%E3%83%87%E3%82%A3%E3%83%B3%E3%82%B0
+    /// </summary>
     public class MainWindowViewModelWithReactiveProperty : BindableBase
     {
         #region メンバ
@@ -16,46 +19,14 @@ namespace BlankCoreApp1.ViewModels
         #endregion
 
         #region プロパティ
-        //private string _title = "Prism Application";
-        //public string Title
-        //{
-        //    get => _title;
-        //    set => SetProperty(ref _title, value);
-        //}
         public ReactiveProperty<string> Title { get; private set; } = new ReactiveProperty<string>("Prism Application");
 
-        //private bool isNonMark = false;
-        //public bool IsNonMark
-        //{
-        //    get => isNonMark;
-        //    set
-        //    {
-        //        SetProperty(ref isNonMark, value);
-        //        factory = isNonMark
-        //            ? (ILetterFactory)new NonMarkLetterFactory()
-        //            : new AllLetterFactory();
-        //    }
-        //}
         public ReactiveProperty<bool> IsNonMark { get; private set; } = new ReactiveProperty<bool>(false);
 
-
-        //private int numOfLetters;
-        //public int NumOfLetters
-        //{
-        //    get => numOfLetters;
-        //    set => SetProperty(ref numOfLetters, value);
-        //}
         public ReactiveProperty<int> NumOfLetters { get; private set; } = new ReactiveProperty<int>(20);
 
-        //private string createdPassword;
-        //public string CreatedPassword
-        //{
-        //    get => createdPassword;
-        //    set => SetProperty(ref createdPassword, value);
-        //}
         public ReactiveProperty<string> CreatePassword { get; private set; } = new ReactiveProperty<string>("Prism+ReactiveProperty WPF App.");
 
-        //public DelegateCommand Generate { get; private set; }
         public ReactiveCommand Generate { get; }
         #endregion
 
@@ -65,12 +36,20 @@ namespace BlankCoreApp1.ViewModels
         /// </summary>
         public MainWindowViewModelWithReactiveProperty()
         {
+            // ReactivePropertyやReactiveCommandはIDisposableを継承しているため，使用後はDisposeする必要があるとのこと。
+            // これもまとめてDisposeできるようにコンストラクタでCompositeDisposable型の変数に登録している
             this.Title.AddTo(_cd);
             this.NumOfLetters.AddTo(_cd);
             this.CreatePassword.AddTo(_cd);
             this.IsNonMark.AddTo(_cd);
+            // コマンドの状態を監視し，コマンド実行（ボタン押下）時に所定のメソッド実行することを登録する
             IsNonMark.Subscribe(_ => SetFactory());
+            // 所定の条件を満たす場合、コマンドを有効化する
             Generate = NumOfLetters.Select(x => x > 10).ToReactiveCommand();
+            // C# 9.0より導入されたラムダ式の破棄を使っているらしい
+            // 違った。破棄は2つ以上の引数で連続して[_]を使ったときの話で、1つだけの場合は[_]という名前扱いになるらしい。
+            // つまり、どうでもいい名前を付けたい場合にこうすればよいということだ。
+            // https://docs.microsoft.com/ja-jp/dotnet/csharp/language-reference/operators/lambda-expressions
             Generate.Subscribe(_ => CreatePasswordExecute());
         }
 
