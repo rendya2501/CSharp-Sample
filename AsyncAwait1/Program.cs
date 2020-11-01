@@ -12,9 +12,13 @@ namespace AsyncAwait1
         static void Main(string[] args)
         {
             // ①非同期メソッドを呼び出す
-            Task T = RunAsync(); //③処理が戻る
-            Console.WriteLine("...他の処理...");
-            T.Wait();
+            //Task T = RunAsync(); //③処理が戻る
+            //Console.WriteLine("...他の処理...");
+            //T.Wait();
+
+            Button1_Click();
+            Console.WriteLine("22");
+            Task.Delay(2000).Wait();
         }
 
         /// <summary>
@@ -33,6 +37,18 @@ namespace AsyncAwait1
             {
                 Console.WriteLine($"Task{n}: {i}");
             }
+        }
+
+        private static async void Button1_Click()
+        {
+            await ExampleMethodAsync();
+            Console.WriteLine("\r\nControl returned to Click event handler.\n");
+        }
+
+        private static async Task ExampleMethodAsync()
+        {
+            // The following line simulates a task-returning asynchronous process.
+            await Task.Delay(1000);
         }
     }
 }
