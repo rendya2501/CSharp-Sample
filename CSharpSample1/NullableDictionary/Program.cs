@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NHibernate.Util;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -8,21 +9,68 @@ namespace NullableDictionary
 {
     class Program
     {
+        public static NullableDictionary<string, string> Fuck
+        {
+            get => new NullableDictionary<string, string>()
+            {
+                {null, "すべて" },
+                {"1", "使用する" },
+                {"2", "使用しない" }
+            };
+        }
+
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
             var obj = new ItemsSource();
+            var converter = new DictionaryConverter();
             foreach (var item in obj.ValuePairs)
             {
                 Console.WriteLine(item.Key + " " + item.Value);
+                //Console.WriteLine(converter.Convert(item.Key, Fuck));
+            }
+            var aa = new Dictionary<string, string>();
+            foreach (var item in aa)
+            {
+                var s2 = item.Key;
             }
         }
     }
 
+    /// <summary>
+    /// DictionaryのKeyをValueに変換するコンバーター
+    /// </summary>
+    public class DictionaryConverter
+    {
+        /// <summary>
+        /// DictionaryのKeyをValueに変換します。
+        /// </summary>
+        /// <param name="value">バインディング ソースによって生成された値</param>
+        /// <param name="targetType">バインディング ターゲット プロパティの型</param>
+        /// <param name="parameter">使用するコンバーター パラメーター</param>
+        /// <param name="culture">コンバーターで使用するカルチャ</param>
+        /// <returns></returns>
+        public object Convert(object value, object parameter)
+        {
+            // 値、型チェック
+            //if (value == null) return null;
+            // if (!(parameter is IDictionary)) throw new Exception("型");
+            // パラメータの型変換
+            var dictionary = (IDictionary)parameter;
+            // インデクサーで値を取得
+            return dictionary[value];
+        }
+    }
 
     class ItemsSource
     {
-        public NullableDictionary<bool?, string> ValuePairs => new NullableDictionary<bool?, string>()
+        public NullableDict<bool?, string> ValuePairs => new NullableDict<bool?, string>()
+            {
+                {null, "すべて" },
+                {true, "使用する" },
+                {false, "使用しない" }
+            };
+        public NullableDict2<bool?, string> ValuePairs2 => new NullableDict2<bool?, string>()
             {
                 {null, "すべて" },
                 {true, "使用する" },
@@ -30,10 +78,120 @@ namespace NullableDictionary
             };
     }
 
+    class NullableDict2<K, V> : IDictionary
+    {
+        readonly Dictionary<K, V> dict = new Dictionary<K, V>();
+        V nullValue = default;
+        bool hasNull = false;
+
+        public object this[object key]
+        {
+            get
+            {
+                if ((K)key == null)
+                    if (hasNull)
+                        return nullValue;
+                    else
+                        throw new KeyNotFoundException();
+                else
+                    return dict[(K)key];
+            }
+            set
+            {
+                if (key == null)
+                {
+                    nullValue = (V)value;
+                    hasNull = true;
+                }
+                else
+                    dict[(K)key] = (V)value;
+            }
+        }
+
+        public bool IsFixedSize => throw new NotImplementedException();
+
+        public bool IsReadOnly => throw new NotImplementedException();
+
+        public ICollection Keys => throw new NotImplementedException();
+
+        public ICollection Values => throw new NotImplementedException();
+
+        public int Count => throw new NotImplementedException();
+
+        public bool IsSynchronized => throw new NotImplementedException();
+
+        public object SyncRoot => throw new NotImplementedException();
+
+        public void Add(object key, object value)
+        {
+            if (key == null)
+            {
+                if (hasNull) throw new ArgumentException("Duplicate key");
+
+                nullValue = (V)value;
+                hasNull = true;
+            }
+            else
+            {
+                dict.Add((K)key, (V)value);
+            }
+        }
+
+        public void Clear()
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool Contains(object key)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void CopyTo(Array array, int index)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Remove(object key)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IDictionaryEnumerator GetEnumerator()
+        {
+            throw new NotImplementedException();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            throw new NotImplementedException();
+        }
+
+        //public IEnumerator<KeyValuePair<K, V>> GetEnumerator()
+        //{
+        //    if (!hasNull)
+        //        return dict.GetEnumerator();
+        //    else
+        //        return GetEnumeratorWithNull();
+        //}
+
+        //private IEnumerator<KeyValuePair<K, V>> GetEnumeratorWithNull()
+        //{
+        //    yield return new KeyValuePair<K, V>(default, nullValue);
+        //    foreach (var kv in dict)
+        //        yield return kv;
+        //}
+
+        //IEnumerator IEnumerable.GetEnumerator()
+        //{
+        //    return GetEnumerator();
+        //}
+    }
+
     class NullableDict<K, V> : IDictionary<K, V>
     {
-        Dictionary<K, V> dict = new Dictionary<K, V>();
-        V nullValue = default(V);
+        readonly Dictionary<K, V> dict = new Dictionary<K, V>();
+        V nullValue = default;
         bool hasNull = false;
 
         public NullableDict()
@@ -43,15 +201,16 @@ namespace NullableDictionary
         public void Add(K key, V value)
         {
             if (key == null)
-                if (hasNull)
-                    throw new ArgumentException("Duplicate key");
-                else
-                {
-                    nullValue = value;
-                    hasNull = true;
-                }
+            {
+                if (hasNull) throw new ArgumentException("Duplicate key");
+
+                nullValue = value;
+                hasNull = true;
+            }
             else
+            {
                 dict.Add(key, value);
+            }
         }
 
         public bool ContainsKey(K key)
@@ -69,7 +228,7 @@ namespace NullableDictionary
                     return dict.Keys;
 
                 List<K> keys = dict.Keys.ToList();
-                keys.Add(default(K));
+                keys.Add(default);
                 return new ReadOnlyCollection<K>(keys);
             }
         }
@@ -89,7 +248,7 @@ namespace NullableDictionary
             if (key != null)
                 return dict.TryGetValue(key, out value);
 
-            value = hasNull ? nullValue : default(V);
+            value = hasNull ? nullValue : default;
             return hasNull;
         }
 
@@ -195,234 +354,234 @@ namespace NullableDictionary
         }
     }
 
-    public class NullableDictionary<TKey, TValue> : IDictionary<TKey, TValue>
-    {
-        private TValue _nullValue;
-        private bool _gotNullValue;
-        private readonly Dictionary<TKey, TValue> _dict;
+    //public class NullableDictionary<TKey, TValue> : IDictionary<TKey, TValue>
+    //{
+    //    private TValue _nullValue;
+    //    private bool _gotNullValue;
+    //    private readonly Dictionary<TKey, TValue> _dict;
 
-        public NullableDictionary()
-        {
-            _dict = new Dictionary<TKey, TValue>();
-        }
+    //    public NullableDictionary()
+    //    {
+    //        _dict = new Dictionary<TKey, TValue>();
+    //    }
 
-        public NullableDictionary(IEqualityComparer<TKey> comparer)
-        {
-            _dict = new Dictionary<TKey, TValue>(comparer);
-        }
+    //    public NullableDictionary(IEqualityComparer<TKey> comparer)
+    //    {
+    //        _dict = new Dictionary<TKey, TValue>(comparer);
+    //    }
 
-        public bool ContainsKey(TKey key)
-        {
-            if (key == null)
-            {
-                return _gotNullValue;
-            }
-            else
-            {
-                return _dict.ContainsKey(key);
-            }
-        }
+    //    public bool ContainsKey(TKey key)
+    //    {
+    //        if (key == null)
+    //        {
+    //            return _gotNullValue;
+    //        }
+    //        else
+    //        {
+    //            return _dict.ContainsKey(key);
+    //        }
+    //    }
 
-        public void Add(TKey key, TValue value)
-        {
-            if (key == null)
-            {
-                _nullValue = value;
-                _gotNullValue = true;
-            }
-            else
-            {
-                _dict[key] = value;
-            }
-        }
+    //    public void Add(TKey key, TValue value)
+    //    {
+    //        if (key == null)
+    //        {
+    //            _nullValue = value;
+    //            _gotNullValue = true;
+    //        }
+    //        else
+    //        {
+    //            _dict[key] = value;
+    //        }
+    //    }
 
-        public bool Remove(TKey key)
-        {
-            if (key == null)
-            {
-                if (_gotNullValue)
-                {
-                    _nullValue = default(TValue);
-                    _gotNullValue = false;
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                return _dict.Remove(key);
-            }
-        }
+    //    public bool Remove(TKey key)
+    //    {
+    //        if (key == null)
+    //        {
+    //            if (_gotNullValue)
+    //            {
+    //                _nullValue = default(TValue);
+    //                _gotNullValue = false;
+    //                return true;
+    //            }
+    //            else
+    //            {
+    //                return false;
+    //            }
+    //        }
+    //        else
+    //        {
+    //            return _dict.Remove(key);
+    //        }
+    //    }
 
-        public bool TryGetValue(TKey key, out TValue value)
-        {
-            if (key == null)
-            {
-                if (_gotNullValue)
-                {
-                    value = _nullValue;
-                    return true;
-                }
-                else
-                {
-                    value = default(TValue);
-                    return false;
-                }
-            }
-            else
-            {
-                return _dict.TryGetValue(key, out value);
-            }
-        }
+    //    public bool TryGetValue(TKey key, out TValue value)
+    //    {
+    //        if (key == null)
+    //        {
+    //            if (_gotNullValue)
+    //            {
+    //                value = _nullValue;
+    //                return true;
+    //            }
+    //            else
+    //            {
+    //                value = default(TValue);
+    //                return false;
+    //            }
+    //        }
+    //        else
+    //        {
+    //            return _dict.TryGetValue(key, out value);
+    //        }
+    //    }
 
-        public TValue this[TKey key]
-        {
-            get
-            {
-                if (key == null)
-                {
-                    return _nullValue;
-                }
-                else
-                {
-                    TValue ret;
+    //    public TValue this[TKey key]
+    //    {
+    //        get
+    //        {
+    //            if (key == null)
+    //            {
+    //                return _nullValue;
+    //            }
+    //            else
+    //            {
+    //                TValue ret;
 
-                    _dict.TryGetValue(key, out ret);
+    //                _dict.TryGetValue(key, out ret);
 
-                    return ret;
-                }
-            }
-            set
-            {
-                if (key == null)
-                {
-                    _nullValue = value;
-                    _gotNullValue = true;
-                }
-                else
-                {
-                    _dict[key] = value;
-                }
-            }
-        }
+    //                return ret;
+    //            }
+    //        }
+    //        set
+    //        {
+    //            if (key == null)
+    //            {
+    //                _nullValue = value;
+    //                _gotNullValue = true;
+    //            }
+    //            else
+    //            {
+    //                _dict[key] = value;
+    //            }
+    //        }
+    //    }
 
-        public ICollection<TKey> Keys
-        {
-            get
-            {
-                if (_gotNullValue)
-                {
-                    List<TKey> keys = new List<TKey>(_dict.Keys);
-                    keys.Add(null);
-                    return keys;
-                }
-                else
-                {
-                    return _dict.Keys;
-                }
-            }
-        }
+    //    public ICollection<TKey> Keys
+    //    {
+    //        get
+    //        {
+    //            if (_gotNullValue)
+    //            {
+    //                List<TKey> keys = new List<TKey>(_dict.Keys);
+    //                keys.Add(null);
+    //                return keys;
+    //            }
+    //            else
+    //            {
+    //                return _dict.Keys;
+    //            }
+    //        }
+    //    }
 
-        public ICollection<TValue> Values
-        {
-            get
-            {
-                if (_gotNullValue)
-                {
-                    List<TValue> values = new List<TValue>(_dict.Values);
-                    values.Add(_nullValue);
-                    return values;
-                }
-                else
-                {
-                    return _dict.Values;
-                }
-            }
-        }
+    //    public ICollection<TValue> Values
+    //    {
+    //        get
+    //        {
+    //            if (_gotNullValue)
+    //            {
+    //                List<TValue> values = new List<TValue>(_dict.Values);
+    //                values.Add(_nullValue);
+    //                return values;
+    //            }
+    //            else
+    //            {
+    //                return _dict.Values;
+    //            }
+    //        }
+    //    }
 
-        public IEnumerator<KeyValuePair<TKey, TValue>> GetEnumerator()
-        {
-            foreach (KeyValuePair<TKey, TValue> kvp in _dict)
-            {
-                yield return kvp;
-            }
+    //    public IEnumerator<KeyValuePair<TKey, TValue>> GetEnumerator()
+    //    {
+    //        foreach (KeyValuePair<TKey, TValue> kvp in _dict)
+    //        {
+    //            yield return kvp;
+    //        }
 
-            if (_gotNullValue)
-            {
-                yield return new KeyValuePair<TKey, TValue>(null, _nullValue);
-            }
-        }
+    //        if (_gotNullValue)
+    //        {
+    //            yield return new KeyValuePair<TKey, TValue>(null, _nullValue);
+    //        }
+    //    }
 
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            return GetEnumerator();
-        }
+    //    IEnumerator IEnumerable.GetEnumerator()
+    //    {
+    //        return GetEnumerator();
+    //    }
 
-        public void Add(KeyValuePair<TKey, TValue> item)
-        {
-            if (item.Key == null)
-            {
-                _nullValue = item.Value;
-                _gotNullValue = true;
-            }
-            else
-            {
-                _dict.Add(item.Key, item.Value);
-            }
-        }
+    //    public void Add(KeyValuePair<TKey, TValue> item)
+    //    {
+    //        if (item.Key == null)
+    //        {
+    //            _nullValue = item.Value;
+    //            _gotNullValue = true;
+    //        }
+    //        else
+    //        {
+    //            _dict.Add(item.Key, item.Value);
+    //        }
+    //    }
 
-        public void Clear()
-        {
-            _dict.Clear();
-            _nullValue = default;
-            _gotNullValue = false;
-        }
+    //    public void Clear()
+    //    {
+    //        _dict.Clear();
+    //        _nullValue = default;
+    //        _gotNullValue = false;
+    //    }
 
-        public bool Contains(KeyValuePair<TKey, TValue> item)
-        {
-            TValue val;
+    //    public bool Contains(KeyValuePair<TKey, TValue> item)
+    //    {
+    //        TValue val;
 
-            if (TryGetValue(item.Key, out val))
-            {
-                return Equals(item.Value, val);
-            }
-            else
-            {
-                return false;
-            }
-        }
+    //        if (TryGetValue(item.Key, out val))
+    //        {
+    //            return Equals(item.Value, val);
+    //        }
+    //        else
+    //        {
+    //            return false;
+    //        }
+    //    }
 
-        public void CopyTo(KeyValuePair<TKey, TValue>[] array, int arrayIndex)
-        {
-            throw new System.NotImplementedException();
-        }
+    //    public void CopyTo(KeyValuePair<TKey, TValue>[] array, int arrayIndex)
+    //    {
+    //        throw new System.NotImplementedException();
+    //    }
 
-        public bool Remove(KeyValuePair<TKey, TValue> item)
-        {
-            throw new System.NotImplementedException();
-        }
+    //    public bool Remove(KeyValuePair<TKey, TValue> item)
+    //    {
+    //        throw new System.NotImplementedException();
+    //    }
 
-        public int Count
-        {
-            get
-            {
-                if (_gotNullValue)
-                {
-                    return _dict.Count + 1;
-                }
-                else
-                {
-                    return _dict.Count;
-                }
-            }
-        }
+    //    public int Count
+    //    {
+    //        get
+    //        {
+    //            if (_gotNullValue)
+    //            {
+    //                return _dict.Count + 1;
+    //            }
+    //            else
+    //            {
+    //                return _dict.Count;
+    //            }
+    //        }
+    //    }
 
-        public bool IsReadOnly
-        {
-            get { return false; }
-        }
-    }
+    //    public bool IsReadOnly
+    //    {
+    //        get { return false; }
+    //    }
+    //}
 }
