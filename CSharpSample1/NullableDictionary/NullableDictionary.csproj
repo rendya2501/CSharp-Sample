@@ -5,8 +5,4 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="NHibernate" Version="5.3.5" />
-  </ItemGroup>
-
 </Project>

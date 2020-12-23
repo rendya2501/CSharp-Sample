@@ -1,5 +1,4 @@
-﻿using NHibernate.Util;
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -9,31 +8,60 @@ namespace NullableDictionary
 {
     class Program
     {
-        public static NullableDictionary<string, string> Fuck
+        public static NullableDict<bool?, string> ValuePairs => new NullableDict<bool?, string>()
         {
-            get => new NullableDictionary<string, string>()
-            {
-                {null, "すべて" },
-                {"1", "使用する" },
-                {"2", "使用しない" }
-            };
-        }
+            {null, "すべて" },
+            {true, "使用する" },
+            {false, "使用しない" }
+        };
+        public static NullableDict2<bool?, string> ValuePairs2 => new NullableDict2<bool?, string>()
+        {
+            {null, "すべて" },
+            {true, "使用する" },
+            {false, "使用しない" }
+        };
+
+        public static Dictionary<Nullable<bool?>, string> ValidFlag => new Dictionary<Nullable<bool?>, string>()
+        {
+            {null, "すべて" },
+            {true, "使用する" },
+            {false, "使用しない" }
+        };
+
+        public static Dictionary<Nullable<string>, string> NullableString => new Dictionary<Nullable<string>, string>()
+        {
+            {null, "チェックイン処理"},
+            {"001","チェックイン処理"},
+            {"002","アドバンスチェックイン処理"},
+            {"003","スタート入力処理"},
+            {"004","売掛伝票入力・会費伝票入力"},
+            {"005","利用伝票入力"},
+            {"006","現金振替入力"},
+            {"007","伝票一括入力"},
+            {"008","振替伝票入力"},
+            {"009","チェックアウト処理(個人精算)"},
+            {"010","チェックアウト処理"},
+        };
 
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
-            var obj = new ItemsSource();
+
             var converter = new DictionaryConverter();
-            foreach (var item in obj.ValuePairs)
+
+            foreach (var item in ValidFlag)
             {
-                Console.WriteLine(item.Key + " " + item.Value);
-                //Console.WriteLine(converter.Convert(item.Key, Fuck));
+                // Console.WriteLine(item.Key + " " + item.Value);
+                Console.WriteLine(converter.Convert(item.Key, ValidFlag));
             }
+
             var aa = new Dictionary<string, string>();
             foreach (var item in aa)
             {
                 var s2 = item.Key;
             }
+            var test = new Nullable<string>(null);
+            
         }
     }
 
@@ -60,22 +88,6 @@ namespace NullableDictionary
             // インデクサーで値を取得
             return dictionary[value];
         }
-    }
-
-    class ItemsSource
-    {
-        public NullableDict<bool?, string> ValuePairs => new NullableDict<bool?, string>()
-            {
-                {null, "すべて" },
-                {true, "使用する" },
-                {false, "使用しない" }
-            };
-        public NullableDict2<bool?, string> ValuePairs2 => new NullableDict2<bool?, string>()
-            {
-                {null, "すべて" },
-                {true, "使用する" },
-                {false, "使用しない" }
-            };
     }
 
     class NullableDict2<K, V> : IDictionary
