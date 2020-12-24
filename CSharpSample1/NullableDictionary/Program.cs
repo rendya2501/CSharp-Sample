@@ -6,6 +6,13 @@ using System.Linq;
 
 namespace NullableDictionary
 {
+    /// <summary>
+    /// http://noriok.hatenadiary.jp/entry/2017/07/17/233146
+    /// https://qiita.com/chocolamint/items/9f13fe7e3c6343f898c2
+    /// https://qiita.com/RyotaMurohoshi/items/03937297810e7c9aaf8b
+    /// https://qiita.com/Temarin/items/27614d879e9376421aae
+    /// https://stackoverflow.com/questions/4632945/dictionary-with-null-key
+    /// </summary>
     class Program
     {
         public static NullableDict<bool?, string> ValuePairs => new NullableDict<bool?, string>()
@@ -21,38 +28,23 @@ namespace NullableDictionary
             {false, "使用しない" }
         };
 
-        public static Dictionary<Nullable<bool?>, string> ValidFlag => new Dictionary<Nullable<bool?>, string>()
-        {
-            {null, "すべて" },
-            {true, "使用する" },
-            {false, "使用しない" }
-        };
-
-        public static Dictionary<Nullable<string>, string> NullableString => new Dictionary<Nullable<string>, string>()
-        {
-            {null, "チェックイン処理"},
-            {"001","チェックイン処理"},
-            {"002","アドバンスチェックイン処理"},
-            {"003","スタート入力処理"},
-            {"004","売掛伝票入力・会費伝票入力"},
-            {"005","利用伝票入力"},
-            {"006","現金振替入力"},
-            {"007","伝票一括入力"},
-            {"008","振替伝票入力"},
-            {"009","チェックアウト処理(個人精算)"},
-            {"010","チェックアウト処理"},
-        };
-
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
 
+            // コンバーター生成
             var converter = new DictionaryConverter();
 
-            foreach (var item in ValidFlag)
+            //先にIntスタック的には下のやつ
+            foreach (var item in IntItemsSource.IntItems)
             {
                 // Console.WriteLine(item.Key + " " + item.Value);
-                Console.WriteLine(converter.Convert(item.Key, ValidFlag));
+                Console.WriteLine(converter.Convert(item.Key, IntItemsSource.IntItems));
+            }
+            foreach (var item in ValidItemsSource.ValidItems)
+            {
+                // Console.WriteLine(item.Key + " " + item.Value);
+                Console.WriteLine(converter.Convert(item.Key, ValidItemsSource.ValidItems));
             }
 
             var aa = new Dictionary<string, string>();
@@ -60,33 +52,7 @@ namespace NullableDictionary
             {
                 var s2 = item.Key;
             }
-            var test = new Nullable<string>(null);
-            
-        }
-    }
-
-    /// <summary>
-    /// DictionaryのKeyをValueに変換するコンバーター
-    /// </summary>
-    public class DictionaryConverter
-    {
-        /// <summary>
-        /// DictionaryのKeyをValueに変換します。
-        /// </summary>
-        /// <param name="value">バインディング ソースによって生成された値</param>
-        /// <param name="targetType">バインディング ターゲット プロパティの型</param>
-        /// <param name="parameter">使用するコンバーター パラメーター</param>
-        /// <param name="culture">コンバーターで使用するカルチャ</param>
-        /// <returns></returns>
-        public object Convert(object value, object parameter)
-        {
-            // 値、型チェック
-            //if (value == null) return null;
-            // if (!(parameter is IDictionary)) throw new Exception("型");
-            // パラメータの型変換
-            var dictionary = (IDictionary)parameter;
-            // インデクサーで値を取得
-            return dictionary[value];
+            // var test = new Nullable<string>(null);
         }
     }
 

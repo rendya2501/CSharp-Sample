@@ -1,4 +1,7 @@
-﻿namespace NullableDictionary
+﻿using System;
+using System.Diagnostics.CodeAnalysis;
+
+namespace NullableDictionary
 {
     /// <summary>
     /// Dictionaryのキーにnullを許容させるための構造体
@@ -8,10 +11,10 @@
     /// 構造体はnullになりえない性質なので、
     /// null要素を構造体にラップさせることでDictionaryを騙す。
     /// </remarks>
-    public struct Nullable<T>
+    public struct Nullable<T> : IEquatable<Nullable<T>>
     {
         /// <summary>
-        /// 
+        /// 入力値
         /// </summary>
         public T Value { get; }
 
@@ -19,6 +22,9 @@
         /// コンストラクタ
         /// </summary>
         /// <param name="value"></param>
+        /// <remarks>
+        /// 不要なNewを避けるためPrivateで宣言する。
+        /// </remarks>
         public Nullable(T value) => Value = value;
 
         public static bool operator ==(Nullable<T> x, Nullable<T> y) => x.Equals(y);
@@ -36,8 +42,9 @@
         //    //}
         //    //return false;
         //}
-        public override bool Equals(object obj) => obj is Nullable<T> nullable && (ReferenceEquals(Value, nullable.Value) || Value.Equals(nullable.Value));
-        public override int GetHashCode() => Value == null ? 0 : Value.GetHashCode();
 
+        public override int GetHashCode() => Value == null ? 0 : Value.GetHashCode();
+        public override bool Equals(object obj) => obj is Nullable<T> nullable && Equals(nullable);
+        public bool Equals([AllowNull] Nullable<T> nullable) => ReferenceEquals(Value, nullable.Value) || Value.Equals(nullable.Value);
     }
 }
