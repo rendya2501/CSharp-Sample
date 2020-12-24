@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Reflection;
 
 namespace NullableDictionary
 {
@@ -50,10 +51,66 @@ namespace NullableDictionary
             var aa = new Dictionary<string, string>();
             foreach (var item in aa)
             {
-                var s2 = item.Key;
+                _ = item.Key;
             }
-            // var test = new Nullable<string>(null);
+            
+            var b1 = new Nullable<double>(1);
+            _ = (int)b1;
+
+            var c1 = new Nullable<double>(1);
+            var c2 = new Nullable<double>(2);
+            _ = c1 == c2;
+
+            var testClass = new Test();
+            var test2 = new Test2() { T2 = "Test" };
+            testClass.SetTest(test2);
         }
+    }
+
+    class Test1
+    {
+        public string T1 { get; set; }
+    }
+
+    class Test2
+    {
+        public string T2 { get; set; }
+    }
+
+    class Test
+    {
+        public string T1 { get; set; }
+        public string T2 { get; set; }
+
+        public void SetTest(Test2 test2 )
+        {
+            // 親クラスのプロパティ情報を一気に取得して使用する。
+            List<PropertyInfo> props = test2
+                .GetType()
+                .GetProperties(BindingFlags.Instance | BindingFlags.Public)?
+                .ToList();
+
+            props.ForEach(prop =>
+            {
+                var propValue = prop.GetValue(test2);
+                typeof(Test).GetProperty(prop.Name).SetValue(this, propValue);
+            });
+        }
+    }
+
+
+    interface ITest11
+    {
+        public string Test1 { get; set; }
+    }
+    interface ITest2
+    {
+        public string Test2 { get; set; }
+    }
+    class Sample : ITest11, ITest2
+    {
+        public string Test1 { get; set; }
+        public string Test2 { get; set; }
     }
 
     class NullableDict2<K, V> : IDictionary
