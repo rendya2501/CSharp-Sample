@@ -71,8 +71,25 @@ namespace NullableDictionary
         //    //return false;
         //}
 
+        /// <summary>
+        /// ハッシュコードを取得します。
+        /// nullの場合は0を返却します。
+        /// </summary>
+        /// <returns></returns>
         public override int GetHashCode() => Value == null ? 0 : Value.GetHashCode();
+
+        /// <summary>
+        /// 2つのオブジェクト インスタンスが等しいかどうかを判断します。
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
         public override bool Equals(object obj) => obj is Nullable<T> nullable && Equals(nullable);
+        /// <summary>
+        /// IEquatable実装メソッドです。
+        /// 速度向上のために実装しています。
+        /// </summary>
+        /// <param name="nullable"></param>
+        /// <returns></returns>
         public bool Equals([AllowNull] Nullable<T> nullable) => ReferenceEquals(Value, nullable.Value) || Value.Equals(nullable.Value);
     }
 }
