@@ -2,11 +2,10 @@
 
 namespace NullableDictionary
 {
-
     /// <summary>
     /// DictionaryのKeyをValueに変換するコンバーター
     /// </summary>
-    public class DictionaryConverter
+    public static class DictionaryConverter
     {
         /// <summary>
         /// DictionaryのKeyをValueに変換します。
@@ -16,7 +15,7 @@ namespace NullableDictionary
         /// <param name="parameter">使用するコンバーター パラメーター</param>
         /// <param name="culture">コンバーターで使用するカルチャ</param>
         /// <returns></returns>
-        public object Convert(object value, object parameter)
+        public static object Convert(object value, object parameter)
         {
             // if (!(parameter is IDictionary)) throw new Exception("型");
             // パラメータの型変換
@@ -25,5 +24,4 @@ namespace NullableDictionary
             return dictionary[value];
         }
     }
-
 }

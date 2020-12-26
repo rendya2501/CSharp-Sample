@@ -1,23 +1,24 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
 
+/// <summary>
+/// 開発用ソース
+/// </summary>
 namespace NullableDictionary
 {
     /// <summary>
     /// Dictionaryのキーにnullを許容させるための構造体
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    /// <remarks>    /// 
-    /// 構造体はnullになりえない性質なので、
-    /// null要素を構造体にラップさせることでDictionaryを騙す。
+    /// <remarks>
+    /// 構造体はnullになりえない性質なので、nullを構造体でラップすることでDictionaryを騙す。
     /// </remarks>
-    public struct Nullable<T> : IEquatable<Nullable<T>>
+    public struct Nullable<T>// : IEquatable<Nullable<T>>
     {
         /// <summary>
         /// 入力値
         /// </summary>
         public T Value { get; }
-
         /// <summary>
         /// コンストラクタ
         /// </summary>
@@ -59,17 +60,133 @@ namespace NullableDictionary
         /// </summary>
         /// <param name="source"></param>
         public static implicit operator Nullable<T>(T source) => new Nullable<T>(source);
-
+        /// <summary>
+        /// ToStringのオーバーロード。
+        /// Dictionaryへの入力以外に使う予定はないので、これは実装しない。
+        /// </summary>
+        /// <returns></returns>
         public override string ToString() => Value?.ToString();
-        //public override bool Equals(object obj)
-        //{
-        //    //if (obj is Nullable<T> nullable)
-        //    //{
-        //    //    var n = nullable.Value;
-        //    //    return ReferenceEquals(Value, n) || Value.Equals(n);
-        //    //}
-        //    //return false;
-        //}
+
+        /// <summary>
+        /// ハッシュコードを取得します。
+        /// nullの場合は0を返却します。
+        /// </summary>
+        /// <returns></returns>
+        /// <remarks>
+        /// int 0の場合とハッシュ値が同じになるのはなぁ。
+        /// でもハッシュが同じでもちゃんと動作するしな。なんなんだろう。
+        /// </remarks>
+        public override int GetHashCode() => Value == null ? 0 : Value.GetHashCode();
+
+        public override bool Equals(object obj)
+        {
+            if (obj is Nullable<T> nullable)
+            {
+                //return Equals(nullable);
+                return ReferenceEquals(Value, nullable.Value) || Value.Equals(nullable.Value);
+            } else
+            {
+                return false;
+            }
+
+            // 1行にできる。
+            //public override bool Equals(object obj) => obj is Nullable<T> nullable && Equals(nullable);
+        }
+        /// <summary>
+        /// IEquatable実装メソッドです。
+        /// 速度向上のために実装しています。
+        /// </summary>
+        /// <param name="nullable"></param>
+        /// <returns></returns>
+        //public bool Equals([AllowNull] Nullable<T> nullable) => ReferenceEquals(Value, nullable.Value) || Value.Equals(nullable.Value);
+    }
+
+    /// <summary>
+    /// 速度比較用 IEquatableなしVer
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    public struct NullableNotEquatable<T>
+    {
+        public T Value { get; }
+        public NullableNotEquatable(T value) => Value = value;
+        public static implicit operator T(NullableNotEquatable<T> source) => source.Value;
+        public static implicit operator NullableNotEquatable<T>(T source) => new NullableNotEquatable<T>(source);
+        public override int GetHashCode() => Value == null ? 0 : Value.GetHashCode();
+    }
+
+
+    /// <summary>
+    /// 速度比較用
+    /// オーバーロードのみ
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    public struct NullableOverLoad<T>
+    {
+        public T Value { get; }
+        public NullableOverLoad(T value) => Value = value;
+        public static bool operator ==(NullableOverLoad<T> x, NullableOverLoad<T> y) => x.Equals(y);
+        public static bool operator !=(NullableOverLoad<T> x, NullableOverLoad<T> y) => !x.Equals(y);
+        public static implicit operator T(NullableOverLoad<T> source) => source.Value;
+        public static implicit operator NullableOverLoad<T>(T source) => new NullableOverLoad<T>(source);
+        public override int GetHashCode() => Value == null ? 0 : Value.GetHashCode();
+        public override bool Equals(object obj) => obj is Nullable<T> nullable && Equals(nullable);
+    }
+}
+
+
+/// <summary>
+/// リリース用ソース
+/// </summary>
+namespace NullableDictionaryRelease
+{
+    /// <summary>
+    /// Dictionaryのキーにnullを許容させるための構造体
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <remarks>
+    /// 構造体はnullになりえない性質なので、nullを構造体でラップすることでDictionaryを騙す。
+    /// </remarks>
+    public struct Nullable<T>
+    {
+        /// <summary>
+        /// 入力値
+        /// </summary>
+        public T Value { get; }
+
+        /// <summary>
+        /// コンストラクタ
+        /// </summary>
+        /// <param name="value">入力値</param>
+        private Nullable(T value) => Value = value;
+
+        /// <summary>
+        /// 演算子のオーバーロード。
+        /// == 演算子を使ってxとyの比較を行った場合に呼び出される。
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        /// <returns></returns>
+        public static bool operator ==(Nullable<T> x, Nullable<T> y) => x.Equals(y);
+        /// <summary>
+        /// 演算子のオーバーロード。
+        /// != 演算子を使ってxとyの比較を行った場合に呼び出される。
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        /// <returns></returns>
+        public static bool operator !=(Nullable<T> x, Nullable<T> y) => !x.Equals(y);
+        /// <summary>
+        /// キャストのオーバーロード
+        /// Nullable<T>型をT型に変換する時に呼び出されます。
+        /// </summary>
+        /// <param name="source"></param>
+        public static implicit operator T(Nullable<T> source) => source.Value;
+        /// <summary>
+        /// キャストのオーバーロード。
+        /// T型をNullable<T>型に変換する時に呼び出されます。
+        /// </summary>
+        /// <param name="source"></param>
+        public static implicit operator Nullable<T>(T source) => new Nullable<T>(source);
 
         /// <summary>
         /// ハッシュコードを取得します。
@@ -77,19 +194,13 @@ namespace NullableDictionary
         /// </summary>
         /// <returns></returns>
         public override int GetHashCode() => Value == null ? 0 : Value.GetHashCode();
-
         /// <summary>
         /// 2つのオブジェクト インスタンスが等しいかどうかを判断します。
         /// </summary>
         /// <param name="obj"></param>
         /// <returns></returns>
-        public override bool Equals(object obj) => obj is Nullable<T> nullable && Equals(nullable);
-        /// <summary>
-        /// IEquatable実装メソッドです。
-        /// 速度向上のために実装しています。
-        /// </summary>
-        /// <param name="nullable"></param>
-        /// <returns></returns>
-        public bool Equals([AllowNull] Nullable<T> nullable) => ReferenceEquals(Value, nullable.Value) || Value.Equals(nullable.Value);
+        public override bool Equals(object obj) => 
+            obj is Nullable<T> nullable
+            && (ReferenceEquals(Value, nullable.Value) || Value.Equals(nullable.Value));
     }
 }
