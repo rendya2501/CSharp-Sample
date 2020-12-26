@@ -9,6 +9,7 @@
 *.ide-shm
 *.ide-wal
 *.dtbcache
+*.dtbcache.v2
 /.vs/ConsoleApp1/
 
 # Build results
@@ -152,4 +153,3 @@ $RECYCLE.BIN/
 # Mac crap
 .DS_Store
 /.vs
-.dtbcache.v2
