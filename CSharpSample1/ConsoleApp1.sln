@@ -105,7 +105,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NullableDictionary", "Nulla
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IEquatable1", "IEquatable1\IEquatable1.csproj", "{F65C6770-1B17-4AE1-84F6-219BFA8646D2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SandBox1", "SandBox1\SandBox1.csproj", "{8A8C5C3F-759D-4473-92B9-55D24555CA23}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SandBox1", "SandBox1\SandBox1.csproj", "{8A8C5C3F-759D-4473-92B9-55D24555CA23}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReflectionPropertySet", "ReflectionPropertySet\ReflectionPropertySet.csproj", "{4D0FC4B7-C254-40BB-832B-14EDFBBCFC90}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -321,6 +323,10 @@ Global
 		{8A8C5C3F-759D-4473-92B9-55D24555CA23}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8A8C5C3F-759D-4473-92B9-55D24555CA23}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8A8C5C3F-759D-4473-92B9-55D24555CA23}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D0FC4B7-C254-40BB-832B-14EDFBBCFC90}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D0FC4B7-C254-40BB-832B-14EDFBBCFC90}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D0FC4B7-C254-40BB-832B-14EDFBBCFC90}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D0FC4B7-C254-40BB-832B-14EDFBBCFC90}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
