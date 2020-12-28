@@ -24,22 +24,27 @@ namespace ReflectionPropertySet
             //var a2 = new Test2() { T2 = "Test2" };
             //SetTest(main, a2);
 
+            //Benchmark(1);
 
-            Benchmark(1);
+
+            // 匿名型でも行けるー。すげー。
+            var main = new Test();
+            var a1 = new { T1 = "Test1" , T2 = "Test2" };
+            SetValue(main, a1);
         }
 
-        public static void SetTest<T1, T2>(T1 SetItem, T2 test2)
+        public static void SetValue<T1, T2>(T1 targetObj, T2 value)
         {
             // 親クラスのプロパティ情報を一気に取得して使用する。
-            List<PropertyInfo> props = test2
+            List<PropertyInfo> props = value
                 .GetType()
                 .GetProperties(BindingFlags.Instance | BindingFlags.Public)?
                 .ToList();
 
             foreach (var prop in props)
             {
-                var propValue = prop.GetValue(test2);
-                typeof(T1).GetProperty(prop.Name).SetValue(SetItem, propValue);
+                var propValue = prop.GetValue(value);
+                typeof(T1).GetProperty(prop.Name).SetValue(targetObj, propValue);
             }
         }
 
