@@ -109,7 +109,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SandBox1", "SandBox1\SandBo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReflectionPropertySet", "ReflectionPropertySet\ReflectionPropertySet.csproj", "{4D0FC4B7-C254-40BB-832B-14EDFBBCFC90}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdealProcessingSystem1", "IdealProcessingSystem1\IdealProcessingSystem1.csproj", "{BC467C3A-027D-41DC-9742-CA29E98EE2F2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdealProcessingSystem1", "IdealProcessingSystem1\IdealProcessingSystem1.csproj", "{BC467C3A-027D-41DC-9742-CA29E98EE2F2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinqJoin1", "LinqJoin1\LinqJoin1.csproj", "{DDC6777F-AB59-4908-B84D-42CA46709C39}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -333,6 +335,10 @@ Global
 		{BC467C3A-027D-41DC-9742-CA29E98EE2F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BC467C3A-027D-41DC-9742-CA29E98EE2F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BC467C3A-027D-41DC-9742-CA29E98EE2F2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DDC6777F-AB59-4908-B84D-42CA46709C39}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DDC6777F-AB59-4908-B84D-42CA46709C39}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DDC6777F-AB59-4908-B84D-42CA46709C39}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DDC6777F-AB59-4908-B84D-42CA46709C39}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
