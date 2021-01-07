@@ -353,7 +353,141 @@ namespace LinqJoin1
             }
         }
 
+        /// <summary>
+        /// 当日の伝票データを生成します。
+        /// </summary>
+        private void CreateCurrentSlipData()
+        {
+            // 本日伝票データ取得
+            var todaySlipDate = GetCurrentSlipList(_ExCon.OfficeCD, _ExCon.DisplayTaxType, _ExCon.BusinessDate);
+            // 本月伝票データ取得
+            var monthSlipData = GetPerformanceSlipList(_ExCon.OfficeCD, _ExCon.DisplayTaxType, _ExCon.MonthFrom, _ExCon.MonthTo);
+            // 本年伝票データ取得
+            var yearSlipData = GetPerformanceSlipList(_ExCon.OfficeCD, _ExCon.DisplayTaxType, _ExCon.YearFrom, _ExCon.YearTo);
+            // 前年伝票データ取得
+            var lastYearSlipData = GetPerformanceSlipList(_ExCon.OfficeCD, _ExCon.DisplayTaxType, _ExCon.LastYearFrom, _ExCon.LastYearTo);
 
+            // 本日データをもとに本月、本年、前年データをLEFT OUTER JOINしてデータをセットする。
+            // 受け取るデータはないので「破棄」を利用する。
+            _ = todaySlipDate
+                .GroupJoin(
+                    monthSlipData,
+                    today => new { today.SubjectSummaryCD, today.SubjectClsCD, today.SubjectCD },
+                    month => new { month.SubjectSummaryCD, month.SubjectClsCD, month.SubjectCD },
+                    (today, month) => new { today, monthPrice = month.FirstOrDefault()?.Price ?? decimal.Zero }
+                )
+                .GroupJoin(
+                    yearSlipData,
+                    joined1 => new { joined1.today.SubjectSummaryCD, joined1.today.SubjectClsCD, joined1.today.SubjectCD },
+                    year => new { year.SubjectSummaryCD, year.SubjectClsCD, year.SubjectCD },
+                    (joined1, year) => new { joined1.today, joined1.monthPrice, yearPrice = year.FirstOrDefault()?.Price ?? decimal.Zero }
+                )
+                .GroupJoin(
+                    lastYearSlipData,
+                    joined2 => new { joined2.today.SubjectSummaryCD, joined2.today.SubjectClsCD, joined2.today.SubjectCD },
+                    lastYearSlip => new { lastYearSlip.SubjectSummaryCD, lastYearSlip.SubjectClsCD, lastYearSlip.SubjectCD },
+                    (joined2, lastYear) => new
+                    {
+                        joined2.today,
+                        joined2.monthPrice,
+                        joined2.yearPrice,
+                        lastYearPrice = lastYear.FirstOrDefault()?.Price ?? decimal.Zero
+                    }
+                )
+                .Select(s =>
+                {
+                    var todayPrice = s.today.Price;
+                    var monthPrice = s.monthPrice + todayPrice;
+                    var yearPrice = s.yearPrice + todayPrice;
+                    var lastYearPrice = s.lastYearPrice + todayPrice;
+                        // selectのループの中でデータを追加する。
+                        _PrintData.Add(
+                        new DailyReportPrintGetPrintResponse()
+                        {
+                            SubjectSummaryCD = s.today.SubjectSummaryCD,
+                            SubjectClsCD = s.today.SubjectClsCD,
+                            SubjectClsName = s.today.SubjectClsName,
+                            SubjectCD = s.today.SubjectCD,
+                            SubjectName = s.today.SubjectName,
+                            TodayPrice = todayPrice,
+                            MonthPrice = monthPrice,
+                            YearPrice = yearPrice,
+                            LastYearPrice = lastYearPrice,
+                            LastYearContrast = yearPrice - lastYearPrice,
+                            Ratio = lastYearPrice != 0 ? (yearPrice / lastYearPrice) : 0
+                        }
+                    );
+                        // ループを利用したいだけなので適当に返す。
+                        return new { };
+                })
+                // 即時実行させるためToListする。
+                .ToList();
+        }
+
+        /// <summary>
+        /// 過去の伝票データを生成します。
+        /// </summary>
+        private void CreatePerformanceSlipData()
+        {
+            // 本日伝票データ取得
+            var todaySlipDate = GetPerformanceSlipList(_ExCon.OfficeCD, _ExCon.DisplayTaxType, _ExCon.BusinessDate);
+            // 本月伝票データ取得
+            var monthSlipData = GetPerformanceSlipList(_ExCon.OfficeCD, _ExCon.DisplayTaxType, _ExCon.MonthFrom, _ExCon.MonthTo);
+            // 本年伝票データ取得
+            var yearSlipData = GetPerformanceSlipList(_ExCon.OfficeCD, _ExCon.DisplayTaxType, _ExCon.YearFrom, _ExCon.YearTo);
+            // 前年伝票データ取得
+            var lastYearSlipData = GetPerformanceSlipList(_ExCon.OfficeCD, _ExCon.DisplayTaxType, _ExCon.LastYearFrom, _ExCon.LastYearTo);
+
+            // 本日データをもとに本月、本年、前年データをLEFT OUTER JOINしてデータをセットする。
+            // 受け取るデータはないので「破棄」を利用する。
+            _ = todaySlipDate
+                .GroupJoin(
+                    monthSlipData,
+                    today => new { today.SubjectSummaryCD, today.SubjectClsCD, today.SubjectCD },
+                    month => new { month.SubjectSummaryCD, month.SubjectClsCD, month.SubjectCD },
+                    (today, month) => new { today, monthPrice = month.FirstOrDefault()?.Price ?? decimal.Zero }
+                )
+                .GroupJoin(
+                    yearSlipData,
+                    joined1 => new { joined1.today.SubjectSummaryCD, joined1.today.SubjectClsCD, joined1.today.SubjectCD },
+                    year => new { year.SubjectSummaryCD, year.SubjectClsCD, year.SubjectCD },
+                    (joined1, year) => new { joined1, yearPrice = year.FirstOrDefault()?.Price ?? decimal.Zero }
+                )
+                .GroupJoin(
+                    lastYearSlipData,
+                    joined2 => new { joined2.joined1.today.SubjectSummaryCD, joined2.joined1.today.SubjectClsCD, joined2.joined1.today.SubjectCD },
+                    lastYearSlip => new { lastYearSlip.SubjectSummaryCD, lastYearSlip.SubjectClsCD, lastYearSlip.SubjectCD },
+                    (joined2, lastYear) => new { joined2, lastYearPrice = lastYear.FirstOrDefault()?.Price ?? decimal.Zero }
+                )
+                .Select(s =>
+                {
+                    var todayPrice = s.joined2.joined1.today.Price;
+                    var monthPrice = s.joined2.joined1.monthPrice;
+                    var yearPrice = s.joined2.yearPrice;
+                    var lastYearPrice = s.lastYearPrice;
+                        // selectのループの中でデータを追加する。
+                        _PrintData.Add(
+                        new DailyReportPrintGetPrintResponse()
+                        {
+                            SubjectSummaryCD = s.joined2.joined1.today.SubjectSummaryCD,
+                            SubjectClsCD = s.joined2.joined1.today.SubjectClsCD,
+                            SubjectClsName = s.joined2.joined1.today.SubjectClsName,
+                            SubjectCD = s.joined2.joined1.today.SubjectCD,
+                            SubjectName = s.joined2.joined1.today.SubjectName,
+                            TodayPrice = todayPrice,
+                            MonthPrice = monthPrice,
+                            YearPrice = yearPrice,
+                            LastYearPrice = lastYearPrice,
+                            LastYearContrast = yearPrice - lastYearPrice,
+                            Ratio = lastYearPrice != 0 ? (yearPrice / lastYearPrice) : 0
+                        }
+                    );
+                        // ループを利用したいだけなので適当に返す。
+                        return new { };
+                })
+                // 即時実行させるためToListする。
+                .ToList();
+        }
 
         public static void GroupJoinEx1()
         {
