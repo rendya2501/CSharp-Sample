@@ -75,15 +75,21 @@ namespace LinqJoin1
             //sw.Stop();
             //Console.WriteLine($"6 = {sw.ElapsedMilliseconds}ms");
 
-            //sw.Restart();
-            //for (int i = 0; i < n; i++) GroupJoinSample7();
-            //sw.Stop();
-            //Console.WriteLine($"7 = {sw.ElapsedMilliseconds}ms");
+            sw.Restart();
+            for (int i = 0; i < n; i++) GroupJoinSample7();
+            sw.Stop();
+            Console.WriteLine($"7_1 = {sw.ElapsedMilliseconds}ms");
 
-            //sw.Restart();
-            //for (int i = 0; i < n; i++) GroupJoinSample8();
-            //sw.Stop();
-            //Console.WriteLine($"8 = {sw.ElapsedMilliseconds}ms");
+            sw.Restart();
+            for (int i = 0; i < n; i++) GroupJoinSample7_2();
+            sw.Stop();
+            Console.WriteLine($"7_2 = {sw.ElapsedMilliseconds}ms");
+            
+
+            sw.Restart();
+            for (int i = 0; i < n; i++) GroupJoinSample8();
+            sw.Stop();
+            Console.WriteLine($"8 = {sw.ElapsedMilliseconds}ms");
 
         }
 
@@ -828,6 +834,76 @@ namespace LinqJoin1
                 .ToList();
         }
 
+        public static void GroupJoinSample7_2()
+        {
+            var todaySlip = new List<SlipData>()
+            {
+                new SlipData(){SummeryCD = 1,ClsCD = 0,CD = 10,Price = 100},
+                new SlipData(){SummeryCD = 1,ClsCD = 0,CD = 20,Price = 200},
+                new SlipData(){SummeryCD = 1,ClsCD = 0,CD = 30,Price = 300}
+            };
+            var monthSlip = new List<SlipData>()
+            {
+                new SlipData(){SummeryCD = 1,ClsCD = 0,CD = 10,Price = 1000},
+                new SlipData(){SummeryCD = 1,ClsCD = 0,CD = 20,Price = 2000},
+                new SlipData(){SummeryCD = 1,ClsCD = 0,CD = 30,Price = 3000}
+            };
+            var yearSlip = new List<SlipData>()
+            {
+                new SlipData(){SummeryCD = 1,ClsCD = 0,CD = 10,Price = 10000},
+                new SlipData(){SummeryCD = 1,ClsCD = 0,CD = 20,Price = 20000},
+                new SlipData(){SummeryCD = 1,ClsCD = 0,CD = 30,Price = 30000}
+            };
+            var lastYearSlip = new List<SlipData>()
+            {
+                new SlipData(){SummeryCD = 1,ClsCD = 0,CD = 10,Price = 100000},
+                new SlipData(){SummeryCD = 1,ClsCD = 0,CD = 30,Price = 300000}
+            };
+
+            var list = todaySlip
+                .GroupJoin(
+                    monthSlip,
+                    today => new { today.SummeryCD, today.ClsCD, today.CD },
+                    month => new { month.SummeryCD, month.ClsCD, month.CD },
+                    (today, month) => new { today, monthPrice = month.FirstOrDefault()?.Price ?? decimal.Zero }
+                )
+                .GroupJoin(
+                    yearSlip,
+                    joined1 => new { joined1.today.SummeryCD, joined1.today.ClsCD, joined1.today.CD },
+                    year => new { year.SummeryCD, year.ClsCD, year.CD },
+                    (joined1, year) => new { joined1.today, joined1.monthPrice, yearPrice = year.FirstOrDefault()?.Price ?? decimal.Zero }
+                )
+                .GroupJoin(
+                    lastYearSlip,
+                    joined2 => new { joined2.today.SummeryCD, joined2.today.ClsCD, joined2.today.CD },
+                    lastYearSlip => new { lastYearSlip.SummeryCD, lastYearSlip.ClsCD, lastYearSlip.CD },
+                    (joined2, lastYearSlip) => new
+                    {
+                        joined2.today,
+                        joined2.monthPrice,
+                        joined2.yearPrice,
+                        lastYearPrice = lastYearSlip.FirstOrDefault()?.Price ?? decimal.Zero
+                    }
+                ).Select(s =>
+                {
+                    var todayPrice = s.today.Price;
+                    var monthPrice = s.monthPrice;
+                    var yearPrice = s.yearPrice;
+                    var lastYearPrice = s.lastYearPrice;
+                    return new 
+                    {
+                        todayPrice,monthPrice,yearPrice,lastYearPrice
+                    };
+                });
+
+            foreach (var item in list)
+            {
+                var todayPrice = item.todayPrice;
+                var monthPrice = item.monthPrice;
+                var yearPrice = item.yearPrice;
+                var lastYearPrice = item.lastYearPrice;
+            }
+        }
 
         public static void GroupJoinSample8()
         {
