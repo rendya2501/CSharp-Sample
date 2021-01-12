@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NullableDictionary2;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -27,6 +28,10 @@ namespace NullableDictionary
             {
                 //Console.WriteLine(item.Key + " " + item.Value);
                 Console.WriteLine(Convert(item.Key, ValidItemsSource.ValidItems));
+            }
+            foreach (var item in TaxationTypeItemSource.ValidFlagListHasBlank)
+            {
+                Console.WriteLine(Convert2(item.Key, TaxationTypeItemSource.ValidFlagListHasBlank));
             }
             foreach (var item in ValidFlagItemSource.ValidFlagListHasBlank)
             {

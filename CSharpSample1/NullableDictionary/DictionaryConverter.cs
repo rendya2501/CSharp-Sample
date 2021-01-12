@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Reflection;
+
 
 namespace NullableDictionary
 {
@@ -27,56 +27,50 @@ namespace NullableDictionary
             return dictionary[value];
         }
 
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="parameter"></param>
+        /// <returns></returns>
+        /// <remarks>
+        /// 参考サイト : https://stackoverflow.com/questions/2729614/c-sharp-reflection-how-can-i-tell-if-object-o-is-of-type-keyvaluepair-and-then
+        /// </remarks>
         public static object Convert2(object value, object parameter)
         {
-            // パラメータの型変換
-            var dictionary = (IList)parameter;
-            var count = dictionary.Count;
-
-            for (int i = 0; i < count; i++)
+            // null判定
+            if (parameter == null) throw new Exception("null");
+            // 型の判定とIListへ変換
+            if (!(parameter is IList list)) throw new Exception("型");
+            // 要素をループ
+            foreach (var item in list)
             {
-                // これは当然うまくいく
-                //if (dictionary[i] is KeyValuePair<bool?, string> conv)
-                //{
-                //    if (conv.Key == (bool?)value)
-                //    {
-                //        return conv.Value;
-                //    }
-                //}
-
-
-                if (dictionary[i] is KeyValuePair<object, object> conv)
-                {
-                    if (conv.Key == value)
-                    {
-                        return conv.Value;
-                    }
-                }
-
-
-                Type valueType = dictionary[i].GetType();
+                // 値が一般的であることを確認
+                Type valueType = item.GetType();
                 if (valueType.IsGenericType)
                 {
+                    // ジェネリック型の定義を抽出
                     Type baseType = valueType.GetGenericTypeDefinition();
+                    // KeyValuePair型の判定
                     if (baseType == typeof(KeyValuePair<,>))
                     {
-                        Type[] argTypes = baseType.GetGenericArguments();
+                        // その中の値のタイプを抽出
+                        //Type[] argTypes = baseType.GetGenericArguments();
 
-                        object kvpKey = valueType.GetProperty("Key")?.GetValue(value, null);
-                        object kvpValue = valueType.GetProperty("Value")?.GetValue(value, null);
+                        // KeyとValueの取得
+                        var kvpKey = valueType.GetProperty("Key")?.GetValue(item, null);
+                        var kvpValue = valueType.GetProperty("Value")?.GetValue(item, null);
+                        // Keyと引数valueの比較
+                        if (kvpKey?.Equals(value) ?? kvpKey == value)
+                        {
+                            return kvpValue;
+                        }
                     }
-
-                    //Type baseType = valueType.GetGenericTypeDefinition();
-                    //if (baseType == typeof(KeyValuePair<,>))
-                    //{
-                    //    var key = baseType.GetProperty("Key", BindingFlags.Public | BindingFlags.Instance).GetValue(value, null);
-                    //    var value2 = baseType.GetProperty("Value", BindingFlags.Public | BindingFlags.Instance).GetValue(value, null);
-                    //}
                 }
             }
-
-            // インデクサーで値を取得
-            return dictionary.Contains(value);
+            // Keyに合致するものがなければnullを返却。
+            return null;
         }
     }
 }
