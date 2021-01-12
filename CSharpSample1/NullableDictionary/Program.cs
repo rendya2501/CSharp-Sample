@@ -28,6 +28,10 @@ namespace NullableDictionary
                 //Console.WriteLine(item.Key + " " + item.Value);
                 Console.WriteLine(Convert(item.Key, ValidItemsSource.ValidItems));
             }
+            foreach (var item in ValidFlagItemSource.ValidFlagListHasBlank)
+            {
+                Console.WriteLine(Convert2(item.Key, ValidFlagItemSource.ValidFlagListHasBlank));
+            }
 
             var aa = new Dictionary<string, string>();
             foreach (var item in aa)

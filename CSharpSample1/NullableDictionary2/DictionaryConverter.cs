@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Globalization;
 using System.Windows.Data;
 
@@ -27,6 +28,16 @@ namespace NullableDictionary2
             var dictionary = (IDictionary)parameter;
             // インデクサーで値を取得
             return dictionary[value];
+        }
+
+        public object Convert2(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            // 値、型チェック
+            if (!(parameter is IList)) throw new Exception(string.Format("型"));
+            // パラメータの型変換
+            var dictionary = (IList)parameter;
+            // インデクサーで値を取得
+            return dictionary.Contains(value);
         }
         /// <summary>
         /// OneWayでのBindingでしか使用しません。
