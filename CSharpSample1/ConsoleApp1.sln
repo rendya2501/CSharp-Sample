@@ -117,7 +117,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NullableDictionary2", "Null
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wpf_if", "Wpf_if\Wpf_if.csproj", "{1B2CC57D-11A2-40E1-9274-860AF7170DA3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SelectMany", "SelectMany\SelectMany.csproj", "{F93EC6F8-2CBC-4F89-8D95-2D7E0E4C91ED}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SelectMany", "SelectMany\SelectMany.csproj", "{F93EC6F8-2CBC-4F89-8D95-2D7E0E4C91ED}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dispose1", "Dispose1\Dispose1.csproj", "{83770A38-3767-41F8-992E-D8FEB976C766}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -825,6 +827,18 @@ Global
 		{F93EC6F8-2CBC-4F89-8D95-2D7E0E4C91ED}.Release|iPhone.Build.0 = Release|Any CPU
 		{F93EC6F8-2CBC-4F89-8D95-2D7E0E4C91ED}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
 		{F93EC6F8-2CBC-4F89-8D95-2D7E0E4C91ED}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+		{83770A38-3767-41F8-992E-D8FEB976C766}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{83770A38-3767-41F8-992E-D8FEB976C766}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{83770A38-3767-41F8-992E-D8FEB976C766}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{83770A38-3767-41F8-992E-D8FEB976C766}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{83770A38-3767-41F8-992E-D8FEB976C766}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{83770A38-3767-41F8-992E-D8FEB976C766}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{83770A38-3767-41F8-992E-D8FEB976C766}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{83770A38-3767-41F8-992E-D8FEB976C766}.Release|Any CPU.Build.0 = Release|Any CPU
+		{83770A38-3767-41F8-992E-D8FEB976C766}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{83770A38-3767-41F8-992E-D8FEB976C766}.Release|iPhone.Build.0 = Release|Any CPU
+		{83770A38-3767-41F8-992E-D8FEB976C766}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{83770A38-3767-41F8-992E-D8FEB976C766}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
