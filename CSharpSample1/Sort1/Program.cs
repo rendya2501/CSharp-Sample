@@ -27,6 +27,8 @@ namespace Sort1
             QuickSort(targetArray, 0, targetArray.Length - 1);
 
             Console.WriteLine(string.Join(",", targetArray));
+
+            JavaQuickSort.Execute();
         }
 
         /// <summary>
@@ -59,7 +61,7 @@ namespace Sort1
                 // 右の要素と中央値を比較して、右の要素が大きければ、右を1つ左に進める。
                 // 中央値より大きい場合、中央値より大きいグループに、小さい場合は中央値より小さいグループに分けるため。
                 while (array[pr].CompareTo(pivot) > 0) pr--;
-                // 左と右のインデックスが同じか、左が右に突き抜けたら終了
+                // 左と右のインデックスが同じか、左右が交差したら終了
                 if (pl >= pr) break;
                 // 現在の左の位置と右の位置の数字を入れ替える
                 Swap<T>(ref array[pl], ref array[pr]);
@@ -74,7 +76,7 @@ namespace Sort1
             QuickSort(array, left, pl - 1);
             // 大きいグループ内で同じロジックを繰り替えす。
             // 繰り返していくと、大きいグループ内で更に大きいグループと小さいグループにわかれるので、それも同じように繰り返す。
-            QuickSort(array, pl + 1, right);
+            QuickSort(array, pr + 1, right);
         }
 
         /// <summary>
@@ -124,7 +126,7 @@ namespace Sort1
                     ? (x.CompareTo(z) < 0 ? x : z)
                     : y;
 
-        //// 11 < 6 なのでelse
+        //// (11 < 6) = 1 < 0 なのでelse
         //if (x.CompareTo(y) < 0)
         //{
         //    // xがzより小さい場合、
@@ -132,7 +134,9 @@ namespace Sort1
         //}
         //
         //else
-        //{ // 1 < 6なのでelse。 11 < 6なので zの6が中央値として返却される。
+        //{ 
+        // (1 < 6) = -1 < 0なのでtrue。
+        // (11 < 6) = 1 < 0なのでfalse,zの6が中央値として返却される。
         //    return y.CompareTo(z) < 0 ? (x.CompareTo(z) < 0 ? x : z) : y;
         //}
 
