@@ -9,15 +9,30 @@ namespace Sort1
         /// ②中央値より小さいグループと大きいグループに分ける。
         /// ③分けたグループの中で中央値を求め、同じように小さいグループと大きいグループに分ける。
         /// ④これをソートできなくなるまで繰り返す
-        /// https://www.hanachiru-blog.com/entry/2020/03/08/120000
         /// </summary>
         /// <param name="args"></param>
         /// <remarks>
+        /// クイックソートの本質は中央値が最初から治まる場所に治まるって事。
         /// 処理の内容的に、先に小さいグループの再帰が完了するまで繰り返される。
         /// 小さいグループの再帰処理が終了してから大きいグループの再帰処理が実行されて、
         /// それも終わったらソートは完了しているというわけ。
         /// </remarks>
         public static void Main(string[] args)
+        {
+
+            QuickSort1.Execute();
+
+            JavaQuickSort.Execute();
+        }
+    }
+
+    /// <summary>
+    /// https://www.hanachiru-blog.com/entry/2020/03/08/120000
+    /// クイックソートで調べて一番上に出てきたサイトを少し改造したやつ。
+    /// </summary>
+    class QuickSort1
+    {
+        public static void Execute()
         {
             var targetArray = new int[11] { 11, 300, 10, 51, 126, 1, 53, 14, 12, 55, 6 };
 
@@ -28,7 +43,6 @@ namespace Sort1
 
             Console.WriteLine(string.Join(",", targetArray));
 
-            JavaQuickSort.Execute();
         }
 
         /// <summary>
@@ -38,7 +52,7 @@ namespace Sort1
         /// <param name="array">対称配列</param>
         /// <param name="left">ソート範囲の最初のインデックス</param>
         /// <param name="right">ソート範囲の最後のインデックス</param>
-        public static void QuickSort<T>(T[] array, int left, int right) where T : IComparable<T>
+        private static void QuickSort<T>(T[] array, int left, int right) where T : IComparable<T>
         {
             // 範囲が1つだけなら処理を抜ける
             // これの否定は left < right なので、左が中央を突き破って右にいかない限りは続ける事を意味する。
@@ -56,15 +70,24 @@ namespace Sort1
             while (true)
             {
                 // 左の要素と中央値を比較して、左の要素が小さければ、左を1つ右に進める。
-                // 中央値より小さい場合、中央値より小さいグループに、大きい場合は中央値より大きいグループに分けるため。
+                // 中央値より大きい値を見つけるため。見つからなければ見つけるまで続ける。
+                // 中央値より大きい値は右側のグループに飛ばさないといけない。
                 while (array[pl].CompareTo(pivot) < 0) pl++;
                 // 右の要素と中央値を比較して、右の要素が大きければ、右を1つ左に進める。
-                // 中央値より大きい場合、中央値より大きいグループに、小さい場合は中央値より小さいグループに分けるため。
+                // 中央値より小さい値を見つけるため。見つからなければ見つかるまで続ける。
+                // 中央値より小さい値は左型のグループに飛ばさないといけない。
                 while (array[pr].CompareTo(pivot) > 0) pr--;
+
                 // 左と右のインデックスが同じか、左右が交差したら終了
                 if (pl >= pr) break;
+                // 左右のインデックスが交差することはあるのか？
+                // →あった。中央値が6で 6,1,10,51,…と並んでいる時、
+                // 左からは6より大きい数がarray[2]の10で右からは6より小さい数がarray[1]で1の時、見事に左右が突き抜ける。
+                // この状態で値を交換しても意味がないし、処理を続ける意味もないので、
+                // breakしてとっとと次の中央値を決めてソートしていくのが手っ取り早いからこの条件文があるわけか。
+
                 // 現在の左の位置と右の位置の数字を入れ替える
-                Swap<T>(ref array[pl], ref array[pr]);
+                Swap(ref array[pl], ref array[pr]);
 
                 // 交換を行った要素の次の要素にインデックスを進める
                 // 左は1つ右に。右は1つ左にインデックスを進める。
@@ -103,7 +126,6 @@ namespace Sort1
             return y;
         }
 
-
         /// <summary>
         /// 3値の中から中央値を返す
         /// </summary>
@@ -117,7 +139,7 @@ namespace Sort1
         /// 上は最悪の場合、6回の演算を行うが、こちらは最悪でも3回で済む。
         /// x:11,y:1,z:6と入ってくる。
         /// </remarks>
-        public static T Median2<T>(T x, T y, T z) where T : IComparable<T> =>
+        private static T Median2<T>(T x, T y, T z) where T : IComparable<T> =>
             x.CompareTo(y) < 0
                 ? x.CompareTo(z) < 0
                     ? (y.CompareTo(z) < 0 ? y : z)
@@ -126,21 +148,22 @@ namespace Sort1
                     ? (x.CompareTo(z) < 0 ? x : z)
                     : y;
 
-        //// (11 < 6) = 1 < 0 なのでelse
-        //if (x.CompareTo(y) < 0)
-        //{
-        //    // xがzより小さい場合、
-        //    return x.CompareTo(z) < 0 ? (y.CompareTo(z) < 0 ? y : z) : x;
+        // 元の形式
+        // private static T Median<T>(T x, T y, T z) where T : IComparable<T>
+        // {
+        //    // (11 < 6) = 1 < 0 なのでelse
+        //    if (x.CompareTo(y) < 0)
+        //    {
+        //        // xがzより小さい場合、
+        //        return x.CompareTo(z) < 0 ? (y.CompareTo(z) < 0 ? y : z) : x;
+        //    }
+        //    else
+        //    {
+        //     (1 < 6) = -1 < 0なのでtrue。
+        //     (11 < 6) = 1 < 0なのでfalse,zの6が中央値として返却される。
+        //        return y.CompareTo(z) < 0 ? (x.CompareTo(z) < 0 ? x : z) : y;
+        //    }
         //}
-        //
-        //else
-        //{ 
-        // (1 < 6) = -1 < 0なのでtrue。
-        // (11 < 6) = 1 < 0なのでfalse,zの6が中央値として返却される。
-        //    return y.CompareTo(z) < 0 ? (x.CompareTo(z) < 0 ? x : z) : y;
-        //}
-
-
 
         private static void Swap<T>(ref T x, ref T y)
         {

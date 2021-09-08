@@ -2,6 +2,9 @@
 
 namespace Sort1
 {
+    /// <summary>
+    /// 大学の時に使っていたJavaのアルゴリズムの本のプログラム
+    /// </summary>
     class JavaQuickSort
     {
         public static void Execute()
