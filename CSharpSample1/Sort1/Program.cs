@@ -2,26 +2,25 @@
 
 namespace Sort1
 {
+    /// <summary>
+    /// クイックソート
+    /// ①中央値を決める
+    /// ②中央値より小さいグループと大きいグループに分ける。
+    /// ③分けたグループの中で中央値を求め、同じように小さいグループと大きいグループに分ける。
+    /// ④これをソートできなくなるまで繰り返す
+    /// </summary>
+    /// <param name="args"></param>
+    /// <remarks>
+    /// クイックソートの本質は中央値が最初から治まる場所に治まるって事。
+    /// 処理の内容的に、先に小さいグループの再帰が完了するまで繰り返される。
+    /// 小さいグループの再帰処理が終了してから大きいグループの再帰処理が実行されて、
+    /// それも終わったらソートは完了しているというわけ。
+    /// </remarks>
     class Program
     {
-        /// <summary>
-        /// ①中央値を決める
-        /// ②中央値より小さいグループと大きいグループに分ける。
-        /// ③分けたグループの中で中央値を求め、同じように小さいグループと大きいグループに分ける。
-        /// ④これをソートできなくなるまで繰り返す
-        /// </summary>
-        /// <param name="args"></param>
-        /// <remarks>
-        /// クイックソートの本質は中央値が最初から治まる場所に治まるって事。
-        /// 処理の内容的に、先に小さいグループの再帰が完了するまで繰り返される。
-        /// 小さいグループの再帰処理が終了してから大きいグループの再帰処理が実行されて、
-        /// それも終わったらソートは完了しているというわけ。
-        /// </remarks>
         public static void Main(string[] args)
         {
-
             QuickSort1.Execute();
-
             JavaQuickSort.Execute();
         }
     }
@@ -35,14 +34,9 @@ namespace Sort1
         public static void Execute()
         {
             var targetArray = new int[11] { 11, 300, 10, 51, 126, 1, 53, 14, 12, 55, 6 };
-
             Console.WriteLine(string.Join(",", targetArray));
-
-            // クイックソートを行う
             QuickSort(targetArray, 0, targetArray.Length - 1);
-
             Console.WriteLine(string.Join(",", targetArray));
-
         }
 
         /// <summary>
