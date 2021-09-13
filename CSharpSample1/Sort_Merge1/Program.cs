@@ -7,6 +7,8 @@ namespace Sort_Merge1
     /// 1.データを2つのデータに分割する
     /// 2.分割したデータを更にマージソートでソートする
     /// 3.分割されたデータをマージ(小さい方から順に取り出して並べる)
+    /// https://daeudaeu.com/merge_sort/
+    /// 解説はここがわかりやすい。
     /// </summary>
     class Program
     {
@@ -21,6 +23,7 @@ namespace Sort_Merge1
     {
         /// <summary>
         /// https://algoful.com/Archive/Algorithm/MergeSort
+        /// このサイトのロジックはインデックス操作が、これでもかというくらい最適化されすぎて、処理を追うのが大変。
         /// </summary>
         public static void Execute()
         {
@@ -40,7 +43,7 @@ namespace Sort_Merge1
         }
 
         /// <summary>
-        ///
+        /// マージソートを行う
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="array"></param>
@@ -49,7 +52,7 @@ namespace Sort_Merge1
         /// <param name="work"></param>
         private static void MergeSort<T>(T[] array, int left, int right, T[] work) where T : IComparable<T>
         {
-            // 左右のインデックスが同じになったら処理終了
+            // ソートを行うデータ数が1つになった場合は処理終了
             if (left == right) return;
 
             // 中央のインデックスを求める
@@ -81,7 +84,7 @@ namespace Sort_Merge1
             // 10,mid:10,right:10
             MergeSort(array, mid + 1, right, work);
 
-            // ソートされた左右のデータをマージ
+            /* ソート済みの各集合をマージする */
             // 1,left:0,right:1,mid:0
             // 2,left:0,right:2,mid:1
             // 3,left:3,right:4,mid:3
@@ -92,38 +95,45 @@ namespace Sort_Merge1
             // 8,left:9,right:10,mid:9
             // 9,left:6,right:10,mid:8
             // 10,left:0,right:10,mid:5
-            Merge(array, left, right, mid, work);
+            Merge(array, left, mid, right, work);
         }
 
         /// <summary>
         /// 
         /// </summary>
         /// <typeparam name="T"></typeparam>
-        /// <param name="ary"></param>
-        /// <param name="left"></param>
-        /// <param name="right"></param>
-        /// <param name="mid"></param>
-        /// <param name="work"></param>
-        public static void Merge<T>(T[] ary, int left, int right, int mid, T[] work) where T : IComparable<T>
+        /// <param name="ary">マージを行うデータの集合(マージ後のデータの集合を格納)</param>
+        /// <param name="left">マージする１つ目の集合範囲の開始点</param>
+        /// <param name="mid">マージする１つ目の集合の範囲の終了点</param>
+        /// <param name="right">マージする２つ目の集合の範囲の終了点</param>
+        /// <param name="work">マージを行うために必要な作業メモリ(マージ先集合として一時退避先として使用)</param>
+        public static void Merge<T>(T[] ary, int left, int mid, int right, T[] work) where T : IComparable<T>
         {
+            // 0,5,10の場合観測用条件
+            if (mid == 5) { _ = 1; }
+
             // 左部分を作業領域に退避
             for (int i = left; i <= mid; i++)
             {
                 work[i - left] = ary[i];
             }
-
+            /* １つ目の集合の開始点をセット */
             int l = left;
+            /* ２つ目の集合の開始点をセット */
             int r = mid + 1;
-            // 左部分と右部分(作業領域)をマージ
+
+            /* ２つの集合のどちらかが全てマージ済みになるまでループ */
             while (true)
             {
-                // メイン配列指定用のインデックス
+                /* マージ先集合の開始点をセット */
                 int k = l + r - (mid + 1);
 
                 // 左部分(作業領域)が並べ終わったらマージ完了(右部分残りはもとの位置のまま)
+                // leftがmidを超えたということは、ワーク側のマージが完了したという事なので、処理を終了する。
                 if (l > mid) break;
 
                 // 右部分が並べ終わったら左部分(作業領域)をすべて並べて完了
+                // rightが終了点を超えたということは、集合側のマージが完了したという事なので、左側の要素を全て集合側に並べる。
                 if (r > right)
                 {
                     while (l <= mid)
@@ -134,10 +144,12 @@ namespace Sort_Merge1
                     break;
                 }
 
-                // 小さい方の値を配列に並べ、インクリメントしておく
-                // 
+                /* マージ済みデータを抜いた２つの集合の先頭のデータの小さい方をマージ */
+                /* マージした集合のインデックスとマージ先集合のインデックスをインクリメント */
                 ary[k] = work[l - left].CompareTo(ary[r]) < 0
+                    // work[l - left] < (ary[r])ならworkに小さい値が入っているので、ワークの値を集合先の左に詰めて、ワーク側のインデックスを進める。
                     ? work[l++ - left]
+                    // work[l - left] > (ary[r])なら集合先に小さい値が入っているので、集合先のインデックスを進めるだけ。rが進めばkも進むのでつじつまがう。
                     : ary[r++];
             }
         }
