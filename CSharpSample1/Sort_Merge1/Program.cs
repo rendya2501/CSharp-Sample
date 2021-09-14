@@ -16,6 +16,7 @@ namespace Sort_Merge1
         {
             MergeSort1.Execute();
             JavaMergeSort.Execute();
+            CMergeSort.Execute();
         }
     }
 
