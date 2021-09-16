@@ -133,7 +133,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MultiSelectComboBox", "Mult
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MultiSelectDemo", "MultiSelectDemo\MultiSelectDemo.csproj", "{83454B4E-D139-45D1-BEB8-5EBEEF596668}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sort_Heap1", "Sort_Heap1\Sort_Heap1.csproj", "{E17A3266-DBFD-493A-BEBD-306E78679060}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sort_Heap1", "Sort_Heap1\Sort_Heap1.csproj", "{E17A3266-DBFD-493A-BEBD-306E78679060}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasicInfomationAlgorithm", "BasicInfomationAlgorithm\BasicInfomationAlgorithm.csproj", "{123B2358-F807-49AF-BEF8-B615EEF4DB38}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -1203,6 +1205,22 @@ Global
 		{E17A3266-DBFD-493A-BEBD-306E78679060}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
 		{E17A3266-DBFD-493A-BEBD-306E78679060}.Release|x86.ActiveCfg = Release|Any CPU
 		{E17A3266-DBFD-493A-BEBD-306E78679060}.Release|x86.Build.0 = Release|Any CPU
+		{123B2358-F807-49AF-BEF8-B615EEF4DB38}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{123B2358-F807-49AF-BEF8-B615EEF4DB38}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{123B2358-F807-49AF-BEF8-B615EEF4DB38}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{123B2358-F807-49AF-BEF8-B615EEF4DB38}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{123B2358-F807-49AF-BEF8-B615EEF4DB38}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{123B2358-F807-49AF-BEF8-B615EEF4DB38}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{123B2358-F807-49AF-BEF8-B615EEF4DB38}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{123B2358-F807-49AF-BEF8-B615EEF4DB38}.Debug|x86.Build.0 = Debug|Any CPU
+		{123B2358-F807-49AF-BEF8-B615EEF4DB38}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{123B2358-F807-49AF-BEF8-B615EEF4DB38}.Release|Any CPU.Build.0 = Release|Any CPU
+		{123B2358-F807-49AF-BEF8-B615EEF4DB38}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{123B2358-F807-49AF-BEF8-B615EEF4DB38}.Release|iPhone.Build.0 = Release|Any CPU
+		{123B2358-F807-49AF-BEF8-B615EEF4DB38}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{123B2358-F807-49AF-BEF8-B615EEF4DB38}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+		{123B2358-F807-49AF-BEF8-B615EEF4DB38}.Release|x86.ActiveCfg = Release|Any CPU
+		{123B2358-F807-49AF-BEF8-B615EEF4DB38}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
