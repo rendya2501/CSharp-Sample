@@ -31,7 +31,20 @@ namespace Tuple1
 
             var vt = (x2: 1, y2: "vt");
 
+            ValueTupleArgumentTest(("a", 1));
+            ValueTupleArgumentTest((str: "b", i: 2));
+            ValueTupleArgumentTest(new ValueTuple<string, int>("c", 3));
+            ValueTupleArgumentTest(ValueTuple.Create("d", 4));
+            // これはダメ
+            // ValueTupleArgumentTest(Tuple.Create("d", 4));
         }
+
+        private static void ValueTupleArgumentTest((string str, int i) key)
+        {
+            Console.WriteLine(key.str);
+            Console.WriteLine(key.i);
+        }
+
 
         //public (int max, int min) GetMaxMin(int x, int y)
         //{
@@ -69,7 +82,7 @@ namespace Tuple1
         /// <param name="x"></param>
         /// <param name="y"></param>
         /// <returns></returns>
-        public (int,int) GetTuple2(int x, int y) => x > y ? (x, y) : (y, x);
+        public (int, int) GetTuple2(int x, int y) => x > y ? (x, y) : (y, x);
 
         /// <summary>
         /// ValueTuple構造体の<int,int>型だから名前ついてそうだけど、そんなことはない。
