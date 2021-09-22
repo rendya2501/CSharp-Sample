@@ -16,24 +16,6 @@ namespace Sort_Heap1
         {
             CSHeapSort1.Execute();
             JavaHeapSort.Execute();
-
-            // TupleのList
-            var tt = new List<(int, string)>
-            {
-                (3, "first"),
-                (6, "second")
-            };
-            // ValueTupleのListその１
-            List<(int example, string descrpt)> list = Enumerable.Range(0, 10)
-                .Select(i => (example: i, descrpt: $"{i}"))
-                .ToList();
-            // ValueTupleのListその2
-            var tupleList = new List<(int Index, string Name)>
-            {
-                (1, "cow"),
-                (5, "chickens"),
-                (1, "airplane")
-            };
         }
     }
 }
