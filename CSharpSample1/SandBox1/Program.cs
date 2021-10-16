@@ -13,46 +13,14 @@ namespace SandBox1
         /// <param name="args"></param>
         static void Main(string[] args)
         {
-            // 適当な分岐のつもり
-            int flag = 1;
-            // 1.Actionデリゲートとして受け取るタイプ
-            Action result = flag switch
-            {
-                1 => Test1,
-                2 => Test2,
-                _ => throw new InvalidOperationException()
-            };
-            result();
+            int[][] arr = new int[2][];
+            //_ = arr[0].Length;
 
-            // 2.Actionを返却する関数として実装したタイプ
-            Action(flag).Invoke();
+            var aa = new int [100,512];
+            _ = aa.Length;
+            _ = aa.GetLength(0);
 
-            // 3.どれか1つでもキャストするとvarでもいけることがわかった。
-            // でもって、こっちだと.Invoke()で起動できる。
-            var a = flag switch
-            {
-                1 => (Action)Test1,
-                2 => Test2,
-                _ => throw new InvalidOperationException()
-            };
-            a.Invoke();
-
-            // 4.そもそもActionとして受け取らないで即時実行するタイプ
-            (flag switch
-            {
-                1 => (Action)Test1,
-                2 => Test2,
-                _ => throw new InvalidOperationException()
-            }).Invoke();
         }
-
-        static Action Action(int flag) => flag switch
-        {
-            1 => Test1,
-            2 => Test2,
-            _ => throw new InvalidOperationException()
-        };
-
 
         static void Test1() => Console.WriteLine("test1");
         static void Test2() => Console.WriteLine("test2");
