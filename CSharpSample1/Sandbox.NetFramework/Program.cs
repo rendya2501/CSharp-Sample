@@ -1,19 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Reflection;
-using System.Xml.Serialization;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace SandBox1
+namespace Sandbox.NetFramework
 {
-    //シリアライズ対象のクラス
-    public class SampleClass
-    {
-        public int Number;
-        public string Message;
-    }
-
     class Program
     {
         static void Main(string[] args)
@@ -43,8 +35,7 @@ namespace SandBox1
             //// data1=12, data2=20
             //// data1=10, data2=21
             //// data1=10, data2=22
-            var a2 = list.OrderBy(o => (o.Data2, o.Data1)).ToList();
-            var a3 = list.OrderBy(o => Tuple.Create(o.Data2, o.Data1)).ToList();
+            //var a2 = order_list3.OrderBy(o => (o.Data2, o.Data1));
             //// data1=10, data2=20
             //// data1=10, data2=21
             //// data1=10, data2=22
@@ -74,16 +65,13 @@ namespace SandBox1
             var aa = list2.OrderBy(o => false ? (o.Large, o.Middle) : (o.Middle, o.Large)).ToList();
 
 
-            //var list3 = new List<(int i, string str)>
-            //{
-            //    (1, "a"),
-            //    (1, "b"),
-            //    (2, "c"),
-            //    (2, "d"),
-            //};
-            //var ll = list3.OrderBy(o => true ? (o.i, o.str) : (o.str, o.i));
-            //var l2 = list3.OrderBy(o => true ? Tuple.Create(o.i, o.i) : Tuple.Create(o.i, o.i));
-
+            var list3 = new List<(int i, string str)>
+            {
+                (1, "a"),
+                (1, "b"),
+                (2, "c"),
+                (2, "d"),
+            };
         }
     }
 }
