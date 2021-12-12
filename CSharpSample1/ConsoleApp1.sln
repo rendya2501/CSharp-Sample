@@ -143,9 +143,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UpCastDownCast1", "UpCastDo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Event2", "Event2\Event2.csproj", "{CDBF2784-03DB-4F97-9FBD-15F1543BF642}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Serialize1", "Serialize1\Serialize1.csproj", "{A58E510F-823F-4FA7-8F0A-A183740AE178}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Serialize1", "Serialize1\Serialize1.csproj", "{A58E510F-823F-4FA7-8F0A-A183740AE178}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SandBox.NetFramework", "Sandbox.NetFramework\SandBox.NetFramework.csproj", "{2F67D497-8FB2-4EE7-AC7A-8AC18D70FAF8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinqGroupBy", "LinqGroupBy\LinqGroupBy.csproj", "{82D8C3C0-BF38-405E-904B-31586CA0E2E0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -1311,6 +1313,22 @@ Global
 		{2F67D497-8FB2-4EE7-AC7A-8AC18D70FAF8}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
 		{2F67D497-8FB2-4EE7-AC7A-8AC18D70FAF8}.Release|x86.ActiveCfg = Release|Any CPU
 		{2F67D497-8FB2-4EE7-AC7A-8AC18D70FAF8}.Release|x86.Build.0 = Release|Any CPU
+		{82D8C3C0-BF38-405E-904B-31586CA0E2E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{82D8C3C0-BF38-405E-904B-31586CA0E2E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{82D8C3C0-BF38-405E-904B-31586CA0E2E0}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{82D8C3C0-BF38-405E-904B-31586CA0E2E0}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{82D8C3C0-BF38-405E-904B-31586CA0E2E0}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{82D8C3C0-BF38-405E-904B-31586CA0E2E0}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{82D8C3C0-BF38-405E-904B-31586CA0E2E0}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{82D8C3C0-BF38-405E-904B-31586CA0E2E0}.Debug|x86.Build.0 = Debug|Any CPU
+		{82D8C3C0-BF38-405E-904B-31586CA0E2E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{82D8C3C0-BF38-405E-904B-31586CA0E2E0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{82D8C3C0-BF38-405E-904B-31586CA0E2E0}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{82D8C3C0-BF38-405E-904B-31586CA0E2E0}.Release|iPhone.Build.0 = Release|Any CPU
+		{82D8C3C0-BF38-405E-904B-31586CA0E2E0}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{82D8C3C0-BF38-405E-904B-31586CA0E2E0}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+		{82D8C3C0-BF38-405E-904B-31586CA0E2E0}.Release|x86.ActiveCfg = Release|Any CPU
+		{82D8C3C0-BF38-405E-904B-31586CA0E2E0}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
