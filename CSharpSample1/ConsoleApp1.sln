@@ -149,6 +149,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SandBox.NetFramework", "San
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinqGroupBy", "LinqGroupBy\LinqGroupBy.csproj", "{82D8C3C0-BF38-405E-904B-31586CA0E2E0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfApp3", "WpfApp3\WpfApp3.csproj", "{05B277D1-0FED-4C45-A842-03A91B280A8D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -1329,6 +1331,22 @@ Global
 		{82D8C3C0-BF38-405E-904B-31586CA0E2E0}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
 		{82D8C3C0-BF38-405E-904B-31586CA0E2E0}.Release|x86.ActiveCfg = Release|Any CPU
 		{82D8C3C0-BF38-405E-904B-31586CA0E2E0}.Release|x86.Build.0 = Release|Any CPU
+		{05B277D1-0FED-4C45-A842-03A91B280A8D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05B277D1-0FED-4C45-A842-03A91B280A8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05B277D1-0FED-4C45-A842-03A91B280A8D}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{05B277D1-0FED-4C45-A842-03A91B280A8D}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{05B277D1-0FED-4C45-A842-03A91B280A8D}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{05B277D1-0FED-4C45-A842-03A91B280A8D}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{05B277D1-0FED-4C45-A842-03A91B280A8D}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{05B277D1-0FED-4C45-A842-03A91B280A8D}.Debug|x86.Build.0 = Debug|Any CPU
+		{05B277D1-0FED-4C45-A842-03A91B280A8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05B277D1-0FED-4C45-A842-03A91B280A8D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{05B277D1-0FED-4C45-A842-03A91B280A8D}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{05B277D1-0FED-4C45-A842-03A91B280A8D}.Release|iPhone.Build.0 = Release|Any CPU
+		{05B277D1-0FED-4C45-A842-03A91B280A8D}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{05B277D1-0FED-4C45-A842-03A91B280A8D}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+		{05B277D1-0FED-4C45-A842-03A91B280A8D}.Release|x86.ActiveCfg = Release|Any CPU
+		{05B277D1-0FED-4C45-A842-03A91B280A8D}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

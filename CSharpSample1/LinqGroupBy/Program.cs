@@ -135,14 +135,12 @@ namespace LinqGroupBy
                         .GroupBy(g => (Gender: g.Gender == GenderType.Male, Age: g.Age >= from && g.Age <= to))
                         .Where(w => w.Key.Gender && w.Key.Age && w.Any())
                         .Select(ss => CreateT(ss, "男性 " + fromTo))
-                        .ToList()
                 );
                 female.AddRange(
                     tupleList
                         .GroupBy(g => (Gender: g.Gender == GenderType.Female, Age: g.Age >= from && g.Age <= to))
                         .Where(w => w.Key.Gender && w.Key.Age && w.Any())
                         .Select(ss => CreateT(ss, "女性 " + fromTo))
-                        .ToList()
                 );
             }
 
@@ -166,14 +164,12 @@ namespace LinqGroupBy
                             .GroupBy(g => (Gender: g.Gender == GenderType.Male, Age: g.Age >= from && g.Age <= to))
                             .Where(w => w.Key.Gender && w.Key.Age && w.Any())
                             .Select(ss => CreateT(ss, "男性 " + fromTo))
-                            .ToList()
                     );
                     female.AddRange(
                         tupleList
                             .GroupBy(g => (Gender: g.Gender == GenderType.Female, Age: g.Age >= from && g.Age <= to))
                             .Where(w => w.Key.Gender && w.Key.Age && w.Any())
                             .Select(ss => CreateT(ss, "女性 " + fromTo))
-                            .ToList()
                     );
                     // fromは6,10,16みたいな感じで常にto + 1の値にする。
                     from = to + 1;
@@ -190,7 +186,7 @@ namespace LinqGroupBy
             var male = new List<(string test, int count)>();
             var female = new List<(string test, int count)>();
 
-            (string test, int count) CreateT(List<(string Name, GenderType Gender, int Age)> s, string name) =>
+            (string test, int count) CreateT(IEnumerable<(string Name, GenderType Gender, int Age)> s, string name) =>
                 (test: name, count: s.Count());
 
             var timer = new Stopwatch();
@@ -199,8 +195,7 @@ namespace LinqGroupBy
             foreach (var chunk in Enumerable.Range(0, 150)
                 .Select((v, i) => (v, i))
                 .GroupBy(x => x.i / chunkSize)
-                .Select(g => g.Select(x => x.v))
-                .ToList())
+                .Select(g => g.Select(x => x.v)))
             {
                 var from = chunk.Min();
                 var to = chunk.Max();
@@ -209,16 +204,14 @@ namespace LinqGroupBy
                 male.AddRange(
                     tupleList
                         .Where(w => w.Gender == GenderType.Male && (w.Age >= from && w.Age <= to))
-                        .GroupBy(w => (w.Gender, w.Age))
-                        .Select(ss => CreateT(ss.ToList(), "男性 " + fromTo))
-                        .ToList()
+                        .GroupBy(w => w.Gender)
+                        .Select(ss => CreateT(ss, "男性 " + fromTo))
                 );
                 female.AddRange(
                     tupleList
                         .Where(w => w.Gender == GenderType.Female && (w.Age >= from && w.Age <= to))
-                        .GroupBy(w => (w.Gender, w.Age))
-                        .Select(ss => CreateT(ss.ToList(), "女性 " + fromTo))
-                        .ToList()
+                        .GroupBy(w => w.Gender)
+                        .Select(ss => CreateT(ss, "女性 " + fromTo))
                 );
             }
             timer.Stop();
