@@ -169,7 +169,7 @@
                                                 DockPanel.Dock="Top"
                                                 HorizontalScrollBarVisibility="Hidden"
                                                 VerticalScrollBarVisibility="Hidden">
-                                                <Grid>
+                                                <Grid Margin="5">
                                                     <Grid.ColumnDefinitions>
                                                         <ColumnDefinition Width="Auto" SharedSizeGroup="BloggerColumn" />
                                                         <ColumnDefinition Width="Auto" />
@@ -186,7 +186,12 @@
                                                     <GridSplitter Grid.Column="3" Style="{StaticResource VerticalGridSplitter}" />
                                                     <Button Grid.Column="4" Template="{StaticResource Header}">Status</Button>
                                                     <GridSplitter Grid.Column="5" Style="{StaticResource VerticalGridSplitter}" />
-                                                    <Button Grid.Column="6" Template="{StaticResource Header}">Blog Url</Button>
+                                                    <Button
+                                                        Grid.Column="6"
+                                                        IsHitTestVisible="False"
+                                                        Template="{StaticResource Header}">
+                                                        Blog Url
+                                                    </Button>
                                                 </Grid>
                                             </ScrollViewer>
 
@@ -402,61 +407,56 @@
                                             <ColumnDefinition Width="Auto" />
                                         </Grid.ColumnDefinitions>
                                         <Grid.RowDefinitions>
-                                            <RowDefinition Height="Auto" />
-                                            <RowDefinition Height="Auto" />
                                             <RowDefinition Height="*" />
                                             <RowDefinition Height="Auto" />
                                         </Grid.RowDefinitions>
                                         <!--  ヘッダー部分  -->
-                                        <ScrollViewer
+                                        <DockPanel
                                             Grid.Row="0"
                                             Grid.Column="0"
-                                            VerticalAlignment="Top"
-                                            HorizontalScrollBarVisibility="Hidden"
-                                            VerticalScrollBarVisibility="Hidden">
-                                            <i:Interaction.Behaviors>
-                                                <local:ScrollSyncronizingBehavior Orientation="Horizontal" ScrollGroup="Group3" />
-                                            </i:Interaction.Behaviors>
-                                            <Border BorderBrush="Black" BorderThickness="1,1,1,0">
-                                                <Grid Background="Yellow">
-                                                    <Grid.ColumnDefinitions>
-                                                        <ColumnDefinition Width="Auto" SharedSizeGroup="DepositTypeName" />
-                                                        <ColumnDefinition Width="Auto" />
-                                                        <ColumnDefinition Width="Auto" SharedSizeGroup="Amount" />
-                                                    </Grid.ColumnDefinitions>
-                                                    <Label
-                                                        Grid.Column="0"
-                                                        HorizontalContentAlignment="Center"
-                                                        Content="精算方法"
-                                                        FontSize="15" />
-                                                    <GridSplitter Grid.Column="1" Style="{StaticResource VerticalGridSplitter}" />
-                                                    <Label
-                                                        Grid.Column="2"
-                                                        HorizontalContentAlignment="Center"
-                                                        Content="精算金額"
-                                                        FontSize="15" />
-                                                </Grid>
-                                            </Border>
-                                        </ScrollViewer>
-                                        <!--  ヘッダーとデータの間の線  -->
-                                        <GridSplitter
-                                            Grid.Row="1"
-                                            Grid.Column="0"
-                                            IsHitTestVisible="False"
-                                            Style="{StaticResource HorizontalGridSplitter}" />
-                                        <!--  ScrollViewerのコンテンツ  -->
-                                        <!--  ここにデータ部分が乗っているはず  -->
-                                        <ScrollContentPresenter
-                                            Name="PART_ScrollContentPresenter"
-                                            Grid.Row="2"
-                                            Grid.Column="0"
-                                            CanContentScroll="{TemplateBinding CanContentScroll}"
-                                            KeyboardNavigation.DirectionalNavigation="Local" />
+                                            Margin="{TemplateBinding Padding}">
+                                            <ScrollViewer
+                                                VerticalAlignment="Top"
+                                                DockPanel.Dock="Top"
+                                                HorizontalScrollBarVisibility="Hidden"
+                                                VerticalScrollBarVisibility="Hidden">
+                                                <i:Interaction.Behaviors>
+                                                    <local:ScrollSyncronizingBehavior Orientation="Horizontal" ScrollGroup="Group3" />
+                                                </i:Interaction.Behaviors>
+                                                <Border BorderBrush="Black" BorderThickness="1,1,1,0">
+                                                    <Grid Background="Yellow">
+                                                        <Grid.ColumnDefinitions>
+                                                            <ColumnDefinition Width="Auto" SharedSizeGroup="DepositTypeName" />
+                                                            <ColumnDefinition Width="Auto" />
+                                                            <ColumnDefinition Width="Auto" SharedSizeGroup="Amount" />
+                                                        </Grid.ColumnDefinitions>
+                                                        <Label
+                                                            Grid.Column="0"
+                                                            HorizontalContentAlignment="Center"
+                                                            Content="精算方法"
+                                                            FontSize="15" />
+                                                        <GridSplitter Grid.Column="1" Style="{StaticResource VerticalGridSplitter}" />
+                                                        <Label
+                                                            Grid.Column="2"
+                                                            HorizontalContentAlignment="Center"
+                                                            Content="精算金額"
+                                                            FontSize="15" />
+                                                    </Grid>
+                                                </Border>
+                                            </ScrollViewer>
+                                            <!--  ヘッダーとデータの間の線  -->
+                                            <GridSplitter IsHitTestVisible="False" Style="{StaticResource HorizontalGridSplitter}" />
+                                            <!--  ScrollViewerのコンテンツ  -->
+                                            <!--  ここにデータ部分が乗っているはず  -->
+                                            <ScrollContentPresenter
+                                                Name="PART_ScrollContentPresenter"
+                                                CanContentScroll="{TemplateBinding CanContentScroll}"
+                                                KeyboardNavigation.DirectionalNavigation="Local" />
+                                        </DockPanel>
                                         <!--  右端の縦スクロールバー  -->
                                         <ScrollBar
                                             Name="PART_VerticalScrollBar"
                                             Grid.Row="0"
-                                            Grid.RowSpan="3"
                                             Grid.Column="1"
                                             HorizontalAlignment="Right"
                                             VerticalAlignment="Stretch"
@@ -467,7 +467,7 @@
                                         <!--  最下段の横スクロールバー  -->
                                         <ScrollBar
                                             Name="PART_HorizontalScrollBar"
-                                            Grid.Row="3"
+                                            Grid.Row="1"
                                             Grid.Column="0"
                                             VerticalAlignment="Bottom"
                                             Maximum="{TemplateBinding ScrollableWidth}"
@@ -477,7 +477,7 @@
                                             Value="{TemplateBinding HorizontalOffset}" />
                                         <!--  右下の大きさを変えるアイコン  -->
                                         <ResizeGrip
-                                            Grid.Row="3"
+                                            Grid.Row="1"
                                             Grid.Column="1"
                                             HorizontalAlignment="Right"
                                             VerticalAlignment="Stretch"
