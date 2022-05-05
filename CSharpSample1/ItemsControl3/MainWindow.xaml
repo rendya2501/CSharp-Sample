@@ -16,6 +16,7 @@
 
     <ScrollViewer>
         <StackPanel>
+
             <!--  グリッドとしてまとめたListBoxバージョン  -->
             <Grid>
                 <Grid.Resources>
@@ -216,144 +217,6 @@
                     Height="300"
                     ItemTemplate="{StaticResource BlogDataTemplate}"
                     ItemsSource="{Binding Source={StaticResource BlogData}}"
-                    Template="{StaticResource MainContentTemplate}" />
-            </Grid>
-
-
-            <!--  実験台  -->
-            <Grid>
-                <Grid.Resources>
-
-                    <Style x:Key="HorizontalGridSplitter" TargetType="{x:Type GridSplitter}">
-                        <Setter Property="Height" Value="1" />
-                        <Setter Property="HorizontalAlignment" Value="Stretch" />
-                        <Setter Property="Background" Value="Red" />
-                    </Style>
-
-                    <Style x:Key="VerticalGridSplitter" TargetType="{x:Type GridSplitter}">
-                        <Setter Property="HorizontalAlignment" Value="Stretch" />
-                        <Setter Property="Width" Value="1" />
-                        <Setter Property="Background" Value="Red" />
-                    </Style>
-
-                    <Border
-                        x:Key="ListHeader"
-                        Padding="5,0,5,0"
-                        Background="Yellow"
-                        BorderBrush="Black">
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto" SharedSizeGroup="DepositTypeName" />
-                                <ColumnDefinition Width="Auto" />
-                                <ColumnDefinition Width="Auto" SharedSizeGroup="Amount" />
-                            </Grid.ColumnDefinitions>
-                            <Label
-                                Grid.Column="0"
-                                HorizontalContentAlignment="Center"
-                                VerticalContentAlignment="Center"
-                                Content="精算方法"
-                                FontSize="15" />
-                            <GridSplitter Grid.Column="1" Style="{StaticResource VerticalGridSplitter}" />
-                            <Label
-                                Grid.Column="2"
-                                HorizontalContentAlignment="Center"
-                                VerticalContentAlignment="Center"
-                                Content="精算金額"
-                                FontSize="15" />
-                        </Grid>
-                    </Border>
-
-                    <DataTemplate x:Key="BlogDataTemplate">
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto" SharedSizeGroup="DepositTypeName" />
-                                <ColumnDefinition Width="Auto" />
-                                <ColumnDefinition Width="Auto" SharedSizeGroup="Amount" />
-                            </Grid.ColumnDefinitions>
-                            <TextBlock
-                                Grid.Column="0"
-                                Margin="10,0,10,0"
-                                Padding="0"
-                                Text="{Binding DepositTypeName}" />
-                            <GridSplitter Grid.Column="1" Style="{StaticResource VerticalGridSplitter}" />
-                            <TextBlock
-                                Grid.Column="2"
-                                Margin="10,0,10,0"
-                                Padding="0"
-                                Text="{Binding Amount}" />
-                        </Grid>
-                    </DataTemplate>
-
-                    <ControlTemplate x:Key="HeaderedScrollViewer" TargetType="{x:Type ScrollViewer}">
-                        <Grid Background="{TemplateBinding Background}">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="Auto" />
-                            </Grid.ColumnDefinitions>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="*" />
-                                <RowDefinition Height="Auto" />
-                            </Grid.RowDefinitions>
-
-                            <DockPanel Margin="{TemplateBinding Padding}">
-                                <ScrollViewer
-                                    local:SetHorizontalOffset.Offset="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=HorizontalOffset}"
-                                    Content="{StaticResource ListHeader}"
-                                    DockPanel.Dock="Top"
-                                    HorizontalScrollBarVisibility="Hidden"
-                                    VerticalScrollBarVisibility="Hidden" />
-                                <ScrollContentPresenter Name="PART_ScrollContentPresenter" KeyboardNavigation.DirectionalNavigation="Local" />
-                            </DockPanel>
-                            <ScrollBar
-                                Name="PART_HorizontalScrollBar"
-                                Grid.Row="1"
-                                Maximum="{TemplateBinding ScrollableWidth}"
-                                Orientation="Horizontal"
-                                ViewportSize="{TemplateBinding ViewportWidth}"
-                                Visibility="{TemplateBinding ComputedHorizontalScrollBarVisibility}"
-                                Value="{TemplateBinding HorizontalOffset}" />
-                            <ScrollBar
-                                Name="PART_VerticalScrollBar"
-                                Grid.Column="1"
-                                Maximum="{TemplateBinding ScrollableHeight}"
-                                ViewportSize="{TemplateBinding ViewportHeight}"
-                                Visibility="{TemplateBinding ComputedVerticalScrollBarVisibility}"
-                                Value="{TemplateBinding VerticalOffset}" />
-                            <ResizeGrip
-                                Grid.Row="1"
-                                Grid.Column="1"
-                                HorizontalAlignment="Right"
-                                VerticalAlignment="Stretch"
-                                Background="{DynamicResource {x:Static SystemColors.WindowBrushKey}}" />
-                        </Grid>
-                    </ControlTemplate>
-
-                    <ControlTemplate x:Key="MainContentTemplate" TargetType="{x:Type ListBox}">
-                        <ScrollViewer Grid.IsSharedSizeScope="True" Template="{StaticResource HeaderedScrollViewer}">
-
-                            <!--<StackPanel IsItemsHost="true" />-->
-                            <ItemsPresenter />
-
-                        </ScrollViewer>
-                    </ControlTemplate>
-
-
-                    <!--  ItemContainerStyleとItemTemplateの両方で同じプロパティを設定すると  -->
-                    <!--  ItemTemplateが勝つっぽい  -->
-                    <Style x:Key="aa" TargetType="ListBoxItem">
-                        <Setter Property="Foreground" Value="Red" />
-                        <Setter Property="FontSize" Value="15" />
-                        <Setter Property="Background" Value="Aqua" />
-                    </Style>
-                </Grid.Resources>
-
-                <ListBox
-                    Width="200"
-                    Height="100"
-                    Margin="0,10,0,10"
-                    ItemContainerStyle="{StaticResource aa}"
-                    ItemTemplate="{StaticResource BlogDataTemplate}"
-                    ItemsSource="{Binding DepositTypeList}"
                     Template="{StaticResource MainContentTemplate}" />
             </Grid>
 
@@ -728,13 +591,14 @@
 
 
             <!--  グリッドとしてまとめたItemsControlのListBoxバージョン  -->
-            <DockPanel>
-                <DockPanel.Resources>
+            <Grid>
+                <Grid.Resources>
                     <Style x:Key="HorizontalGridSplitter" TargetType="{x:Type GridSplitter}">
                         <Setter Property="Height" Value="1" />
                         <Setter Property="HorizontalAlignment" Value="Stretch" />
                         <Setter Property="Background" Value="Red" />
                     </Style>
+
 
                     <Style x:Key="VerticalGridSplitter" TargetType="{x:Type GridSplitter}">
                         <Setter Property="HorizontalAlignment" Value="Stretch" />
@@ -745,7 +609,6 @@
                     <!--  ヘッダーレイアウト定義  -->
                     <Border
                         x:Key="HeaderTemplate"
-                        Padding="5,0,5,0"
                         Background="Yellow"
                         BorderBrush="Black"
                         BorderThickness="1,1,1,0">
@@ -784,7 +647,10 @@
                                     Grid.Column="0"
                                     Margin="10,0,10,0"
                                     Text="{Binding DepositTypeName}" />
-                                <GridSplitter Grid.Column="1" Style="{StaticResource VerticalGridSplitter}" />
+                                <GridSplitter
+                                    Grid.Column="1"
+                                    IsHitTestVisible="False"
+                                    Style="{StaticResource VerticalGridSplitter}" />
                                 <TextBlock
                                     Grid.Column="2"
                                     Margin="10,0,10,0"
@@ -875,172 +741,42 @@
                             <ItemsPresenter />
                         </ScrollViewer>
                     </ControlTemplate>
-                </DockPanel.Resources>
+
+                    <!--  ItemContainerStyleとItemTemplateの両方で同じプロパティを設定するとItemTemplateが勝つっぽい  -->
+                    <!--  コンテナー要素のカスタマイズ  -->
+                    <!--  項目ごとに区切り線を入れたり、項目が選択されたときの外観などを定義  -->
+                    <Style x:Key="ItemContainerStyle" TargetType="ListBoxItem">
+                        <Setter Property="OverridesDefaultStyle" Value="True" />
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type ContentControl}">
+                                    <Border Background="{TemplateBinding Background}">
+                                        <ContentPresenter />
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                        <Style.Triggers>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter Property="Background" Value="Plum" />
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="LightGray" />
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Grid.Resources>
 
                 <ListBox
                     Width="200"
                     Height="100"
                     Margin="0,10,0,10"
+                    ItemContainerStyle="{StaticResource ItemContainerStyle}"
                     ItemTemplate="{StaticResource ItemTemplate}"
                     ItemsSource="{Binding DepositTypeList}"
                     Template="{StaticResource MainContentTemplate}"
                     VirtualizingPanel.IsVirtualizing="True" />
-            </DockPanel>
-
-
-            <!--  失敗作  -->
-            <!--<ListBox
-                Width="400"
-                Height="300"
-                Margin="0,10,0,10"
-                ItemsSource="{Binding DepositTypeList}">
-            -->
-            <!--  データ部分本体  -->
-            <!--
-                <ListBox.ItemTemplate>
-                    <DataTemplate>
-                        <Border BorderBrush="Black" BorderThickness="1,0,1,1">
-                            <Grid Height="Auto">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto" SharedSizeGroup="DepositTypeName" />
-                                    <ColumnDefinition Width="Auto" />
-                                    <ColumnDefinition Width="Auto" SharedSizeGroup="Amount" />
-                                </Grid.ColumnDefinitions>
-                                <TextBlock
-                                    Grid.Column="0"
-                                    Margin="5,0,10,0"
-                                    Text="{Binding DepositTypeName}" />
-                                <GridSplitter Grid.Column="1" Style="{StaticResource VerticalGridSplitter}" />
-                                <TextBlock
-                                    Grid.Column="2"
-                                    Margin="5,0,10,0"
-                                    Text="{Binding Amount}" />
-                            </Grid>
-                        </Border>
-                    </DataTemplate>
-                </ListBox.ItemTemplate>
-                <ListBox.Template>
-                    <ControlTemplate TargetType="{x:Type ItemsControl}">
-            -->
-            <!--  ヘッダーとデータをScrollViewerに収める  -->
-            <!--
-                        <ScrollViewer
-                            Grid.IsSharedSizeScope="True"
-                            HorizontalScrollBarVisibility="Auto"
-                            ScrollViewer.CanContentScroll="False"
-                            VerticalScrollBarVisibility="Auto"
-                            VirtualizingPanel.IsVirtualizing="True">
-                            <i:Interaction.Behaviors>
-                                <local:ScrollSyncronizingBehavior Orientation="Horizontal" ScrollGroup="Group3" />
-                            </i:Interaction.Behaviors>
-                            <ScrollViewer.Template>
-                                <ControlTemplate TargetType="{x:Type ScrollViewer}">
-                                    <Grid>
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="*" />
-                                            <ColumnDefinition Width="Auto" />
-                                        </Grid.ColumnDefinitions>
-                                        <Grid.RowDefinitions>
-                                            <RowDefinition Height="Auto" />
-                                            <RowDefinition Height="Auto" />
-                                            <RowDefinition Height="*" />
-                                            <RowDefinition Height="Auto" />
-                                        </Grid.RowDefinitions>
-            -->
-            <!--  ヘッダー部分  -->
-            <!--
-                                        <ScrollViewer
-                                            Grid.Row="0"
-                                            Grid.Column="0"
-                                            VerticalAlignment="Top"
-                                            HorizontalScrollBarVisibility="Hidden"
-                                            VerticalScrollBarVisibility="Hidden">
-                                            <i:Interaction.Behaviors>
-                                                <local:ScrollSyncronizingBehavior Orientation="Horizontal" ScrollGroup="Group3" />
-                                            </i:Interaction.Behaviors>
-                                            <Border BorderBrush="Black" BorderThickness="1,1,1,0">
-                                                <Grid Background="Yellow">
-                                                    <Grid.ColumnDefinitions>
-                                                        <ColumnDefinition Width="Auto" SharedSizeGroup="DepositTypeName" />
-                                                        <ColumnDefinition Width="Auto" />
-                                                        <ColumnDefinition Width="Auto" SharedSizeGroup="Amount" />
-                                                    </Grid.ColumnDefinitions>
-                                                    <Label
-                                                        Grid.Column="0"
-                                                        HorizontalContentAlignment="Center"
-                                                        Content="精算方法"
-                                                        FontSize="15" />
-                                                    <GridSplitter Grid.Column="1" Style="{StaticResource VerticalGridSplitter}" />
-                                                    <Label
-                                                        Grid.Column="2"
-                                                        HorizontalContentAlignment="Center"
-                                                        Content="精算金額"
-                                                        FontSize="15" />
-                                                </Grid>
-                                            </Border>
-                                        </ScrollViewer>
-            -->
-            <!--  ヘッダーとデータの間の線  -->
-            <!--
-                                        <GridSplitter
-                                            Grid.Row="1"
-                                            Grid.Column="0"
-                                            IsHitTestVisible="False"
-                                            Style="{StaticResource HorizontalGridSplitter}" />
-            -->
-            <!--  ScrollViewerのコンテンツ  -->
-            <!--  ここにデータ部分が乗っているはず  -->
-            <!--
-                                        <ScrollContentPresenter
-                                            Name="PART_ScrollContentPresenter"
-                                            Grid.Row="2"
-                                            Grid.Column="0"
-                                            CanContentScroll="{TemplateBinding CanContentScroll}"
-                                            KeyboardNavigation.DirectionalNavigation="Local" />
-            -->
-            <!--  右端の縦スクロールバー  -->
-            <!--
-                                        <ScrollBar
-                                            Name="PART_VerticalScrollBar"
-                                            Grid.Row="0"
-                                            Grid.RowSpan="3"
-                                            Grid.Column="1"
-                                            HorizontalAlignment="Right"
-                                            VerticalAlignment="Stretch"
-                                            Maximum="{TemplateBinding ScrollableHeight}"
-                                            ViewportSize="{TemplateBinding ViewportHeight}"
-                                            Visibility="{TemplateBinding ComputedVerticalScrollBarVisibility}"
-                                            Value="{TemplateBinding VerticalOffset}" />
-            -->
-            <!--  最下段の横スクロールバー  -->
-            <!--
-                                        <ScrollBar
-                                            Name="PART_HorizontalScrollBar"
-                                            Grid.Row="3"
-                                            Grid.Column="0"
-                                            VerticalAlignment="Bottom"
-                                            Maximum="{TemplateBinding ScrollableWidth}"
-                                            Orientation="Horizontal"
-                                            ViewportSize="{TemplateBinding ViewportWidth}"
-                                            Visibility="{TemplateBinding ComputedHorizontalScrollBarVisibility}"
-                                            Value="{TemplateBinding HorizontalOffset}" />
-                                        <ResizeGrip
-                                            Grid.Row="3"
-                                            Grid.Column="1"
-                                            HorizontalAlignment="Right"
-                                            VerticalAlignment="Stretch"
-                                            Background="{DynamicResource {x:Static SystemColors.WindowBrushKey}}" />
-                                    </Grid>
-                                </ControlTemplate>
-                            </ScrollViewer.Template>
-            -->
-            <!--  データ部分  -->
-            <!--
-                            <ItemsPresenter />
-                        </ScrollViewer>
-                    </ControlTemplate>
-                </ListBox.Template>
-            </ListBox>-->
+            </Grid>
 
 
         </StackPanel>
