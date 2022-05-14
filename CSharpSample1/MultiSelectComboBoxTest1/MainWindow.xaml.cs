@@ -27,7 +27,7 @@ namespace MultiSelectComboBoxTest1
                 "秋田県"
             };
 
-        public List<(string, object)> Items
+        public List<(string, string)> Items
         {
             get
             {
@@ -39,8 +39,8 @@ namespace MultiSelectComboBoxTest1
                 NotifyPropertyChanged("Items");
             }
         }
-        private List<(string, object)> _items =
-            new List<(string, object)>
+        private List<(string key , string value)> _items =
+            new List<(string key, string value)>()
             {
                 ( "Chennai", "MAS" ),
                 ( "Trichy", "TPJ" ),
@@ -48,7 +48,7 @@ namespace MultiSelectComboBoxTest1
                 ( "Coimbatore", "CBE")
             };
 
-        public List<(string, object)> SelectedItems
+        public List<(string key, string value)> SelectedItems
         {
             get
             {
@@ -60,8 +60,8 @@ namespace MultiSelectComboBoxTest1
                 NotifyPropertyChanged("SelectedItems");
             }
         }
-        private List<(string , object)> _selectedItems =
-            new List<(string, object)>
+        private List<(string key, string value)> _selectedItems =
+            new List<(string key, string value)>()
             {
                 ( "Chennai", "MAS" ),
                 ( "Trichy", "TPJ")

@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
@@ -15,6 +14,7 @@ namespace MultiSelectComboBoxTest1
     /// </summary>
     public partial class MultiSelectComboBox1 : UserControl
     {
+        #region 依存プロパティ
         #region ItemsSource
         public static readonly DependencyProperty ItemsSourceProperty =
             DependencyProperty.Register(
@@ -51,6 +51,69 @@ namespace MultiSelectComboBoxTest1
         }
         #endregion
 
+        #region DisplayMemberr
+        /// <summary>
+        /// DisplayMemberProperty依存関係プロパティ登録
+        /// </summary>
+        public static readonly DependencyProperty DisplayMemberProperty =
+            DependencyProperty.RegisterAttached(
+                "DisplayMember",
+                typeof(string),
+                typeof(MultiSelectComboBox1),
+                new PropertyMetadata(null)
+            );
+        /// <summary>
+        /// チェックボックスのテキストに表示するプロパティ名
+        /// </summary>
+        public string DisplayMember
+        {
+            get { return (string)GetValue(DisplayMemberProperty); }
+            set { SetValue(DisplayMemberProperty, value); }
+        }
+        #endregion
+
+        #region MaxHeaderItemsProperty
+        /// <summary>
+        /// MaxHeaderItemsProperty依存関係プロパティ登録
+        /// </summary>
+        public static readonly DependencyProperty MaxHeaderItemsProperty =
+            DependencyProperty.Register(
+                "MaxHeaderItems",
+                typeof(int),
+                typeof(MultiSelectComboBox1),
+                new PropertyMetadata(0)
+            );
+        /// <summary>
+        /// コントロールヘッダーに表示する項目の最大数を取得または設定します。
+        /// </summary>
+        public int MaxHeaderItems
+        {
+            get { return (int)GetValue(MaxHeaderItemsProperty); }
+            set { SetValue(MaxHeaderItemsProperty, value); }
+        }
+        #endregion
+
+        #region HeaderFormatProperty
+        /// <summary>
+        /// MaxHeaderItemsProperty依存関係プロパティ登録
+        /// </summary>
+        public static readonly DependencyProperty HeaderFormatProperty =
+            DependencyProperty.Register(
+                "HeaderFormat",
+                typeof(string),
+                typeof(MultiSelectComboBox1),
+                new PropertyMetadata("items selected")
+            );
+        /// <summary>
+        /// コントロール内の選択項目が maxHeaderItems より多いときに、ヘッダーコンテンツの作成に使用される書式文字列を取得または設定します。
+        /// </summary>
+        public string HeaderFormat
+        {
+            get { return (string)GetValue(HeaderFormatProperty); }
+            set { SetValue(HeaderFormatProperty, value); }
+        }
+        #endregion
+
         #region Text
         public static readonly DependencyProperty TextProperty =
             DependencyProperty.Register(
@@ -80,9 +143,17 @@ namespace MultiSelectComboBoxTest1
             set { SetValue(DefaultTextProperty, value); }
         }
         #endregion
+        #endregion
 
-
+        #region NodeList
+        /// <summary>
+        /// ノードリスト
+        /// </summary>
+        /// <remarks>
+        /// チェックボックスの実体
+        /// </remarks>
         private ObservableCollection<Node> NodeList { get; set; } = new ObservableCollection<Node>();
+        #endregion
 
 
         #region コンストラクタ
@@ -95,13 +166,24 @@ namespace MultiSelectComboBoxTest1
         }
         #endregion
 
+
         #region イベント
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="d"></param>
+        /// <param name="e"></param>
         private static void OnItemsSourceChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             MultiSelectComboBox1 control = (MultiSelectComboBox1)d;
             control.DisplayInControl();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="d"></param>
+        /// <param name="e"></param>
         private static void OnSelectedItemsChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             MultiSelectComboBox1 control = (MultiSelectComboBox1)d;
@@ -109,10 +191,16 @@ namespace MultiSelectComboBoxTest1
             control.SetText();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void CheckBox_Click(object sender, RoutedEventArgs e)
         {
             CheckBox clickedBox = (CheckBox)sender;
 
+            // 全選択ボタンを押下した場合
             if (clickedBox.Content != null && clickedBox.Content.ToString() == "All")
             {
                 if (clickedBox.IsChecked.HasValue && clickedBox.IsChecked.Value)
@@ -130,13 +218,23 @@ namespace MultiSelectComboBoxTest1
                     }
                 }
             }
+            // 通常アイテムをクリックした場合
             else
             {
+                // 選択状態の通常アイテム数を取得
                 var selectedCount = NodeList.Count(s => s.IsSelected && s.Title != "All");
+                // 全選択ノードを取得
                 var node = NodeList.FirstOrDefault(i => i.Title == "All");
                 if (node != null)
                 {
+                    // 全ての通常アイテムを選択していたら全選択ボタンを選択状態にする。
                     node.IsSelected = selectedCount == NodeList.Count - 1;
+
+                    // 通常アイテムを1つ以上、全選択未満の場合、全選択ボタンを第3状態とする
+
+                    // 通常アイテムを1つも選択していない場合
+
+                    clickedBox.IsChecked = null;
                 }
             }
             SetSelectedItems();
@@ -145,7 +243,32 @@ namespace MultiSelectComboBoxTest1
         #endregion
 
 
-        #region Methods
+        #region 内部処理
+        /// <summary>
+        /// ノードを初期化します。
+        /// </summary>
+        private void DisplayInControl()
+        {
+            NodeList.Clear();
+
+            // ALLノードの生成
+            if (ItemsSource.Count > 0)
+            {
+                NodeList.Add(new Node("All"));
+            }
+            // ItemsSourceをノードに変換
+            foreach (var item in ItemsSource)
+            {
+                NodeList.Add(new Node(item.ToString()));
+                var aa = this.MultiSelectCombo;
+            }
+
+            MultiSelectCombo.ItemsSource = NodeList;
+        }
+
+        /// <summary>
+        /// ノードを選択状態にします
+        /// </summary>
         private void SelectNodes()
         {
             if (SelectedItems == null)
@@ -163,12 +286,16 @@ namespace MultiSelectComboBoxTest1
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         private void SetSelectedItems()
         {
             SelectedItems.Clear();
 
             foreach (var node in NodeList)
             {
+                // 選択されていないノードまたは全選択ノードの場合は関係ないのでスキップ
                 if (!node.IsSelected || node.Title == "All")
                 {
                     continue;
@@ -178,31 +305,16 @@ namespace MultiSelectComboBoxTest1
                     continue;
                 }
 
-                var source = ItemsSource.Cast<object>().ToList();
-                SelectedItems.Add(source.FirstOrDefault(i => i.ToString() == node.Title));
+                SelectedItems.Add(ItemsSource.OfType<object>().ToList().FirstOrDefault(i => i.ToString() == node.Title));
             }
         }
 
-        private void DisplayInControl()
-        {
-            NodeList.Clear();
-
-            if (this.ItemsSource.Count > 0)
-            {
-                NodeList.Add(new Node("All"));
-            }
-
-            foreach (var item in this.ItemsSource)
-            {
-                NodeList.Add(new Node(item.ToString()));
-            }
-
-            MultiSelectCombo.ItemsSource = NodeList;
-        }
-
+        /// <summary>
+        /// テキストをセットします
+        /// </summary>
         private void SetText()
         {
-            if (this.SelectedItems != null)
+            if (SelectedItems != null)
             {
                 StringBuilder displayText = new StringBuilder();
                 foreach (Node s in NodeList)
@@ -218,23 +330,43 @@ namespace MultiSelectComboBoxTest1
                         displayText.Append(',');
                     }
                 }
-                this.Text = displayText.ToString().TrimEnd(new char[] { ',' });
+
+                // 最大数が設定されているときだけ文言を変更する
+                if (MaxHeaderItems <= 0)
+                {
+                    Text = displayText.ToString().TrimEnd(new char[] { ',' });
+                }
+                else
+                {
+                    // 選択件数が設定した最大表示件数を超えた場合、設定した文言に変更する。
+                    // そうでなければ、選択したアイテム名を羅列して表示する
+                    Text = SelectedItems.Count > MaxHeaderItems
+                        ? $"{SelectedItems.Count}{HeaderFormat}"
+                        : displayText.ToString().TrimEnd(new char[] { ',' });
+                }
             }
-            // set DefaultText if nothing else selected
-            if (string.IsNullOrEmpty(this.Text))
+
+            // 何も選択されていない場合、デフォルトのテキストを表示する
+            if (string.IsNullOrEmpty(Text))
             {
-                this.Text = this.DefaultText;
+                Text = DefaultText;
             }
         }
         #endregion
 
-
+        #region 内部クラス
         /// <summary>
         /// ノードクラス
         /// </summary>
+        /// <remarks>
+        /// チェックボックスとして羅列される実体です。
+        /// </remarks>
         private class Node : INotifyPropertyChanged
         {
             #region Properties
+            /// <summary>
+            /// 表示されるテキスト
+            /// </summary>
             public string Title
             {
                 get
@@ -249,6 +381,9 @@ namespace MultiSelectComboBoxTest1
             }
             private string _title;
 
+            /// <summary>
+            /// 選択状態
+            /// </summary>
             public bool IsSelected
             {
                 get
@@ -264,7 +399,15 @@ namespace MultiSelectComboBoxTest1
             private bool _isSelected;
             #endregion
 
+            /// <summary>
+            /// PropertyChangedイベント
+            /// </summary>
             public event PropertyChangedEventHandler PropertyChanged;
+
+            /// <summary>
+            /// NotifyPropertyChanged
+            /// </summary>
+            /// <param name="propertyName"></param>
             protected void NotifyPropertyChanged(string propertyName)
             {
                 if (PropertyChanged != null)
@@ -279,5 +422,6 @@ namespace MultiSelectComboBoxTest1
             /// <param name="title"></param>
             public Node(string title) => Title = title;
         }
+        #endregion
     }
 }

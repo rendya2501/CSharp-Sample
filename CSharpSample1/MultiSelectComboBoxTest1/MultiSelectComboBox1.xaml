@@ -21,6 +21,7 @@
         <ComboBox.ItemTemplate>
             <DataTemplate>
                 <CheckBox
+                    Name="CheckBox_aaa"
                     Click="CheckBox_Click"
                     Content="{Binding Title}"
                     IsChecked="{Binding Path=IsSelected, Mode=TwoWay}"
@@ -33,6 +34,7 @@
         <ComboBox.Template>
             <ControlTemplate TargetType="ComboBox">
                 <Grid>
+                    <!--  コンボボックスのテキスト表示部分  -->
                     <ToggleButton
                         x:Name="ToggleButton"
                         Grid.Column="2"
@@ -78,6 +80,8 @@
                             </ControlTemplate>
                         </ToggleButton.Template>
                     </ToggleButton>
+                    <!--  コンボボックスをクリックしたときに表示されるポップアップ  -->
+                    <!--  事実上、ここにチェックボックスが表示される  -->
                     <Popup
                         Name="Popup"
                         AllowsTransparency="True"
@@ -95,6 +99,7 @@
                                 Background="White"
                                 BorderBrush="Black"
                                 BorderThickness="1" />
+                            <!--  チェックボックスがのっかる部分  -->
                             <ScrollViewer
                                 Margin="4,6,4,6"
                                 DataContext="{Binding}"
