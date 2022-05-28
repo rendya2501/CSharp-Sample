@@ -55,7 +55,7 @@ namespace NullableDictionary
             _ = new Nullable<int?>(null) == new Nullable<int?>(0);
 
             // IEquatable速度比較
-            // Benchmark(10_000_000);
+            Benchmark(10_000_000);
         }
 
         static void Benchmark(int n)

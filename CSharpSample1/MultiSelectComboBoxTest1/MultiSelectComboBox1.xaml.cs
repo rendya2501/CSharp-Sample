@@ -114,6 +114,20 @@ namespace MultiSelectComboBoxTest1
         }
         #endregion
 
+        #region SelectAllContent
+        public static readonly DependencyProperty SelectAllContentProperty = DependencyProperty.Register(
+            "SelectAllContent",
+            typeof(string),
+            typeof(MultiSelectComboBox1),
+            new UIPropertyMetadata("Select All")
+        );
+        public string SelectAllContent
+        {
+            get { return (string)GetValue(SelectAllContentProperty); }
+            set { SetValue(SelectAllContentProperty, value); }
+        }
+        #endregion
+
         #region Text
         public static readonly DependencyProperty TextProperty =
             DependencyProperty.Register(
@@ -233,8 +247,6 @@ namespace MultiSelectComboBoxTest1
                     // 通常アイテムを1つ以上、全選択未満の場合、全選択ボタンを第3状態とする
 
                     // 通常アイテムを1つも選択していない場合
-
-                    clickedBox.IsChecked = null;
                 }
             }
             SetSelectedItems();

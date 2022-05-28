@@ -1,4 +1,6 @@
-﻿/// <summary>
+﻿using System;
+using System.Diagnostics.CodeAnalysis;
+/// <summary>
 /// 開発用ソース
 /// </summary>
 namespace NullableDictionary
@@ -10,7 +12,7 @@ namespace NullableDictionary
     /// <remarks>
     /// 構造体はnullになりえない性質なので、nullを構造体でラップすることでDictionaryを騙す。
     /// </remarks>
-    public struct Nullable<T>// : IEquatable<Nullable<T>>
+    public struct Nullable<T> : IEquatable<Nullable<T>>
     {
         /// <summary>
         /// 入力値
@@ -95,7 +97,7 @@ namespace NullableDictionary
         /// </summary>
         /// <param name="nullable"></param>
         /// <returns></returns>
-        //public bool Equals([AllowNull] Nullable<T> nullable) => ReferenceEquals(Value, nullable.Value) || Value.Equals(nullable.Value);
+        public bool Equals([AllowNull] Nullable<T> nullable) => ReferenceEquals(Value, nullable.Value) || Value.Equals(nullable.Value);
     }
 
     /// <summary>

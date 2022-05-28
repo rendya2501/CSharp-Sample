@@ -58,6 +58,7 @@
                 HeaderFormat="個選択しています"
                 ItemsSource="{Binding Items}"
                 MaxHeaderItems="2"
+                SelectAllContent="全て"
                 SelectedItems="{Binding SelectedItems}"
                 ToolTip="{Binding Path=Text, RelativeSource={RelativeSource Self}}" />
 
