@@ -72,6 +72,8 @@
                     Header="誕生日" />
             </DataGrid.Columns>
         </DataGrid>
+        <Button Content="Button" HorizontalAlignment="Left" Height="26" Margin="205,61,0,0" VerticalAlignment="Top" Width="124" Click="Button_Click"/>
+        <Button Content="Button" HorizontalAlignment="Left" Height="26" Margin="383,61,0,0" VerticalAlignment="Top" Width="125" Click="Button_Click_1"/>
 
     </Grid>
 </Window>

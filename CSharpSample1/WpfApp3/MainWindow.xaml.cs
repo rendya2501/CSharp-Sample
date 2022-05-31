@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -34,7 +35,17 @@ namespace WpfApp3
             };
         }
 
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Task.Delay(2000).GetAwaiter().GetResult();
+            MessageBox.Show("owata1");
+        }
 
+        private async void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            await Task.Delay(2000);
+            MessageBox.Show("owata2");
+        }
     }
 
     public class Person
