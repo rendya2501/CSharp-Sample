@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-
-
-
+﻿using System.Collections.Generic;
 
 namespace Json1
 {
@@ -26,12 +18,8 @@ namespace Json1
                 { new JsonSample3() }
             };
 
-            //foreach (IStart IF in list){IF.Start();}
-
-
+            foreach (IStart IF in list){IF.Start();}
             new Sample2().Start();
         }
     }
-
-
 }

@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using MVPSample.Models;
+using MVPSample.Presenters;
+using MVPSample.Views;
+using System;
 using System.Windows;
 
 namespace MVPSample
@@ -13,5 +11,14 @@ namespace MVPSample
     /// </summary>
     public partial class App : Application
     {
+        [STAThread]
+        public static void Main()
+        {
+            IRectangleModel model = new RectangleModel();
+            IRectangleView view = new MainWindow();
+            _ = new RectanglePresenter(view, model);
+            view.Show();
+            new App().Run();
+        }
     }
 }

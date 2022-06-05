@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-//これがあれば、毎回Console.WriteLineってやる必要がなくなる。WriteLineで十分になる。
-//クラス名を書かずに静的メソッドを呼び出す。
-using static System.Console;
-using System.Runtime.Serialization.Json;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.IO;
+using System.Linq;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Json;
+using static System.Console;
 
 namespace Json1
 {
@@ -27,7 +22,6 @@ namespace Json1
         public void Start()
         {
             WriteLine(this.ToString());
-
             //ParseメソッドでJSON文字列をJson.NETのオブジェクトに変換
             var obj = JObject.Parse(@"{
                 'people' : [
@@ -45,7 +39,6 @@ namespace Json1
                     }
                 ]
             }");
-
             //Json.Netのオブジェクトに変換することでLINQが使えるようになる
             var oldestPersonName = obj["people"].OrderByDescending(p => p["age"]).FirstOrDefault();
             WriteLine(oldestPersonName);
@@ -60,10 +53,10 @@ namespace Json1
         Person p;
 
         //コンストラクタ
-        public JsonSample2(Person p) => this.p = p;        
+        public JsonSample2(Person p) => this.p = p;
         public void Start()
         {
-            WriteLine(this.ToString());        
+            WriteLine(this.ToString());
 
             //オブジェクトをJSONにシリアライズ
             var json = JsonConvert.SerializeObject(p);
@@ -110,5 +103,16 @@ namespace Json1
                 WriteLine($"Age : {deserialized.Age}");  //31
             }
         }
+    }
+
+
+    [DataContract]
+    public class Person
+    {
+        [DataMember(Name = "name")]
+        [IgnoreDataMember]//でシリアライズの対象外にすることができる。
+        public string Name { get; set; }
+        [DataMember(Name = "age")]
+        public int Age { get; set; }
     }
 }

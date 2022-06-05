@@ -1,25 +1,26 @@
 ﻿using MVPSample.Models;
 using MVPSample.Views;
+using System;
 
 namespace MVPSample.Presenters
 {
     public class RectanglePresenter
     {
-        readonly IRectangle rectangleView;
+        readonly IRectangleView rectangleView;
+        readonly IRectangleModel rectangleModel;
 
-        public RectanglePresenter(IRectangle rectangleView)
+        public RectanglePresenter(IRectangleView view, IRectangleModel model)
         {
-            this.rectangleView = rectangleView;
+            rectangleView = view;
+            rectangleModel = model;
+            rectangleView.Calculate += new EventHandler((o,e) => CalculateArea());
         }
 
         public void CalculateArea()
         {
-            Rectangle rectangle = new()
-            {
-                Length = double.Parse(rectangleView.LengthText),
-                Breadth = double.Parse(rectangleView.BreadthText)
-            };
-            rectangleView.AreaText = rectangle.CalculateArea().ToString();
+            rectangleModel.Length = double.Parse(rectangleView.LengthText);
+            rectangleModel.Breadth = double.Parse(rectangleView.BreadthText);
+            rectangleView.AreaText = rectangleModel.CalculateArea().ToString();
         }
     }
 }
