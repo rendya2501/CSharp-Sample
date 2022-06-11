@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -14,24 +15,76 @@ namespace SandBox1
     {
         public static void Main(string[] args)
         {
-            var tupleList = new List<(int Index, bool? flag)>
-                {
-                    (1, true),
-                    (2, false),
-                    (3, null),
-                };
 
-
-            var nullList = new List<(int Index, bool? flag)>();
-
-            var v1 = nullList.Select(a => a.flag == true);
-            var v2 = v1.Distinct();
-            var v3 = v2.OrderBy(o => o);
-            var v4 = v3.FirstOrDefault();
-
-            //Button_Click();
-            //Button_Click_1();
         }
+
+        public void Button_SaveStudent()
+        {
+            Student student = new Student()
+            {
+                StudentId = "1",
+                StudentName = "Cnillincy"
+            };
+            new StudentManager().Create(student);
+        }
+    }
+
+
+    class TETETE : Student
+    {
+
+    }
+
+    public interface ICRUD<T>
+    {
+        string Create(T obj);
+        T Read(string key);
+        void Update(T obj);
+        void Delete(string key);
+    }
+
+    public class Student
+    {
+        public string StudentId { get; set; }
+        public string StudentName { get; set; }
+    }
+
+    public class StudentManager : ICRUD<Student>
+    {
+        public string Create(Student obj)
+        {
+            // inserts record in the DB via DAL
+            throw new NotImplementedException();
+        }
+
+        public Student Read(string userId)
+        {
+            // retrieveds record from the DB via DAL
+            throw new NotImplementedException();
+        }
+
+        public void Update(Student obj)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Delete(string userId)
+        {
+            // deletes record from the DB
+        }
+    }
+
+}
+
+
+
+namespace aa
+{
+
+    class aaa
+    {
+
+
         static private void Button_Click()
         {
             //Task.Delay(2000).GetAwaiter().GetResult();
@@ -54,5 +107,5 @@ namespace SandBox1
             //Console.WriteLine("owata2");
         }
     }
-
 }
+

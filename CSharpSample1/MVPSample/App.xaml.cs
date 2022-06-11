@@ -4,7 +4,6 @@ using MVPSample.Views;
 using System;
 using System.Windows;
 using Unity;
-using Unity.Injection;
 
 namespace MVPSample
 {
