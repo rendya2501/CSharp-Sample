@@ -1,4 +1,5 @@
-﻿using MVPSample.Models;
+﻿using Microsoft.Extensions.DependencyInjection;
+using MVPSample.Models;
 using MVPSample.Presenters;
 using MVPSample.Views;
 using System;
@@ -15,9 +16,27 @@ namespace MVPSample
         [STAThread]
         public static void Main()
         {
-            using IUnityContainer container = new UnityContainer();
-            container.RegisterType<IRectangleView, MainWindow>();
-            container.RegisterType<IRectangleModel, RectangleModel>();
+            // Microsoft.Extensions.DependencyInjectionでの実装
+            IServiceCollection services = new ServiceCollection();
+            services.AddTransient<App>();
+            services.AddScoped<IRectangleView, MainWindow>();
+            services.AddScoped<IRectangleModel, RectangleModel>();
+            services.AddTransient<RectanglePresenter>();
+            // インスタンスを提供してくれる人を作る
+            using var provider = services.BuildServiceProvider();
+            provider.GetService<RectanglePresenter>();
+            provider.GetService<IRectangleView>()?.Show();
+            provider.GetService<App>()?.Run();
+
+            // UnityContainerでの実装
+            //using IUnityContainer container = new UnityContainer();
+            //container.RegisterType<IRectangleView, MainWindow>();
+            //container.RegisterType<IRectangleModel, RectangleModel>();
+            //container.Resolve<RectanglePresenter>();
+            //container.Resolve<IRectangleView>().Show();
+            //container.Resolve<App>().Run();
+
+            // 依存性を注入する部分はこういう風にもかける。だけど、ほぼ意味はないでしょう。
             //①
             //container.RegisterInstance(new RectanglePresenter(view, container.Resolve<IRectangleModel>()));
             //②
@@ -27,10 +46,8 @@ namespace MVPSample
             //        new ResolvedParameter<IRectangleModel>()
             //    )
             //);
-            container.Resolve<RectanglePresenter>();
-            container.Resolve<IRectangleView>().Show();
-            container.Resolve<App>().Run();
 
+            // 手動DIでの実装
             //IRectangleModel model = new RectangleModel();
             //IRectangleView view = new MainWindow();
             //_ = new RectanglePresenter(view, model);
