@@ -179,6 +179,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExtensionMethod", "Extensio
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfApp4", "WpfApp4\WpfApp4.csproj", "{D17144BC-6CDA-4FF5-8F6F-9D706036EB09}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "janken", "janken\janken.csproj", "{F944D05D-B336-4858-BB4B-745FDA1B3B2A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -1599,6 +1601,22 @@ Global
 		{D17144BC-6CDA-4FF5-8F6F-9D706036EB09}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
 		{D17144BC-6CDA-4FF5-8F6F-9D706036EB09}.Release|x86.ActiveCfg = Release|Any CPU
 		{D17144BC-6CDA-4FF5-8F6F-9D706036EB09}.Release|x86.Build.0 = Release|Any CPU
+		{F944D05D-B336-4858-BB4B-745FDA1B3B2A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F944D05D-B336-4858-BB4B-745FDA1B3B2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F944D05D-B336-4858-BB4B-745FDA1B3B2A}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{F944D05D-B336-4858-BB4B-745FDA1B3B2A}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{F944D05D-B336-4858-BB4B-745FDA1B3B2A}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{F944D05D-B336-4858-BB4B-745FDA1B3B2A}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{F944D05D-B336-4858-BB4B-745FDA1B3B2A}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{F944D05D-B336-4858-BB4B-745FDA1B3B2A}.Debug|x86.Build.0 = Debug|Any CPU
+		{F944D05D-B336-4858-BB4B-745FDA1B3B2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F944D05D-B336-4858-BB4B-745FDA1B3B2A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F944D05D-B336-4858-BB4B-745FDA1B3B2A}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{F944D05D-B336-4858-BB4B-745FDA1B3B2A}.Release|iPhone.Build.0 = Release|Any CPU
+		{F944D05D-B336-4858-BB4B-745FDA1B3B2A}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{F944D05D-B336-4858-BB4B-745FDA1B3B2A}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+		{F944D05D-B336-4858-BB4B-745FDA1B3B2A}.Release|x86.ActiveCfg = Release|Any CPU
+		{F944D05D-B336-4858-BB4B-745FDA1B3B2A}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
