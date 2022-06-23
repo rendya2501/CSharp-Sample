@@ -7,7 +7,7 @@ namespace janken
     {
         static void Main(string[] args)
         {
-            //new Janken().Execute();
+            new StructuredJanken().Execute();
             new ObjectiveJanken().Execute();
         }
     }

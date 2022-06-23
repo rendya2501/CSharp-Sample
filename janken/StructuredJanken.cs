@@ -15,18 +15,21 @@ namespace janken
         private int Player1WonCount { get; set; }
         private int Player2WonCount { get; set; }
 
+        private static readonly Random Random = new Random();
+
         public void Execute()
         {
             Console.WriteLine("【じゃんけん開始】" + Environment.NewLine);
 
             for (int i = 0; i < 3; i++)
             {
-                Console.WriteLine($"【{i:D}回戦目】");
+                Console.WriteLine($"【{i + 1:D} 回戦目】");
                 // 手を決める
-                HandEnum Player1Hand = GetHand();
-                HandEnum Player2Hand = GetHand();
+                HandEnum player1Hand = GetHand();
+                HandEnum player2Hand = GetHand();
+                Console.WriteLine($"{HandDictionary.HandDict.FirstOrDefault(f => f.Key == player1Hand).Value} vs. {HandDictionary.HandDict.FirstOrDefault(f => f.Key == player2Hand).Value}");
                 // 判定
-                JudgAndCount(Player1Hand, Player2Hand);
+                JudgAndCount(player1Hand, player2Hand);
             }
 
             Console.WriteLine("【じゃんけん終了】" + Environment.NewLine);
@@ -38,17 +41,14 @@ namespace janken
 
         public HandEnum GetHand()
         {
-            int randNum = new Random().Next(0, 2);
+            int randNum = new Random(Random.Next()).Next(3);
             switch (randNum)
             {
                 case 0:
-                    System.Console.WriteLine("グー");
                     return HandEnum.STONE;
                 case 1:
-                    System.Console.WriteLine("チョキ");
                     return HandEnum.SCISSORS;
                 case 2:
-                    System.Console.WriteLine("パー");
                     return HandEnum.PAPER;
             }
             return HandEnum.STONE;
@@ -62,8 +62,7 @@ namespace janken
                 || (player1 == HandEnum.PAPER && player2 == HandEnum.STONE)
                 )
             {
-                this.Player1WonCount++;
-                Console.WriteLine("プレイヤー1が勝ちました。" + Environment.NewLine);
+                Player1WonCount++;
                 Console.WriteLine("プレイヤー1が勝ちました。" + Environment.NewLine);
             }
             // P2が勝つ手
@@ -72,7 +71,7 @@ namespace janken
                 || (player2 == HandEnum.PAPER && player1 == HandEnum.STONE)
                 )
             {
-                this.Player2WonCount++;
+                Player2WonCount++;
                 Console.WriteLine("プレイヤー2が勝ちました。" + Environment.NewLine);
             }
             // 引き分け

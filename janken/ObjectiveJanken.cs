@@ -25,7 +25,7 @@ namespace janken
         /// </summary>
         private class Judge
         {
-            private static Random random = new Random();
+            private static Random Random = new Random();
 
             /// <summary>
             /// じゃんけんを開始する
@@ -72,8 +72,8 @@ namespace janken
             /// <returns></returns>
             private Player JudgeJanken(Player player1, Player player2)
             {
-                HandEnum player1hand = player1.ShowHand(new Random(random.Next()));
-                HandEnum player2hand = player2.ShowHand(new Random(random.Next()));
+                HandEnum player1hand = player1.ShowHand(new Random(Random.Next()));
+                HandEnum player2hand = player2.ShowHand(new Random(Random.Next()));
                 Console.WriteLine($"{HandDictionary.HandDict.FirstOrDefault(f => f.Key == player1hand).Value} vs. {HandDictionary.HandDict.FirstOrDefault(f => f.Key == player2hand).Value}");
 
                 Player winner = null;
