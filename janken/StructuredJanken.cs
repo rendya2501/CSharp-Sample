@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace janken
 {
-
     /// <summary>
     /// 構造化プログラミング版じゃんけん
     /// </summary>
@@ -14,7 +10,6 @@ namespace janken
     {
         private int Player1WonCount { get; set; }
         private int Player2WonCount { get; set; }
-
         private static readonly Random Random = new Random();
 
         public void Execute()
