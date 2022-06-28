@@ -17,7 +17,7 @@ namespace janken
             // プレーヤーだけに定義すべきモノではない。
             Judge judge = new Judge();
             Player player1 = new Player(playerName);
-            Player player2 = new Player("山田さん");
+            Player player2 = new Player("COM1");
             judge.StartJanken(player1, player2);
             Console.ReadLine();
         }
@@ -27,7 +27,7 @@ namespace janken
         /// </summary>
         private class Judge
         {
-            private static Random Random = new Random();
+            private static readonly Random Random = new Random();
 
             /// <summary>
             /// じゃんけんを開始する
@@ -78,8 +78,18 @@ namespace janken
                 Console.WriteLine("0 : グー");
                 Console.WriteLine("1 : チョキ");
                 Console.WriteLine("2 : パー");
-                Enum.TryParse(Console.ReadLine(), out HandEnum playerHand);
-                HandEnum player1hand = playerHand;
+                HandEnum player1hand = HandEnum.STONE;
+                while (true)
+                {
+                    if (Enum.TryParse(Console.ReadLine(), out player1hand) && Enum.IsDefined(typeof(HandEnum), player1hand))
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        Console.WriteLine("0,1,2 のいずれかを入力してください。");
+                    }
+                }
                 HandEnum player2hand = player2.ShowHand(new Random(Random.Next()));
                 Console.WriteLine($"{HandDictionary.HandDict.FirstOrDefault(f => f.Key == player1hand).Value} vs. {HandDictionary.HandDict.FirstOrDefault(f => f.Key == player2hand).Value}");
 
