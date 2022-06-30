@@ -14,8 +14,8 @@ namespace janken
             // 審判もプレーヤーも知っている事ならさらに上に出さないといけないのでやっぱりEnum参照が正解だ。
             // プレーヤーだけに定義すべきモノではない。
             Judge judge = new Judge();
-            Player player1 = new Player("村田さん");
-            Player player2 = new Player("山田さん");
+            Player player1 = new Player("itou", new BasicInputTactics());
+            Player player2 = new Player("山田さん", new StoneOnlyTactics());
             judge.StartJanken(player1, player2);
             Console.ReadLine();
         }
@@ -25,8 +25,6 @@ namespace janken
         /// </summary>
         private class Judge
         {
-            private static Random Random = new Random();
-
             /// <summary>
             /// じゃんけんを開始する
             /// </summary>
@@ -43,7 +41,7 @@ namespace janken
                     if (winner != null)
                     {
                         Console.WriteLine($"{winner.Name}が勝ちました。" + Environment.NewLine);
-                        winner.NotifyResult(true);
+                        winner.NotifyResult();
                     }
                     else
                     {
@@ -72,8 +70,8 @@ namespace janken
             /// <returns></returns>
             private Player JudgeJanken(Player player1, Player player2)
             {
-                HandEnum player1hand = player1.ShowHand(new Random(Random.Next()));
-                HandEnum player2hand = player2.ShowHand(new Random(Random.Next()));
+                HandEnum player1hand = player1.ShowHand();
+                HandEnum player2hand = player2.ShowHand();
                 Console.WriteLine($"{HandDictionary.HandDict.FirstOrDefault(f => f.Key == player1hand).Value} vs. {HandDictionary.HandDict.FirstOrDefault(f => f.Key == player2hand).Value}");
 
                 Player winner = null;
@@ -122,48 +120,115 @@ namespace janken
             public string Name { get; private set; }
             public int WinCount { get; private set; } = 0;
 
+            private readonly ITactics tactics;
+
             /// <summary>
             /// コンストラクタ
             /// </summary>
             /// <param name="Name"></param>
-            public Player(string Name)
+            public Player(string Name, ITactics tactics)
             {
                 this.Name = Name;
+                this.tactics = tactics;
             }
 
             /// <summary>
             /// じゃんけんの手を出す
             /// </summary>
             /// <returns></returns>
-            public HandEnum ShowHand(Random rand)
+            public HandEnum ShowHand()
             {
-                HandEnum hand = 0;
-                switch (rand.Next(3))
-                {
-                    case 0:
-                        hand = HandEnum.STONE;
-                        break;
-                    case 1:
-                        hand = HandEnum.SCISSORS;
-                        break;
-                    case 2:
-                        hand = HandEnum.PAPER;
-                        break;
-                }
-                return hand;
+                return tactics.ReadTactics();
             }
 
             /// <summary>
             /// 審判から勝敗を聞く
             /// </summary>
             /// <param name="result"></param>
-            public void NotifyResult(bool result)
+            public void NotifyResult()
             {
-                if (result)
-                {
-                    WinCount++;
-                }
+                WinCount++;
             }
         }
+    }
+
+
+    /// <summary>
+    /// ランダムに手を出す
+    /// </summary>
+    public class RandomTactics : ITactics
+    {
+        private static readonly Random Random = new Random();
+        public HandEnum ReadTactics()
+        {
+            HandEnum hand = 0;
+            switch (Random.Next(3))
+            {
+                case 0:
+                    hand = HandEnum.STONE;
+                    break;
+                case 1:
+                    hand = HandEnum.SCISSORS;
+                    break;
+                case 2:
+                    hand = HandEnum.PAPER;
+                    break;
+            }
+            return hand;
+        }
+    }
+
+    /// <summary>
+    /// グーしか出さない
+    /// </summary>
+    public class StoneOnlyTactics : ITactics
+    {
+        public HandEnum ReadTactics()
+        {
+            return HandEnum.STONE;
+        }
+    }
+
+    /// <summary>
+    /// 標準入力
+    /// </summary>
+    public class BasicInputTactics : ITactics
+    {
+        public HandEnum ReadTactics()
+        {
+            Console.WriteLine("手を入力してください。");
+            Console.WriteLine("0 : グー");
+            Console.WriteLine("1 : チョキ");
+            Console.WriteLine("2 : パー");
+            Console.Write("? : ");
+
+            HandEnum player1hand;
+            while (true)
+            {
+                if (Enum.TryParse(Console.ReadLine(), out player1hand) && Enum.IsDefined(typeof(HandEnum), player1hand))
+                {
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("0,1,2 のいずれかを入力してください。");
+                    Console.Write("? : ");
+                }
+            }
+            return player1hand;
+        }
+    }
+
+    /// <summary>
+    /// じゃんけん戦略インターフェース
+    /// </summary>
+    public interface ITactics
+    {
+        /// <summary>
+        /// 戦略を読み、じゃんけんの手を得る
+        /// グー、チョキ、パーのいずれかをplayerクラスに定義された以下の定数で返す。
+        /// </summary>
+        /// <returns></returns>
+        HandEnum ReadTactics();
     }
 }

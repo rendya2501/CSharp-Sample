@@ -9,11 +9,87 @@
     Width="800"
     Height="450"
     mc:Ignorable="d">
-    <Grid>
+    <Window.DataContext>
+        <local:ViewModel />
+    </Window.DataContext>
+    <Canvas>
+        <TextBox
+            Canvas.Left="547"
+            Canvas.Top="52"
+            Width="128"
+            Height="27"
+            Text="{Binding Name, Mode=TwoWay}" />
+        <Button
+            Canvas.Left="526"
+            Canvas.Top="128"
+            Width="128"
+            Height="27">
+            <Button.Style>
+                <!--  TargetTypeを指定しないと設定できるプロパティに何があるかわからないので指定する  -->
+                <Style TargetType="Button">
+                    <!--  通常は背景色、赤  -->
+                    <Setter Property="Background" Value="Red" />
+                    <Style.Triggers>
+                        <!--  Nameプロパティが空文字かnullなら背景色を青に  -->
+                        <DataTrigger Binding="{Binding Name}" Value="">
+                            <Setter Property="Background" Value="Blue" />
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding Name}" Value="{x:Null}">
+                            <Setter Property="Background" Value="Blue" />
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
+        <CheckBox
+            Canvas.Left="526"
+            Canvas.Top="217"
+            Width="128"
+            Height="27">
+            <CheckBox.Style>
+                <Style TargetType="CheckBox">
+                    <!--  And条件に合わない場合の状態も記述する  -->
+                    <Setter Property="IsEnabled" Value="False" />
+                    <Setter Property="IsTabStop" Value="False" />
+                    <Setter Property="Content" Value="aaa" />
+                    <!--  And条件はMultiDataTriggerで定義する  -->
+                    <Style.Triggers>
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding Flag1}" Value="True" />
+                                <Condition Binding="{Binding Flag2}" Value="True" />
+                            </MultiDataTrigger.Conditions>
+                            <MultiDataTrigger.Setters>
+                                <Setter Property="IsEnabled" Value="True" />
+                                <Setter Property="Content" Value="第一" />
+                            </MultiDataTrigger.Setters>
+                        </MultiDataTrigger>
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding Flag1}" Value="True" />
+                                <Condition Binding="{Binding Flag2}" Value="False" />
+                            </MultiDataTrigger.Conditions>
+                            <MultiDataTrigger.Setters>
+                                <Setter Property="IsEnabled" Value="False" />
+                                <Setter Property="Content" Value="第二" />
+                            </MultiDataTrigger.Setters>
+                        </MultiDataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </CheckBox.Style>
+        </CheckBox>
+
+
+
+
+
+
         <Border
             Name="border"
+            Canvas.Left="10"
+            Canvas.Top="73"
             Width="128"
-            Height="128"
+            Height="117"
             BorderThickness="1">
             <Border.Style>
                 <Style TargetType="Border">
@@ -34,8 +110,7 @@
         <Button
             x:Name="ButtonElementName1"
             Width="128"
-            Height="128"
-            Margin="546,217,126,89"
+            Margin="158,73,514,218"
             Content="Button">
             <Button.Style>
                 <Style TargetType="Button">
@@ -54,8 +129,8 @@
         </Button>
         <Label
             Width="128"
-            Height="24"
-            Margin="100,76,0,0"
+            Height="27"
+            Margin="10,10,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             FontSize="9"
@@ -78,5 +153,6 @@
                 </Style>
             </Label.Style>
         </Label>
-    </Grid>
+
+    </Canvas>
 </Window>

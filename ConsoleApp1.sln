@@ -181,6 +181,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfApp4", "WpfApp4\WpfApp4.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "janken", "janken\janken.csproj", "{F944D05D-B336-4858-BB4B-745FDA1B3B2A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ValidationError", "ValidationError\ValidationError.csproj", "{BA8F2B31-9559-446C-9B0E-DD7FE763652A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -1617,6 +1619,22 @@ Global
 		{F944D05D-B336-4858-BB4B-745FDA1B3B2A}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
 		{F944D05D-B336-4858-BB4B-745FDA1B3B2A}.Release|x86.ActiveCfg = Release|Any CPU
 		{F944D05D-B336-4858-BB4B-745FDA1B3B2A}.Release|x86.Build.0 = Release|Any CPU
+		{BA8F2B31-9559-446C-9B0E-DD7FE763652A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA8F2B31-9559-446C-9B0E-DD7FE763652A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA8F2B31-9559-446C-9B0E-DD7FE763652A}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{BA8F2B31-9559-446C-9B0E-DD7FE763652A}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{BA8F2B31-9559-446C-9B0E-DD7FE763652A}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{BA8F2B31-9559-446C-9B0E-DD7FE763652A}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{BA8F2B31-9559-446C-9B0E-DD7FE763652A}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{BA8F2B31-9559-446C-9B0E-DD7FE763652A}.Debug|x86.Build.0 = Debug|Any CPU
+		{BA8F2B31-9559-446C-9B0E-DD7FE763652A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA8F2B31-9559-446C-9B0E-DD7FE763652A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA8F2B31-9559-446C-9B0E-DD7FE763652A}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{BA8F2B31-9559-446C-9B0E-DD7FE763652A}.Release|iPhone.Build.0 = Release|Any CPU
+		{BA8F2B31-9559-446C-9B0E-DD7FE763652A}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{BA8F2B31-9559-446C-9B0E-DD7FE763652A}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+		{BA8F2B31-9559-446C-9B0E-DD7FE763652A}.Release|x86.ActiveCfg = Release|Any CPU
+		{BA8F2B31-9559-446C-9B0E-DD7FE763652A}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
