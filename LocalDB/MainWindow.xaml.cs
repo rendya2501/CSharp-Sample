@@ -18,26 +18,21 @@ namespace LocalDB
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            //Execute();
-            this.DeadLock();
+            Execute();
 
             void Execute()
             {
                 try
                 {
-                    //// 接続文字列の構築
-                    //SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder
-                    //{
-                    //    DataSource = @"(LocalDB)\MSSQLLocalDB",
-                    //    AttachDBFilename = @"C:\Users\rendy\Desktop\CSharpSample1\CSharpSample1\LocalDB\SampleDatabase.mdf",
-                    //    IntegratedSecurity = true,
-                    //};
-                    //using SqlConnection connection = new SqlConnection(builder.ConnectionString);
-
                     // 接続文字列の構築
-                    string constr = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\rendy\Desktop\CSharpSample1\CSharpSample1\LocalDB\SampleDatabase.mdf;Integrated Security=True";
+                    SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder
+                    {
+                        DataSource = @"(LocalDB)\MSSQLLocalDB",
+                        AttachDBFilename = @"LocalDB\SampleDatabase.mdf",
+                        IntegratedSecurity = true,
+                    };
                     // 接続オブジェクト生成
-                    using SqlConnection connection = new SqlConnection(constr);
+                    using SqlConnection connection = new SqlConnection(builder.ConnectionString);
                     // サーバー接続
                     connection.Open();
                     // SQLコマンド生成
@@ -83,7 +78,7 @@ namespace LocalDB
                 Console.WriteLine("---");
 
                 // 接続文字列の構築
-                string constr = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\rendy\Desktop\CSharpSample1\CSharpSample1\LocalDB\SampleDatabase.mdf;Integrated Security=True";
+                string constr = @"";
                 // 接続オブジェクト生成
                 using SqlConnection connection = new SqlConnection(constr);
 
@@ -260,112 +255,6 @@ namespace LocalDB
             Console.WriteLine("全て完了しました");
         }
 
-        private void DeadLock()
-        {
-            // 接続文字列の構築
-            string constr = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\rendy\Desktop\CSharpSample1\CSharpSample1\LocalDB\SampleDatabase.mdf;Integrated Security=True";
-            // 接続オブジェクト生成
-            using SqlConnection connection = new SqlConnection(constr);
-            // データベース接続
-            connection.Open();
-
-            CreateTable();
-            Insert();
-            try
-            {
-                Task.WaitAll(
-                    Task.Run(() => UpdateTask1()),
-                    Task.Run(() => UpdateTask2())
-                );
-            }
-            catch (SqlException e)
-            {
-                Console.WriteLine(e.ToString());
-                return;
-            }
-            Console.WriteLine("完了");
-
-            // テーブルの作成
-            void CreateTable()
-            {
-                Console.WriteLine("テーブルを作成");
-                StringBuilder query = new StringBuilder()
-                    .AppendLine("DROP TABLE IF EXISTS [TEST_TBL1];")
-                    .AppendLine("DROP TABLE IF EXISTS [TEST_TBL2];")
-                    .AppendLine("CREATE TABLE [TEST_TBL1] ( ")
-                    .AppendLine("    ID INT NOT NULL PRIMARY KEY, ")
-                    .AppendLine("    Name NVARCHAR(50) ")
-                    .AppendLine("); ")
-                    .AppendLine("CREATE TABLE [TEST_TBL2] ( ")
-                    .AppendLine("    ID INT NOT NULL PRIMARY KEY, ")
-                    .AppendLine("    Name NVARCHAR(50) ")
-                    .AppendLine("); ");
-                using (SqlCommand command = new SqlCommand(query.ToString(), connection) { CommandTimeout = 60000 })
-                {
-                    command.ExecuteNonQuery();
-                    Console.WriteLine("テーブル作成完了");
-                    Console.WriteLine();
-                }
-            }
-
-            // INSERT デモ
-            void Insert()
-            {
-                StringBuilder query = new StringBuilder()
-                    .AppendLine("INSERT [TEST_TBL1] (ID, Name) ")
-                    .AppendLine("VALUES")
-                    .AppendLine("    (1,'test001'),")
-                    .AppendLine("    (2,'test002');")
-                    .AppendLine("INSERT [TEST_TBL2] (ID, Name) ")
-                    .AppendLine("VALUES")
-                    .AppendLine("    (1,'test001'),")
-                    .AppendLine("    (2,'test002');");
-                using (SqlCommand command = new SqlCommand(query.ToString(), connection) { CommandTimeout = 60000 })
-                {
-                    int rowsAffected = command.ExecuteNonQuery();
-                    Console.WriteLine(rowsAffected + " 行 挿入されました。");
-                    Console.WriteLine();
-                }
-            }
-
-            void UpdateTask1()
-            {
-                StringBuilder query = new StringBuilder()
-                    .AppendLine("BEGIN TRAN")
-                    .AppendLine("UPDATE [TEST_TBL1]")
-                    .AppendLine("SET [Name] = 'aaaaa'")
-                    .AppendLine("WHERE ID = 2;")
-                    .AppendLine("UPDATE [TEST_TBL2]")
-                    .AppendLine("SET [Name] = 'bbbbb'")
-                    .AppendLine("WHERE ID = 2;")
-                    .AppendLine("COMMIT TRAN");
-                using (SqlCommand command = new SqlCommand(query.ToString(), connection) { CommandTimeout = 60000 })
-                {
-                    int rowsAffected = command.ExecuteNonQuery();
-                    Console.WriteLine(rowsAffected + " 行 更新されました。");
-                    Console.WriteLine();
-                }
-            }
-
-            void UpdateTask2()
-            {
-                StringBuilder query = new StringBuilder()
-                    .AppendLine("BEGIN TRAN")
-                    .AppendLine("UPDATE [TEST_TBL1]")
-                    .AppendLine("SET [Name] = 'ccccc'")
-                    .AppendLine("WHERE ID = 2;")
-                    .AppendLine("UPDATE [TEST_TBL2]")
-                    .AppendLine("SET [Name] = 'ddddd'")
-                    .AppendLine("WHERE ID = 2;")
-                    .AppendLine("COMMIT TRAN");
-                using (SqlCommand command = new SqlCommand(query.ToString(), connection) { CommandTimeout = 60000 })
-                {
-                    int rowsAffected = command.ExecuteNonQuery();
-                    Console.WriteLine(rowsAffected + " 行 更新されました。");
-                    Console.WriteLine();
-                }
-            }
-        }
     }
 }
 
