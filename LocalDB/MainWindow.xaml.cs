@@ -28,7 +28,7 @@ namespace LocalDB
                     SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder
                     {
                         DataSource = @"(LocalDB)\MSSQLLocalDB",
-                        AttachDBFilename = @"LocalDB\SampleDatabase.mdf",
+                        AttachDBFilename = System.IO.Path.GetFullPath(@"..\..\SampleDatabase.mdf"),
                         IntegratedSecurity = true,
                     };
                     // 接続オブジェクト生成

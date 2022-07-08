@@ -14,11 +14,16 @@ namespace DeadLock
 
         static void Execute()
         {
-            // 接続文字列
-            string constr = @"";
+            // 接続文字列の構築
+            SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder
+            {
+                DataSource = @"(LocalDB)\MSSQLLocalDB",
+                AttachDBFilename = System.IO.Path.GetFullPath(@"..\..\Database1.mdf"),
+                IntegratedSecurity = true,
+            };
 
             // 接続オブジェクト生成
-            using (SqlConnection connection = new SqlConnection(constr))
+            using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
             {
                 // データベース接続
                 connection.Open();
@@ -67,17 +72,20 @@ namespace DeadLock
                 }).Invoke();
             }
 
-            Task.WaitAll(
-                Task.Run(Task1),
-                Task.Run(Task2)
-            );
+            var aaa = Task.Run(UpdateTask1);
+            Task.Delay(100);
+            var bbb = Task.Run(UpdateTask2);
+            Task.WaitAll(aaa, bbb);
+
+
+            //Task.WaitAll(Task.Run(Task1), Task.Run(Task2));
 
             void Task1()
             {
                 Console.WriteLine("UpdateTask1");
                 int counter = 0;
                 // 接続オブジェクト生成
-                using (SqlConnection connection = new SqlConnection(constr))
+                using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
                 {
                     // データベース接続
                     connection.Open();
@@ -111,7 +119,7 @@ namespace DeadLock
                                     transaction.Dispose();
 
                                     counter++;
-                                    Console.WriteLine(counter);
+                                    Console.WriteLine($"query1: {counter}");
                                     if (counter >= 200)
                                     {
                                         break;
@@ -120,7 +128,9 @@ namespace DeadLock
                             }
                             catch (SqlException ex)
                             {
-                                Console.WriteLine("エラーNo:" + ex.Number.ToString() + Environment.NewLine + " エラーメッセージ：" + ex.Message.ToString());
+                                Console.WriteLine($"query1エラー");
+                                Console.WriteLine("エラーNo:" + ex.Number.ToString());
+                                Console.WriteLine("エラーメッセージ：" + ex.Message.ToString());
                                 return;
                             }
                         }
@@ -133,7 +143,7 @@ namespace DeadLock
                 Console.WriteLine("UpdateTask2");
                 int counter = 0;
                 // 接続オブジェクト生成
-                using (SqlConnection connection = new SqlConnection(constr))
+                using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
                 {
                     // データベース接続
                     connection.Open();
@@ -167,7 +177,7 @@ namespace DeadLock
                                     transaction.Dispose();
 
                                     counter++;
-                                    Console.WriteLine(counter);
+                                    Console.WriteLine($"query2: {counter}");
                                     if (counter >= 200)
                                     {
                                         break;
@@ -176,13 +186,90 @@ namespace DeadLock
                             }
                             catch (SqlException ex)
                             {
-                                Console.WriteLine("エラーNo:" + ex.Number.ToString() + Environment.NewLine + " エラーメッセージ：" + ex.Message.ToString());
+                                Console.WriteLine($"query2エラー");
+                                Console.WriteLine("エラーNo:" + ex.Number.ToString());
+                                Console.WriteLine("エラーメッセージ：" + ex.Message.ToString());
                                 return;
                             }
                         }
                     }
                 }
             }
+
+
+            void UpdateTask1()
+            {
+                Console.WriteLine("UpdateTask1");
+                // 接続オブジェクト生成
+                using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
+                {
+                    // データベース接続
+                    connection.Open();
+                    StringBuilder query = new StringBuilder()
+                       .AppendLine("BEGIN TRAN")
+                       .AppendLine("UPDATE [TEST_TBL1]")
+                       .AppendLine("SET [Name] = 'aaaaa'")
+                       .AppendLine("WHERE ID = 2;")
+                       .AppendLine("WAITFOR DELAY '00:00:05';")
+                       .AppendLine("UPDATE [TEST_TBL2]")
+                       .AppendLine("SET [Name] = 'bbbbb'")
+                       .AppendLine("WHERE ID = 2;")
+                       .AppendLine("COMMIT TRAN");
+                    using (SqlCommand command = new SqlCommand(query.ToString(), connection) { CommandTimeout = 60000 })
+                    {
+                        try
+                        {
+                            int rowsAffected = command.ExecuteNonQuery();
+                            Console.WriteLine(rowsAffected + " 行 更新されました。");
+                            Console.WriteLine();
+                        }
+                        catch (SqlException ex)
+                        {
+                            Console.WriteLine($"query1エラー");
+                            Console.WriteLine("エラーNo:" + ex.Number.ToString());
+                            Console.WriteLine("エラーメッセージ：" + ex.Message.ToString());
+                            return;
+                        }
+                    }
+                }
+            }
+
+            void UpdateTask2()
+            {
+                Console.WriteLine("UpdateTask2");
+                using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
+                {
+                    // データベース接続
+                    connection.Open();
+                    StringBuilder query = new StringBuilder()
+                        .AppendLine("BEGIN TRAN")
+                        .AppendLine("UPDATE [TEST_TBL2]")
+                        .AppendLine("SET [Name] = 'ccccc'")
+                        .AppendLine("WHERE ID = 2;")
+                        .AppendLine("WAITFOR DELAY '00:00:03';")
+                        .AppendLine("UPDATE [TEST_TBL1]")
+                        .AppendLine("SET [Name] = 'ddddd'")
+                        .AppendLine("WHERE ID = 2;")
+                        .AppendLine("COMMIT TRAN");
+                    using (SqlCommand command = new SqlCommand(query.ToString(), connection) { CommandTimeout = 60000 })
+                    {
+                        try
+                        {
+                            int rowsAffected = command.ExecuteNonQuery();
+                            Console.WriteLine(rowsAffected + " 行 更新されました。");
+                            Console.WriteLine();
+                        }
+                        catch (SqlException ex)
+                        {
+                            Console.WriteLine($"query2エラー");
+                            Console.WriteLine("エラーNo:" + ex.Number.ToString());
+                            Console.WriteLine("エラーメッセージ：" + ex.Message.ToString());
+                            return;
+                        }
+                    }
+                }
+            }
+
 
             Console.WriteLine("処理終了");
             Console.ReadLine();
