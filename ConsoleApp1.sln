@@ -185,6 +185,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeadLock", "DeadLock\DeadLo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wpf_DataTrigger_Enum", "Wpf_DataTrigger_Enum\Wpf_DataTrigger_Enum.csproj", "{E10AC690-9773-4364-A405-5CE1671E5C7A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnonymousType", "AnonymousType\AnonymousType.csproj", "{66D7A379-1E09-40F5-A9A7-7D239A1C4E7B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -1653,6 +1655,22 @@ Global
 		{E10AC690-9773-4364-A405-5CE1671E5C7A}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
 		{E10AC690-9773-4364-A405-5CE1671E5C7A}.Release|x86.ActiveCfg = Release|Any CPU
 		{E10AC690-9773-4364-A405-5CE1671E5C7A}.Release|x86.Build.0 = Release|Any CPU
+		{66D7A379-1E09-40F5-A9A7-7D239A1C4E7B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66D7A379-1E09-40F5-A9A7-7D239A1C4E7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66D7A379-1E09-40F5-A9A7-7D239A1C4E7B}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{66D7A379-1E09-40F5-A9A7-7D239A1C4E7B}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{66D7A379-1E09-40F5-A9A7-7D239A1C4E7B}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{66D7A379-1E09-40F5-A9A7-7D239A1C4E7B}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{66D7A379-1E09-40F5-A9A7-7D239A1C4E7B}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{66D7A379-1E09-40F5-A9A7-7D239A1C4E7B}.Debug|x86.Build.0 = Debug|Any CPU
+		{66D7A379-1E09-40F5-A9A7-7D239A1C4E7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66D7A379-1E09-40F5-A9A7-7D239A1C4E7B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{66D7A379-1E09-40F5-A9A7-7D239A1C4E7B}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{66D7A379-1E09-40F5-A9A7-7D239A1C4E7B}.Release|iPhone.Build.0 = Release|Any CPU
+		{66D7A379-1E09-40F5-A9A7-7D239A1C4E7B}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{66D7A379-1E09-40F5-A9A7-7D239A1C4E7B}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+		{66D7A379-1E09-40F5-A9A7-7D239A1C4E7B}.Release|x86.ActiveCfg = Release|Any CPU
+		{66D7A379-1E09-40F5-A9A7-7D239A1C4E7B}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -18,6 +18,15 @@ namespace Wpf_DataTrigger_Enum.ViewModles
         public DelegateCommand ButtonCommand => new DelegateCommand(
             () => State = (State == State.Error) ? State.Normal : ++State
         );
+
+        void aaa()
+        {
+            int i = 0;
+            i += i + 1;
+            ++i;
+            i++;
+            i = i > 3 ? 1 : ++i;
+        }
     }
 
     /// <summary>
