@@ -1,16 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace LinkedList
+namespace BidirectionalLinkedList
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            var aa = new LinkedList<string>();
+            var aa = new BidirectionalLinkedList<string>();
             aa.InsertFirst("Node1");
             aa.InsertLast("Node2");
             //aa.InsertAfter(aa[2], "asdasd");

@@ -1,13 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 
-namespace LinkedList
+namespace BidirectionalLinkedList
 {
     /// <summary>
     /// 双方向連結リスト。
     /// </summary>
     /// <typeparam name="T">要素の型</typeparam>
-    public class LinkedList<T> : IEnumerable<T>
+    public class BidirectionalLinkedList<T> : IEnumerable<T>
     {
         /// <summary>
         /// ダミーノード
@@ -82,7 +82,7 @@ namespace LinkedList
         /// <summary>
         /// コンストラクタ
         /// </summary>
-        public LinkedList()
+        public BidirectionalLinkedList()
         {
             this.dummy = new Node(default, null, null);
             this.dummy.Next = this.dummy;

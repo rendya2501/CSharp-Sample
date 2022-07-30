@@ -187,7 +187,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wpf_DataTrigger_Enum", "Wpf
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnonymousType", "AnonymousType\AnonymousType.csproj", "{66D7A379-1E09-40F5-A9A7-7D239A1C4E7B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinkedList", "LinkedList\LinkedList.csproj", "{C2F3B66F-93B8-42DE-84D4-AFD43D7B2F58}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BidirectionalLinkedList", "LinkedList\BidirectionalLinkedList.csproj", "{C2F3B66F-93B8-42DE-84D4-AFD43D7B2F58}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Algorithm", "Algorithm", "{5738A795-A55C-4E3B-9230-37A6F552E9F0}"
 EndProject
