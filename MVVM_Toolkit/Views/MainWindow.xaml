@@ -1,14 +1,14 @@
 ﻿<Window
-    x:Class="Maui1.Views.MainWindow"
+    x:Class="MVVM_Toolkit.Views.MainWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:local="clr-namespace:Maui1"
+    xmlns:local="clr-namespace:MVVM_Toolkit"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:vm="clr-namespace:Maui1.ViewModels"
+    xmlns:vm="clr-namespace:MVVM_Toolkit.ViewModels"
     Title="MainWindow"
-    Width="400"
-    Height="368"
+    Width="800"
+    Height="450"
     mc:Ignorable="d">
     <Window.DataContext>
         <vm:ViewModel />

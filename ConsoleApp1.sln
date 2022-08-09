@@ -167,13 +167,15 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "janken", "janken\janken.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ValidationError", "ValidationError\ValidationError.csproj", "{BA8F2B31-9559-446C-9B0E-DD7FE763652A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Maui1", "Maui1\Maui1.csproj", "{5A056B22-0D13-4978-A20C-2B96D9755F3D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVVM_ToolKit_.NetFrameWork", "Maui1\MVVM_ToolKit_.NetFrameWork.csproj", "{5A056B22-0D13-4978-A20C-2B96D9755F3D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeadLock", "DeadLock\DeadLock.csproj", "{E8938021-0069-4CE2-B138-74BDD0BC7539}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wpf_DataTrigger_Enum", "Wpf_DataTrigger_Enum\Wpf_DataTrigger_Enum.csproj", "{E10AC690-9773-4364-A405-5CE1671E5C7A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnonymousType", "AnonymousType\AnonymousType.csproj", "{66D7A379-1E09-40F5-A9A7-7D239A1C4E7B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MVVM_Toolkit", "MVVM_Toolkit\MVVM_Toolkit.csproj", "{603B5A53-14A5-4ED8-8EAD-B25157BEC38E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -1563,6 +1565,22 @@ Global
 		{66D7A379-1E09-40F5-A9A7-7D239A1C4E7B}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
 		{66D7A379-1E09-40F5-A9A7-7D239A1C4E7B}.Release|x86.ActiveCfg = Release|Any CPU
 		{66D7A379-1E09-40F5-A9A7-7D239A1C4E7B}.Release|x86.Build.0 = Release|Any CPU
+		{603B5A53-14A5-4ED8-8EAD-B25157BEC38E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{603B5A53-14A5-4ED8-8EAD-B25157BEC38E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{603B5A53-14A5-4ED8-8EAD-B25157BEC38E}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{603B5A53-14A5-4ED8-8EAD-B25157BEC38E}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{603B5A53-14A5-4ED8-8EAD-B25157BEC38E}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{603B5A53-14A5-4ED8-8EAD-B25157BEC38E}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{603B5A53-14A5-4ED8-8EAD-B25157BEC38E}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{603B5A53-14A5-4ED8-8EAD-B25157BEC38E}.Debug|x86.Build.0 = Debug|Any CPU
+		{603B5A53-14A5-4ED8-8EAD-B25157BEC38E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{603B5A53-14A5-4ED8-8EAD-B25157BEC38E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{603B5A53-14A5-4ED8-8EAD-B25157BEC38E}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{603B5A53-14A5-4ED8-8EAD-B25157BEC38E}.Release|iPhone.Build.0 = Release|Any CPU
+		{603B5A53-14A5-4ED8-8EAD-B25157BEC38E}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{603B5A53-14A5-4ED8-8EAD-B25157BEC38E}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+		{603B5A53-14A5-4ED8-8EAD-B25157BEC38E}.Release|x86.ActiveCfg = Release|Any CPU
+		{603B5A53-14A5-4ED8-8EAD-B25157BEC38E}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

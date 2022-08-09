@@ -1,32 +1,43 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using System;
+using System.Diagnostics;
+using System.Threading.Tasks;
 
 namespace Maui1.ViewModels
 {
-    public class ViewModel : ObservableObject
+    public partial class ViewModel : ObservableObject
     {
-        [ObservableProperty]
-        [AlsoNotifyChangeFor(nameof(FullName))]
-        public string FirstName;
+        public string _FirstName;
+        public string FirstName
+        {
+            get => _FirstName;
+            set => SetProperty(ref _FirstName, value, nameof(FullName));
+        }
 
-        [ObservableProperty]
-        [AlsoNotifyChangeFor(nameof(FullName))]
-        public string LastName;
+        public string _LastName;
+        public string LastName
+        {
+            get => _LastName;
+            set => SetProperty(ref _LastName, value, nameof(FullName));
+        }
+
+        public bool _IsBusy;
+        public bool IsBusy
+        {
+            get => _IsBusy;
+            set => SetProperty(ref _IsBusy, value, nameof(IsNotBusy));
+        }
 
         public string FullName => $"{FirstName},{LastName}";
 
         public bool IsNotBusy => !IsBusy;
 
-        [ObservableProperty]
-        public bool IsBusy;
-        
-        [ICommand]
-        public void Tap()
+        public RelayCommand TapCommand => new RelayCommand(async () =>
         {
             IsBusy = true;
-            Console.WriteLine(FullName);
+            await Task.Delay(200);
+            Trace.WriteLine(FullName);
             IsBusy = false;
-        }
+        });
     }
 }
