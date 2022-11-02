@@ -17,7 +17,10 @@ namespace SandBox1
     {
         public static void Main(string[] args)
         {
-
+            const bool flag = true;
+            new Action<int, string>(flag
+                ? (Action<int, string>)((id, name) => Console.WriteLine($"{id} {name} 様"))
+                : (id, name) => Console.WriteLine($"{id} {name} さん")).Invoke(1, "2");
         }
 
         public void Button_SaveStudent()
